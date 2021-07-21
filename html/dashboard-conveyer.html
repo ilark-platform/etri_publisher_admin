@@ -1,0 +1,408 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <title>ETRI</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="css/custom.css">	
+</head>
+
+<body class="dashboard__section">
+<div class="wrap">
+	<!-- header -->
+    <div class="header">
+		<div class="header__title">
+			<span>한국타이어 대전공장 안전관리시스템</span>
+		</div>
+		<div class="header__menu__toggle">
+			<div class="header__menu__hamburger">
+				<input class="hamburger__menu__btn" type="checkbox"/>
+
+				<span class="toolbar-menu"></span>
+
+				<div class="header__menu-area">
+					<div class="side__menu-list__close">
+						<span class="close"></span>
+					</div>
+					<!-- menu -->
+					<div class="side__menu-list">
+						<button class="accordion">사고관리</button>
+						<div class="panel">
+							<a href="#">전체사고관리</a>
+							<a href="#">AI종합진단</a>
+							<a href="#">AI개인진단</a>
+						</div>
+						<a class="accordion ">안전점검일지</a>
+						<button class="accordion">작업관리</button>
+						<div class="panel">
+							<a href="#">작업자관리</a>
+							<a href="#">작업구역관리</a>
+							<a href="#">체크리스트관리</a>
+						</div>
+						<a class="accordion">운영기기관리</a>
+						<button class="accordion">메시지관리</button>
+						<div class="panel">
+							<a href="#">메시지관리</a>
+							<a href="#">메시지템플릿</a>
+						</div>
+						<a class="accordion">설정</a>
+					</div>
+					<!-- //menu -->
+				</div>
+			</div>
+		</div>
+
+		
+	<!--긴급사고 알림 snackbar -->
+		<div id="snackbar">
+			<span onclick="this.parentElement.style.display='none';" class="ly_pop-close"></span>
+			<h2>긴급사고 / 주의상황 알림</h2>
+				<div class="ly_emerg_con">
+					<span class="icon-emerg"></span>
+					<span>
+					타이어 적재 작업구역에서<br>
+					<strong>지게차(ID번호) 충돌 사고가 발생</strong>했습니다.
+					<h4 class="mgt1">
+						2021-01-01 15:23:41 <strong>운전자 : 홍길동</strong>
+					</h4>
+					<button type="button" class="btn-small second-btn mgt1">자세히 보기</button>
+				</span>
+				</div>
+			<div class="btn-wrap">
+				<button type="button" class="btn-large line-darkgray-btn">이동</button>
+				<button type="button" class="btn-large red-btn">다음알림</button>
+			</div>
+		</div>
+	<!--//긴급사고 알림 snackbar -->
+
+		<div class="header__utility">
+			<a href="#" class="icon-alret" onclick="snackFunction()"><span class="dot red">5</span></a>
+			<a href="#" class="icon-mail"><span class="dot green">2</span></a>
+			<span class="user-info">
+				<a href="#" onclick="myFunction_userInfo()"><img src="images/dummy-profile.jpg"><span>홍길동</span> 안전관리자</a>
+				<div id="myDropdown" class="profile-container">
+					<img src="images/dummy-profile.jpg" class="profile-photo">
+					<div class="profile-info">
+						<span>홍길동</span>안전관리자</a>
+						<a href="#">Logout</a><a href="#">Setting</a>
+					</div>
+				</div>
+			</span>
+		</div>
+    </div>
+	<div class="header__sub">
+		<div class="f-left">
+			<span class="today">2021-06-01 월요일</span>
+			<span class="noday">무재해 <strong>71</strong>일</span>
+            <!--0704 수정 : AI 리포트 버튼추가 -->
+			<div class="emerg mgl1">
+				<a href="#" class="aiReport">AI 리포트</a>
+			</div>
+			<!--// 0704 수정 : AI 리포트 버튼추가 -->
+		</div>
+		<div class="f-right">
+			<div class="emerg">
+				<a href="#">긴급사고 프로토콜 실행</a> <a href="#">구조대 지원 호출</a>
+			</div>
+			<div class="notice__area">
+				<span class="notice__area--date">2021-04-15</span>
+				<a href="#">5월 1일 지게차 안전점검을 실시합니다. <u>자세히보기</u></a>
+				<span class="icon-modify"><a href="#"></a></span>
+			</div>
+		</div>
+	</div>
+	
+	<div class="contents">
+		<div class="dashboard__area">
+			<div class="dashboard__area--left">
+				<div class="graph__box">
+					<h2>오늘의 종합 안전 지수</h2>
+					<div><img src="images/dashboard-graph01.gif"></div>
+				</div>
+				<div class="graph__box">
+					<h2>1주일간 안전지수 변화</h2>
+					<div><img src="images/dashboard-graph02.gif"></div>
+				</div>
+			</div>
+			<div class="dashboard__area--right">
+				<div class="map__option">
+					<select>
+					  <option value="0">작업 구역을 선택하세요.</option>
+					  <option value="1">A구역</option>
+					  <option value="2">A구역</option>
+					  <option value="3">A구역</option>
+					</select>
+					<span class="chip">긴급 <strong>12</strong></span>
+					<span class="chip warning">주의 <strong>2</strong></span>
+
+					<div class="f-right">
+						<label class="custom-radio">작업자
+							<input type="radio">
+							<span class="radio-checkmark"></span>
+						</label>
+						<label class="custom-radio">지게차
+							<input type="radio">
+							<span class="radio-checkmark"></span>
+						</label>
+						<label class="custom-radio">컨베이어벨트
+							<input type="radio" checked="checked">
+							<span class="radio-checkmark"></span>
+						</label>
+					</div>
+				</div>
+				<div class="conveyer__area">
+                    <div class="conveyer-worker">
+                        <div class="card__popup">
+                            <span class="popuptext unauthorized"><!--비인가 작업자인 경우 unauthorized추가-->
+                                <div class="card__popup--header">
+                                    <span class="card__popup--header-id">jlee.ab</span>
+                                    <span class="card__popup--condition emergency"><div class="db_icon worker-orange"></div></span>
+                                </div>
+                                <div class="card__popup--info">
+                                    <img src="images/dummy-profile.jpg" class="profile-photo">
+                                    <div class="card__popup--detail">
+                                        <span>홍길동</span>안전관리자</a>
+                                    </div>
+                                    <a href="#" class="card__popup--button icon-eye"></a>
+                                    <a href="#" class="card__popup--button icon-push-message"></a>
+                                </div>
+                                <div class="card__state d-flex j-content-between">
+                                    <dl class="card__list"><dt>안전지수</dt><dd>45%</dd></dl>
+                                    <dl class="card__list"><dt>건강상태</dt><dd>양호</dd></dl>
+                                </div>
+                            </span>
+                        </div>
+                        <div class="card__popup">
+                            <span class="popuptext">
+                                <div class="card__popup--header">
+                                    <span class="card__popup--header-id">jlee.ab</span>
+                                    <span class="card__popup--condition emergency"><div class="db_icon worker-red"></div></span>
+                                </div>
+                                <div class="card__popup--info">
+                                    <img src="images/dummy-profile.jpg" class="profile-photo">
+                                    <div class="card__popup--detail">
+                                        <span>홍길동</span>안전관리자</a>
+                                    </div>
+                                    <a href="#" class="card__popup--button icon-eye"></a>
+                                    <a href="#" class="card__popup--button icon-push-message"></a>
+                                </div>
+                                <div class="card__state d-flex j-content-between">
+                                    <dl class="card__list"><dt>안전지수</dt><dd>45%</dd></dl>
+                                    <dl class="card__list"><dt>건강상태</dt><dd>양호</dd></dl>
+                                </div>
+                            </span>
+                        </div>
+				
+                        <div class="card__popup">
+                            <span class="popuptext">
+                                <div class="card__popup--header">
+                                    <span class="card__popup--header-id">jlee.ab</span>
+                                    <span class="card__popup--condition emergency"><div class="db_icon worker-green"></div></span>
+                                </div>
+                                <div class="card__popup--info">
+                                    <img src="images/dummy-profile.jpg" class="profile-photo">
+                                    <div class="card__popup--detail">
+                                        <span>홍길동</span>안전관리자</a>
+                                    </div>
+                                    <a href="#" class="card__popup--button icon-eye"></a>
+                                    <a href="#" class="card__popup--button icon-push-message"></a>
+                                </div>
+                                <div class="card__state d-flex j-content-between">
+                                    <dl class="card__list"><dt>안전지수</dt><dd>45%</dd></dl>
+                                    <dl class="card__list"><dt>건강상태</dt><dd>양호</dd></dl>
+                                </div>
+                            </span>
+                        </div>
+                        <div class="card__popup">
+                            <span class="popuptext unauthorized"><!--비인가 작업자인 경우 unauthorized추가-->
+                                <div class="card__popup--header">
+                                    <span class="card__popup--header-id">jlee.ab</span>
+                                    <span class="card__popup--condition emergency"><div class="db_icon worker-orange"></div></span>
+                                </div>
+                                <div class="card__popup--info">
+                                    <img src="images/dummy-profile.jpg" class="profile-photo">
+                                    <div class="card__popup--detail">
+                                        <span>홍길동</span>안전관리자</a>
+                                    </div>
+                                    <a href="#" class="card__popup--button icon-eye"></a>
+                                    <a href="#" class="card__popup--button icon-push-message"></a>
+                                </div>
+                                <div class="card__state d-flex j-content-between">
+                                    <dl class="card__list"><dt>안전지수</dt><dd>45%</dd></dl>
+                                    <dl class="card__list"><dt>건강상태</dt><dd>양호</dd></dl>
+                                </div>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="conveyer-info-wrap">
+                        <ul>
+                            <li>
+                                <div class="conveyer-info">
+                                    <div class="conveyer-detail">
+                                        <span class="worker-detail-name">컨베이어벨트 식별 ID(이름)</span>
+                                        <span class="worker-detail-location">타이어 적재 작업 구역</span>
+                                        <span class="worker-detail-safeAverage">누적평균 안전지수<span>88%</span></span>
+                                    </div>
+                                    <div class="conveyer-state">
+                                        <div class="today-safeAverage">
+                                            <div class="total">오늘 긴급(중대)사고<strong>1건</strong></div>
+                                            <div>
+                                                <span class="today-state">오늘 주의상황</span>
+                                                <dl class="state_box"> 
+                                                    <dt>위험레벨1</dt><dd>31건</dd>
+                                                    <dt>위험레벨2</dt><dd>11건</dd>
+                                                    <dt>위험레벨3</dt><dd>31건</dd>
+                                                    <dt>위험레벨4</dt><dd>11건</dd>
+                                                </dl>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+								
+								
+								<!-- Swiper :: vod-->
+                                <div class="conveyer-vod">
+                                    <div class="swiper-container dashboard-vod">
+                                        <div class="swiper-wrapper">
+                                            <div class="swiper-slide">
+                                                <div class="vod-set">
+                                                    <h4>운영기기 카메라 ID (이름)</h4>
+                                                    <iframe width="100%" height="150" src="https://www.youtube.com/embed/gmp1W6TrbmE?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="swiper-wrapper">
+                                            <div class="swiper-slide">
+                                                <div class="vod-set">
+                                                    <h4>운영기기 카메라 ID (이름)</h4>
+                                                    <!-- iframe 높이 height="150" -->
+                                                    <iframe width="100%" height="150" src="https://www.youtube.com/embed/gmp1W6TrbmE?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="swiper-button-next"></div>
+                                        <div class="swiper-button-prev"></div>
+                                        <div class="swiper-pagination"></div>
+                                    </div>
+                                </div>
+
+                            </li>
+                            <li>
+                                <div class="conveyer-info">
+                                    <div class="conveyer-detail">
+                                        <span class="worker-detail-name">컨베이어벨트 식별 ID(이름)</span>
+                                        <span class="worker-detail-location">타이어 적재 작업 구역</span>
+                                        <span class="worker-detail-safeAverage">누적평균 안전지수<span>88%</span></span>
+                                    </div>
+                                    <div class="conveyer-state">
+                                        <div class="today-safeAverage">
+                                            <div class="total">오늘 긴급(중대)사고<strong>1건</strong></div>
+                                            <div>
+                                                <span class="today-state">오늘 주의상황</span>
+                                                <dl class="state_box"> 
+                                                    <dt>위험레벨1</dt><dd>31건</dd>
+                                                    <dt>위험레벨2</dt><dd>11건</dd>
+                                                    <dt>위험레벨3</dt><dd>31건</dd>
+                                                    <dt>위험레벨4</dt><dd>11건</dd>
+                                                </dl>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!--07/08 카메라 영상 1개만 노출시 vod : iframe 높이 height="170" -->
+                                <div class="conveyer-vod">
+                                    <div class="dashboard-vod w100">
+										<div class="vod-set">
+											<h4>운영기기 카메라 ID (이름)</h4>
+											<iframe width="100%" height="170" src="https://www.youtube.com/embed/gmp1W6TrbmE?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+										</div>
+                                    </div>
+                                </div>
+								<!-- // 카메라 영상 1개만 노출시 vod-->
+                            </li>
+                            <li>
+                                <div class="conveyer-info">
+                                    <div class="conveyer-detail">
+                                        <span class="worker-detail-name">컨베이어벨트 식별 ID(이름)</span>
+                                        <span class="worker-detail-location">타이어 적재 작업 구역</span>
+                                        <span class="worker-detail-safeAverage">누적평균 안전지수<span>88%</span></span>
+                                    </div>
+                                    <div class="conveyer-state">
+                                        <div class="today-safeAverage">
+                                            <div class="total">오늘 긴급(중대)사고<strong>1건</strong></div>
+                                            <div>
+                                                <span class="today-state">오늘 주의상황</span>
+                                                <dl class="state_box"> 
+                                                    <dt>위험레벨1</dt><dd>31건</dd>
+                                                    <dt>위험레벨2</dt><dd>11건</dd>
+                                                    <dt>위험레벨3</dt><dd>31건</dd>
+                                                    <dt>위험레벨4</dt><dd>11건</dd>
+                                                </dl>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Swiper :: vod-->
+                                <div class="conveyer-vod">
+                                    <div class="swiper-container dashboard-vod">
+                                        <div class="swiper-wrapper">
+                                            <div class="swiper-slide">
+                                                <div class="vod-set">
+                                                    <h4>운영기기 카메라 ID (이름)</h4>
+                                                    <iframe width="100%" height="150" src="https://www.youtube.com/embed/gmp1W6TrbmE?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="swiper-wrapper">
+                                            <div class="swiper-slide">
+                                                <div class="vod-set">
+                                                    <h4>운영기기 카메라 ID (이름)</h4>
+                                                    <iframe width="100%" height="150" src="https://www.youtube.com/embed/gmp1W6TrbmE?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="swiper-button-next"></div>
+                                        <div class="swiper-button-prev"></div>
+                                        <div class="swiper-pagination"></div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Swiper JS -->
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script>
+var swiper = new Swiper(".dashboard-vod", {
+        slidesPerView: 2,
+        spaceBetween: 20,
+        slidesPerGroup: 2,
+        loop: true,
+        loopFillGroupWithBlank: true,
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+});
+</script>
+
+<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+<script src="js/custom.js"></script>
+
+
+</body>
+</html>

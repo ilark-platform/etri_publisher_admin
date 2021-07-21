@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <title>ETRI</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="css/custom.css">
+
+</head>
+
+<body class="dashboard__section">
+<div class="wrap">
+	<!-- header -->
+    <div class="header">
+		<div class="header__title">
+			<span>한국타이어 대전공장 안전관리시스템</span>
+		</div>
+		<div class="header__menu__toggle">
+			<div class="header__menu__hamburger">
+				<input class="hamburger__menu__btn" type="checkbox"/>
+
+				<span class="toolbar-menu"></span>
+
+				<div class="header__menu-area">
+					<div class="side__menu-list__close">
+						<span class="close"></span>
+					</div>
+					<!-- menu -->
+					<div class="side__menu-list">
+						<button class="accordion">사고관리</button>
+						<div class="panel">
+							<a href="#">전체사고관리</a>
+							<a href="#">AI종합진단</a>
+							<a href="#">AI개인진단</a>
+						</div>
+						<a class="accordion ">안전점검일지</a>
+						<button class="accordion">작업관리</button>
+						<div class="panel">
+							<a href="#">작업자관리</a>
+							<a href="#">작업구역관리</a>
+							<a href="#">체크리스트관리</a>
+						</div>
+						<a class="accordion">운영기기관리</a>
+						<button class="accordion">메시지관리</button>
+						<div class="panel">
+							<a href="#">메시지관리</a>
+							<a href="#">메시지템플릿</a>
+						</div>
+						<a class="accordion">설정</a>
+					</div>
+					<!-- //menu -->
+				</div>
+			</div>
+		</div>
+
+		
+	<!--긴급사고 알림 snackbar -->
+		<div id="snackbar">
+			<span onclick="this.parentElement.style.display='none';" class="ly_pop-close"></span>
+			<h2>긴급사고 / 주의상황 알림</h2>
+				<div class="ly_emerg_con">
+					<span class="icon-emerg"></span>
+					<span>
+					타이어 적재 작업구역에서<br>
+					<strong>지게차(ID번호) 충돌 사고가 발생</strong>했습니다.
+					<h4 class="mgt1">
+						2021-01-01 15:23:41 <strong>운전자 : 홍길동</strong>
+					</h4>
+					<button type="button" class="btn-small second-btn mgt1">자세히 보기</button>
+				</span>
+				</div>
+			<div class="btn-wrap">
+				<button type="button" class="btn-large line-darkgray-btn">이동</button>
+				<button type="button" class="btn-large red-btn">다음알림</button>
+			</div>
+		</div>
+	<!--//긴급사고 알림 snackbar -->
+
+		<div class="header__utility">
+			<a href="#" class="icon-alret" onclick="snackFunction()"><span class="dot red">5</span></a>
+			<a href="#" class="icon-mail"><span class="dot green">2</span></a>
+			<span class="user-info">
+				<a href="#" onclick="myFunction_userInfo()"><img src="images/dummy-profile.jpg"><span>홍길동</span> 안전관리자</a>
+				<div id="myDropdown" class="profile-container">
+					<img src="images/dummy-profile.jpg" class="profile-photo">
+					<div class="profile-info">
+						<span>홍길동</span>안전관리자</a>
+						<a href="#">Logout</a><a href="#">Setting</a>
+					</div>
+				</div>
+			</span>
+		</div>
+    </div>
+	<div class="header__sub">
+		<div class="f-left">
+			<span class="today">2021-06-01 월요일</span>
+			<span class="noday">무재해 <strong>71</strong>일</span>
+			<!--0704 수정 : AI 리포트 버튼추가 -->
+			<div class="emerg mgl1">
+				<a href="#" class="aiReport">AI 리포트</a>
+			</div>
+			<!--// 0704 수정 : AI 리포트 버튼추가 -->
+		</div>
+		<div class="f-right">
+			<div class="emerg">
+				<a href="#">긴급사고 프로토콜 실행</a> <a href="#">구조대 지원 호출</a>
+			</div>
+			<div class="notice__area">
+				<span class="notice__area--date">2021-04-15</span>
+				<a href="#">5월 1일 지게차 안전점검을 실시합니다. <u>자세히보기</u></a>
+				<span class="icon-modify"><a href="#"></a></span>
+			</div>
+		</div>
+	</div>
+	
+	<div class="contents">
+		<div class="dashboard__area">
+			<div class="dashboard__area--left">
+				<div class="graph__box">
+					<h2>오늘의 종합 안전 지수</h2>
+					<div><img src="images/dashboard-graph01.gif"></div>
+				</div>
+				<div class="graph__box">
+					<h2>1주일간 안전지수 변화</h2>
+					<div><img src="images/dashboard-graph02.gif"></div>
+				</div>
+			</div>
+			<div class="dashboard__area--right">
+				<div class="map__option">
+					<select>
+					  <option value="0">작업 구역을 선택하세요.</option>
+					  <option value="1">A구역</option>
+					  <option value="2">A구역</option>
+					  <option value="3">A구역</option>
+					</select>
+					<span class="chip">긴급 <strong>12</strong></span>
+					<span class="chip warning">주의 <strong>2</strong></span>
+
+					<div class="f-right">
+						<label class="custom-checkbox">작업자
+							<input type="checkbox" checked="checked">
+							<span class="checkmark"></span>
+						</label>
+						<label class="custom-checkbox">지게차
+							<input type="checkbox">
+							<span class="checkmark"></span>
+						</label>
+						<label class="custom-checkbox">컨베이어벨트
+							<input type="checkbox">
+							<span class="checkmark"></span>
+						</label>
+						<label class="custom-checkbox">운영기기(Sensors)
+							<input type="checkbox">
+							<span class="checkmark"></span>
+						</label>
+					</div>
+				</div>
+				
+				<div class="map__area">
+
+					<!-- map 가이드 툴팁-->
+					<div class="tooltip_map_wrap">
+						<div class="tooltip__map">
+							<div class="tooltiptext">
+								<div class="map_guide_wrap">
+									<ul class="col3">
+										<li><span class="db_icon worker"></span><div>작업자</div></li>
+										<li><span class="db_icon forklift"></span><div>지게차</div></li>
+										<li><span class="db_icon conveyor"></span><div>컨베이어<br>벨트</div></li>
+									</ul>
+									<ul class="col2">
+										<li><span class="dot blue"></span>정상</li>
+										<li><span class="dot green"></span>주시대상</li>
+										<li><span class="dot orange"></span>주의상황</li>
+										<li><span class="dot red"></span>긴급사고</li>
+									</ul>
+									<div class="line"></div>
+									<ul class="col3">
+										<li class="w100">위치고정형 운영기기</li>
+										<li><span class="db_icon cctv"></span></li>
+										<li><span class="db_icon sensor"></span></li>
+										<li><span class="db_icon sensor02"></span></li>
+									</ul>
+									<ul class="col2">
+										<li><span class="dot blue"></span>정상</li>
+										<li><span class="dot red"></span>장애발생</li>
+										<li class="w100"><span class="dot orange"></span>점검중(수리/교체)</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- //map 가이드 툴팁-->
+					
+					<div class="card__popup" onclick="myFunction_card()" >
+						<div class="db_icon worker-red"></div><!--작업자 아이콘 상태별 클래스 - 심각 worker-red/ 위험 worker-orange / 주의 worker-blue / 정상 worker-green -->
+						<span class="popuptext" id="cardPopup"><!--작업자 팝업 card -->
+							<div class="card__popup--header">
+								<span class="card__popup--header-id">jlee.ab</span>
+								<span class="card__popup--condition emergency"><div class="db_icon worker-green"></div></span><!--작업자 아이콘 상태별 worker-green-->
+							</div>
+							<div class="card__popup--info">
+								<img src="images/dummy-profile.jpg" class="profile-photo">
+								<div class="card__popup--detail">
+									<span>홍길동</span>안전관리자</a>
+								</div>
+								<a href="#" class="card__popup--button icon-phone"></a>
+								<a href="#" class="card__popup--button icon-eye"></a>
+								<a href="#" class="card__popup--button icon-push-message"></a>
+							</div>
+							<div class="card__state d-flex j-content-between">
+								<dl class="card__list"><dt>안전지수</dt><dd>45%</dd></dl>
+								<dl class="card__list"><dt>건강상태</dt><dd>양호</dd></dl>
+							</div>
+						</span>
+					</div>
+
+					<div class="card__popup" onclick="myFunction_card()">
+						<div class="db_icon forklift-green"></div><!--지게차 아이콘 상태별 클래스 - 심각 forklift-red/ 위험 forklift-orange / 주의 forklift-blue / 정상 forklift-green -->
+						<span class="popuptext" id="cardPopup111"><!--지게차 팝업 card -->
+							<div class="card__popup--header">
+								<span class="card__popup--header-id">EFL-188 <span class="bar-vertical"></span> jlee.ab</span>
+								<div class="card__popup--health-info">
+									<span class="card__popup--condition caution">
+										<div class="db_icon worker-red"></div><!--작업자 아이콘 상태별 worker-red-->
+										<div class="db_icon forklift-green"></div><!--지게차 아이콘 상태별 forklift-green-->
+									</span>
+								</div>
+							</div>
+							<div class="card__popup--info">
+								<img src="images/dummy-profile.jpg" class="profile-photo">
+								<div class="card__popup--detail">
+									<span>홍길동</span>안전관리자</a>
+								</div>
+								<a href="#" class="card__popup--button icon-eye"></a>
+								<a href="#" class="card__popup--button icon-push-message"></a>
+							</div>
+							<div class="card__state d-flex j-content-between">
+								<dl class="card__list"><dt>안전지수</dt><dd>45%</dd></dl>
+								<dl class="card__list"><dt>건강상태</dt><dd>양호</dd></dl>
+								<dl class="card__list"><dt>주행속도</dt><dd>10km/sec</dd></dl>
+							</div>
+						</span>
+					</div>
+					<div class="card__popup" onclick="myFunction_card()">
+						<div class="db_icon conveyor-green"></div><!--컨베이어 아이콘 상태별 클래스 - 심각 conveyor-red/ 위험 conveyor-orange / 주의 conveyor-blue / 정상 conveyor-green -->
+						<span class="popuptext" id="cardPopup111"><!--컨베이어 팝업 card -->
+							<div class="card__popup--header">
+								<span class="card__popup--header-id">EFL-188</span>
+								<span class="card__popup--condition emergency"></span>
+							</div>
+							
+							<div class="card__popup--info">
+								<div class="card__popup--detail" style="width:60%">
+									<dl class="card__list"><dt>안전지수</dt><dd>45%</dd></dl>
+									<dl class="card__list"><dt>주행속도</dt><dd>10km/sec</dd></dl>
+								</div>
+							</div>
+						</span>
+					</div>
+					<div class="card__popup" onclick="myFunction()">
+						<div class="db_icon cctv-red"></div><!--운영기기(cctv) 아이콘 상태별 클래스 - 심각 cctv-red/ 위험 cctv-orange / 주의 cctv-blue / 정상 cctv-green -->
+						<div class="db_icon sensor-green"></div><!--운영기기(센서1) 아이콘 상태별 클래스 - 심각 sensor-red/ 위험 sensor-orange / 주의 sensor-blue / 정상 sensor-green -->
+						<div class="db_icon sensor02-orange"></div><!--운영기기(센서2) 아이콘 상태별 클래스 - 심각 sensor02-red/ 위험 sensor02-orange / 주의 sensor02-blue / 정상 sensor02-green -->
+						<span class="popuptext" id="cardPopup111"><!--운영기기 팝업 card -->
+							<div class="card__popup--header">
+								<span class="card__popup--header-id">jlee.ab</span>
+								<span class="card__popup--condition emergency"><img src="https://icongr.am/material/account-hard-hat.svg?size=18&color=fc0001"></span>
+								<div class="card__popup--health-info">
+									<dl class="card__list"><dd>B-34구역</dd></dl>
+								</div>
+							</div>
+							
+							<div class="card__popup--info">
+								<div class="card__popup--detail" style="width:60%">
+									<dl class="card__list"><dt>연동카메라</dt><dd>G832-32</dd></dl>
+									<dl class="card__list"><dt>연동카메라2</dt><dd>G832-32</dd></dl>
+									<dl class="card__list"><dt>안전지수</dt><dd>45%</dd></dl>
+								</div>
+							</div>
+							
+						</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+<script src="js/custom.js"></script>
+
+
+</body>
+</html>

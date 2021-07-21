@@ -1,0 +1,863 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <title>ETRI</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="css/custom.css">
+
+</head>
+
+<body>
+
+<div class="wrap">
+	<!-- header -->
+    <div class="header">
+		<div class="header__title">
+			<span>한국타이어 대전공장 안전관리시스템</span>
+		</div>
+		<div class="header__menu__toggle">
+			<div class="header__menu__hamburger">
+				<input class="hamburger__menu__btn" type="checkbox"/>
+
+				<span class="toolbar-menu"></span>
+
+				<div class="header__menu-area">
+					<div class="side__menu-list__close">
+						<span class="close"></span>
+					</div>
+                    <!-- LNB 개인정보 영역 -->
+					<div class="header_myinfo">
+						<div class="header-profile">
+							<img src="images/dummy-profile.jpg" class="profile-photo">
+							<div class="emergency"><span class="dot red"></span>주시대상</div><!-- 주시대상 상태에 따라 추가 -->
+						</div>
+						<div class="profile-info">
+							<span>홍길동</span>ID : 776</a>
+							<div>타이어 성형 2팀 | A08</div>
+							<a href="#">Logout</a><a href="#">Setting</a>
+						</div>
+					</div>
+					<!--// LNB 개인정보 영역 -->
+					<!-- menu -->
+					<div class="side__menu-list">
+						<button class="accordion">사고관리</button>
+						<div class="panel">
+							<a href="#">전체사고관리</a>
+							<a href="#">AI종합진단</a>
+							<a href="#">AI개인진단</a>
+						</div>
+						<a class="accordion ">안전점검일지</a>
+						<button class="accordion">작업관리</button>
+						<div class="panel">
+							<a href="#">작업자관리</a>
+							<a href="#">작업구역관리</a>
+							<a href="#">체크리스트관리</a>
+						</div>
+						<a class="accordion">운영기기관리</a>
+						<button class="accordion">메시지관리</button>
+						<div class="panel">
+							<a href="#">메시지관리</a>
+							<a href="#">메시지템플릿</a>
+						</div>
+						<a class="accordion">설정</a>
+					</div>
+					<!-- //menu -->
+				</div>
+			</div>
+		</div>
+
+		
+	<!--긴급사고 알림 snackbar -->
+		<div id="snackbar">
+			<span onclick="this.parentElement.style.display='none';" class="ly_pop-close"></span>
+			<h2>긴급사고 / 주의상황 알림</h2>
+				<div class="ly_emerg_con">
+					<span class="icon-emerg"></span>
+					<span>
+					타이어 적재 작업구역에서<br>
+					<strong>지게차(ID번호) 충돌 사고가 발생</strong>했습니다.
+					<h4 class="mgt1">
+						2021-01-01 15:23:41 <strong>운전자 : 홍길동</strong>
+					</h4>
+					<button type="button" class="btn-small second-btn mgt1">자세히 보기</button>
+				</span>
+				</div>
+			<div class="btn-wrap">
+				<button type="button" class="btn-large line-darkgray-btn">이동</button>
+				<button type="button" class="btn-large red-btn">다음알림</button>
+			</div>
+		</div>
+	<!--//긴급사고 알림 snackbar -->
+
+		<div class="header__utility">
+			<a href="#" class="icon-alret" onclick="snackFunction()"><span class="dot red">5</span></a>
+			<a href="#" class="icon-mail"><span class="dot green">2</span></a>
+			<span class="user-info">
+				<a href="#" onclick="myFunction_userInfo()"><img src="images/dummy-profile.jpg"><span>홍길동</span> 안전관리자</a>
+				<div id="myDropdown" class="profile-container">
+					<img src="images/dummy-profile.jpg" class="profile-photo">
+					<div class="profile-info">
+						<span>홍길동</span>안전관리자</a>
+						<a href="#">Logout</a><a href="#">Setting</a>
+					</div>
+				</div>
+			</span>
+		</div>
+    </div>
+	<div class="header__sub">
+		<div class="f-left">
+			<span class="today">2021-06-01 월요일</span>
+			<span class="noday">무재해 <strong>71</strong>일</span>
+		</div>
+		<div class="f-right">
+			<div class="emerg">
+				<a href="#">긴급사고 프로토콜 실행</a> <a href="#">구조대 지원 호출</a>
+			</div>
+			<div class="notice__area">
+				<span class="notice__area--date">2021-04-15</span>
+				<a href="#">5월 1일 지게차 안전점검을 실시합니다. <u>자세히보기</u></a>
+				<span class="icon-modify"><a href="#"></a></span>
+			</div>
+		</div>
+	</div>
+	
+	
+	<div class="contents">
+        <div class="container only-pc">
+            <div class="titTypeA">계정정보</div>
+            <div class="container-box">
+                <div class="tab">
+                    <button class="tablinks" onclick="openCity(event, 'setting_account')" id="defaultOpen">계정</button>
+                    <button class="tablinks" onclick="openCity(event, 'setting_process')">구역/공정</button>
+                    <button class="tablinks" onclick="openCity(event, 'setting_alert')">작업자알림</button>
+                    <button class="tablinks" onclick="openCity(event, 'setting_admin')">관리자계정</button><!--관리자만 노출-->
+                </div>
+                <!--계정 tab -->
+                <div id="setting_account" class="tabcontent clearfix mgt1">
+                    <div class="setting_wrap">
+						<!--계정::정보-->
+                        <div class="left mgt2">
+                            <div class="titTypeB">계정정보</div>
+                            <div class="basic_form mgt2">
+                                <table>
+                                    <colgroup><col style="width:20%"><col style="width:30%"><col style="width:20%"><col style="width:30%"></colgroup>
+                                    <tbody>
+                                        <tr>
+                                            <th>아이디</th>
+                                            <td>gildong</td>
+                                            <th>비밀번호</th>
+                                            <td>
+                                                <button type="button" class="btn-small second-btn">재설정</button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div class="titTypeC mgt2">알림</div>
+                                <table>
+                                    <colgroup><col style="width:36%"></colgroup>
+                                    <tbody>
+                                        <tr>
+                                            <th>알림 허용</th>
+                                            <td>
+                                                <div class="custom-select w30">
+                                                    <select>
+                                                        <option value="0">매일</option>
+                                                        <option value="1">평일</option>
+                                                    </select>
+                                                </div>
+                                                <div class="custom-select w30 mgl1">
+                                                    <select>
+                                                        <option value="0">07:00</option>
+                                                        <option value="1">08:00</option>
+                                                    </select>
+                                                </div>
+                                                <span>~</span>
+                                                <div class="custom-select w30">
+                                                    <select>
+                                                        <option value="0">07:00</option>
+                                                        <option value="1">08:00</option>
+                                                    </select>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>PC 로그인 상태 시 Mobile 알림 수신 여부</th>
+                                            <td>
+                                                <div class="custom-select">
+                                                    <select>
+                                                        <option value="0">PC,Mobile 모두 알림설정</option>
+                                                        <option value="1">PC만 알림설정</option>
+                                                    </select>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+								<!-- 07/08 개인정보 편집 화면 -->
+                                <div class="titTypeC mgt2">개인정보<button type="button" class="btn-small line-primary-btn f-right">저장</button></div>
+                                <table class="mgt1">
+                                    <colgroup><col style="width:36%"></colgroup>
+                                    <tbody>
+                                        <tr>
+                                            <th>관리자명</th>
+                                            <td><input type="text"></td>
+                                        </tr>
+                                        <tr>
+                                            <th>부서</th>
+                                            <td><select><option>생산관리2팀</option></select></td>
+                                        </tr>
+                                        <tr>
+                                            <th>직급</th>
+                                            <td><select><option>과장</option></select></td>
+                                        </tr>
+                                        <tr>
+                                            <th>생년월일(나이)</th>
+                                            <td>1967/01/01(만53세)</td>
+                                        </tr>
+                                        <tr>
+                                            <th>성별</th>
+                                            <td>
+												<label class="custom-radio">남성
+													<input type="radio">
+													<span class="radio-checkmark"></span>
+												</label>
+												<label class="custom-radio">여성
+													<input type="radio">
+													<span class="radio-checkmark"></span>
+												</label>
+											</td>
+                                        </tr>
+                                        <tr>
+                                            <th>주소</th>
+                                            <td><input type="text"></td>
+                                        </tr>
+                                        <tr>
+                                            <th>휴대전화번호</th>
+                                            <td>
+												<div class="d-flex j-content-between align-center">
+													<select class="w30">
+														<option>010</option><option>011</option>
+													</select>
+													-
+													<input type="text" class="w30">-<input type="text" class="w30">
+												</div>
+											</td>
+                                        </tr>
+                                        <tr>
+                                            <th>전화번호</th>
+                                            <td>
+												<div class="d-flex j-content-between align-center">
+													<select class="w30">
+														<option>02</option><option>051</option>
+													</select>
+													-
+													<input type="text" class="w30">-<input type="text" class="w30">
+												</div>
+											</td>
+                                        </tr>
+                                        <tr>
+                                            <th>비상연락망</th>
+                                            <td>
+												<div class="d-flex j-content-between align-center">
+													<select class="w30">
+														<option>선택안함</option><option>010</option>
+													</select>
+													-
+													<input type="text" class="w30">-<input type="text" class="w30">
+												</div>
+											</td>
+                                        </tr>
+                                        <tr>
+                                            <th>혈액형</th>
+                                            <td><select><option>A</option><option>B</option><option>O</option><option>AB</option></select></td>
+                                        </tr>
+                                        <tr>
+                                            <th>국가</th>
+                                            <td><select><option>대한민국</option></select></td>
+                                        </tr>
+										<tr>
+                                            <th>사진등록</th>
+                                            <td><button type="button" class="btn-small second-btn">파일등록</button></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+								<!-- // 07/08 개인정보 편집 화면 -->
+								
+                                <div class="titTypeC mgt2">특정 IP에서만 로그인 허용</div>
+                                <table>
+                                    <colgroup><col style="width:36%"></colgroup>
+                                    <tbody>
+                                        <tr>
+                                            <th>
+                                                <label class="custom-checkbox">사용
+                                                    <input type="checkbox">
+                                                    <span class="checkmark"></span>
+                                                </label>
+                                            </th>
+                                            <td>
+                                                <input type="text" class="w20">
+                                                <input type="text" class="w20">
+                                                <input type="text" class="w20">
+                                                <input type="text" class="w20">
+                                                <button type="button" class="btn-large line-primary-btn icon-plus"></button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!--계정::접속기록-->
+                        <div class="right mgt2">
+                            <div class="titTypeB">접속 기록</div>
+                            <div class="search__box mgt2">
+                                <ul class="">
+                                    <li>
+                                        <div class="calendar-picker w20">
+                                            <input type="text" placeholder="기간선택">
+                                            <button onclick="document.getElementById('layerPop').style.display='block'" type="button" class="icon-calendar"></button>
+                                        </div>
+                                        <span>~</span>
+                                        <div class="calendar-picker w20">
+                                            <input type="text" placeholder="기간선택">
+                                            <button onclick="document.getElementById('layerPop').style.display='block'" type="button" class="icon-calendar"></button>
+                                        </div>
+
+                                        <div class="custom-select w20 mgl1">
+                                            <select>
+                                                <option value="0">기기선택</option>
+                                                <option value="1">전체</option>
+                                            </select>
+                                        </div>
+                                        <input type="text" class="w30 mgl1" placeholder="로그인 IP">
+                                    </li>
+                                    <span class="search__box--button">
+                                        <button type="button" class="line-primary-btn btn-large">Search</button>
+                                    </span>
+                                </ul>
+                            </div>
+                            <div class="mgt2">Total <strong>23</strong></div>
+                            <div class="response-container">
+								<table class="response-table">
+									<thead>
+										<tr>
+											<th>일시</th>
+											<th>로그인 IP</th>
+											<th>기기</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>2021/01/01 13:33</td>
+											<td>118.192.0.2</td>
+											<td>PC</td>
+										</tr>
+                                        <tr>
+											<td>2021/01/01 13:33</td>
+											<td>118.192.0.2</td>
+											<td>Mobile</td>
+										</tr>
+                                        <tr>
+											<td>2021/01/01 13:33</td>
+											<td>118.192.0.2</td>
+											<td>PC</td>
+										</tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="pagination mgt2">
+                                <a href="#" class="first"></a>
+                                <a href="#">1</a>
+                                <a class="active" href="#">2</a>
+                                <a href="#">3</a>
+                                <a href="#">4</a>
+                                <a href="#">5</a>
+                                <a href="#">6</a>
+                                <a href="#" class="last"></a>
+                            </div>    
+                        </div>
+                    </div>
+                </div>
+
+                <!--구역/공정 tab -->
+                <div id="setting_process" class="tabcontent clearfix mgt1">
+                    <div class="search__box mgt2">
+                        <ul class="col2">
+                            <li><input type="text" placeholder="작업구역" class="w40"><button type="button" class="line-primary-btn btn-large mgl1">Search</button></li>
+                        </ul>
+                        <span class="search__box--button">
+                            <button type="button" class="primary-btn btn-large">작업공정관리</button>
+                        </span>
+                    </div>
+					
+					
+					<div class="mgt2">Total <strong>153</strong>개 구역</div>
+                    <div class="setting_process-wrap process-zone">
+                        <button class="accordion">
+							<div class="num"><span class="emergency">위험구역</span><strong>H-23</strong></div>
+							<div class="checklist-chip">
+								<a href="#" class="chip-sort"><strong>양생공정 1단계</strong><span class="icon-cancle" onclick="this.parentElement.style.display='none'"></span></a>
+								<a href="#" class="chip-sort"><strong>양생공정 1단계</strong><span class="icon-cancle"></span></a>
+								<a href="#" class="chip-sort"><strong>양생공정 1단계</strong><span class="icon-cancle"></span></a>
+								<a href="#" class="chip-sort"><strong>양생공정 1단계</strong><span class="icon-cancle"></span></a>
+							</div>
+						</button>
+						<div class="panel">
+							<div class="d-flex j-content-between">
+								<h3>작업공정 선택</h3>
+								<button type="button" class="line-primary-btn btn-small">저장</button>
+							</div>
+							<div class="checklist-chip mgt1">
+								<a href="#" class="chip-sort"><strong>양생공정 1단계</strong><button type="button" class="icon-cancle" onclick="this.parentElement.style.display='none'"></button></a>
+								<a href="#" class="chip-sort"><strong>양생공정 1단계</strong><button type="button" class="icon-cancle"></button></a>
+								<a href="#" class="chip-sort"><strong>양생공정 1단계</strong><button type="button" class="icon-cancle"></button></a>
+								<a href="#" class="chip-sort"><strong>양생공정 1단계</strong><button type="button" class="icon-cancle"></button></a>
+								<a href="#" class="chip-sort"><strong>양생공정 1단계</strong><button type="button" class="icon-cancle"></button></a>
+							</div>
+							
+							<h3 class="mgt2">작업자 등록</h3>
+							<div class="info__wrap mgt1">
+								<div class="d-flex j-content-between">
+									<h3>양생공정 1단계</h3>
+									<button type="button" class="line-gray-btn btn-small">작업자추가</button>
+								</div>
+								<div class="checklist-chip mgt1">
+									<a href="#" class="chip-sort"><strong>홍길동</strong><button type="button" class="icon-cancle" onclick="this.parentElement.style.display='none'"></button></a>
+									<a href="#" class="chip-sort"><strong>홍길동</strong><button type="button" class="icon-cancle"></button></a>
+									<a href="#" class="chip-sort"><strong>홍길동</strong><button type="button" class="icon-cancle"></button></a>
+									<a href="#" class="chip-sort"><strong>홍길동</strong><button type="button" class="icon-cancle"></button></a>
+									<a href="#" class="chip-sort"><strong>홍길동</strong><button type="button" class="icon-cancle"></button></a>
+								</div>
+							</div>
+							<div class="info__wrap mgt1">
+								<div class="d-flex j-content-between">
+									<h3>양생공정 2단계</h3>
+									<button type="button" class="line-gray-btn btn-small">작업자추가</button>
+								</div>
+								<div class="checklist-chip mgt1">
+									<a href="#" class="chip-sort"><strong>홍길동</strong><button type="button" class="icon-cancle" onclick="this.parentElement.style.display='none'"></button></a>
+									<a href="#" class="chip-sort"><strong>홍길동</strong><button type="button" class="icon-cancle"></button></a>
+									<a href="#" class="chip-sort"><strong>홍길동</strong><button type="button" class="icon-cancle"></button></a>
+									<a href="#" class="chip-sort"><strong>홍길동</strong><button type="button" class="icon-cancle"></button></a>
+									<a href="#" class="chip-sort"><strong>홍길동</strong><button type="button" class="icon-cancle"></button></a>
+								</div>
+							</div>
+						</div>	
+							
+						<button class="accordion">
+							<div class="num"><span class="emergency"></span><strong>H-23</strong></div>
+							<div class="checklist-chip">
+								<a href="#" class="chip-sort"><strong>양생공정 1단계</strong><span class="icon-cancle" onclick="this.parentElement.style.display='none'"></span></a>
+								<a href="#" class="chip-sort"><strong>양생공정 1단계</strong><span class="icon-cancle"></span></a>
+								<a href="#" class="chip-sort"><strong>양생공정 1단계</strong><span class="icon-cancle"></span></a>
+								<a href="#" class="chip-sort"><strong>양생공정 1단계</strong><span class="icon-cancle"></span></a>
+								<a href="#" class="chip-sort"><strong>양생공정 1단계</strong><span class="icon-cancle"></span></a>
+								<a href="#" class="chip-sort"><strong>양생공정 1단계</strong><span class="icon-cancle"></span></a>
+								<a href="#" class="chip-sort"><strong>양생공정 1단계</strong><span class="icon-cancle"></span></a>
+								<a href="#" class="chip-sort"><strong>양생공정 1단계</strong><span class="icon-cancle"></span></a>
+								<a href="#" class="chip-sort"><strong>양생공정 1단계</strong><span class="icon-cancle"></span></a>
+								<a href="#" class="chip-sort"><strong>양생공정 1단계</strong><span class="icon-cancle"></span></a>
+							</div>
+						</button>
+						<div class="panel">
+							<div class="d-flex j-content-between">
+								<h3>작업공정 선택</h3>
+								<button type="button" class="line-primary-btn btn-small">저장</button>
+							</div>
+							<div class="checklist-chip mgt1">
+								<a href="#" class="chip-sort"><strong>양생공정 1단계</strong><button type="button" class="icon-cancle" onclick="this.parentElement.style.display='none'"></button></a>
+								<a href="#" class="chip-sort"><strong>양생공정 1단계</strong><button type="button" class="icon-cancle"></button></a>
+								<a href="#" class="chip-sort"><strong>양생공정 1단계</strong><button type="button" class="icon-cancle"></button></a>
+								<a href="#" class="chip-sort"><strong>양생공정 1단계</strong><button type="button" class="icon-cancle"></button></a>
+								<a href="#" class="chip-sort"><strong>양생공정 1단계</strong><button type="button" class="icon-cancle"></button></a>
+							</div>
+							
+							<h3 class="mgt2">작업자 등록</h3>
+							<div class="info__wrap mgt1">
+								<div class="d-flex j-content-between">
+									<h3>양생공정 1단계</h3>
+									<button type="button" class="line-gray-btn btn-small">작업자추가</button>
+								</div>
+								<div class="checklist-chip mgt1">
+									<a href="#" class="chip-sort"><strong>홍길동</strong><button type="button" class="icon-cancle" onclick="this.parentElement.style.display='none'"></button></a>
+									<a href="#" class="chip-sort"><strong>홍길동</strong><button type="button" class="icon-cancle"></button></a>
+									<a href="#" class="chip-sort"><strong>홍길동</strong><button type="button" class="icon-cancle"></button></a>
+									<a href="#" class="chip-sort"><strong>홍길동</strong><button type="button" class="icon-cancle"></button></a>
+									<a href="#" class="chip-sort"><strong>홍길동</strong><button type="button" class="icon-cancle"></button></a>
+								</div>
+							</div>
+							
+						</div>
+					</div>
+					
+					
+					
+					
+					<div class="d-flex j-content-between mgt1 m-hidden">
+						<div>Total <strong>23</strong>개 공정</div>
+						<button type="button" onclick="document.getElementById('layerPop-process').style.display='block'" class="btn-large primary-btn">공정추가</button>
+					</div>
+                    <div class="setting_process-wrap">
+                        <button class="accordion">
+							<div class="num"><strong>1</strong></div>
+							<h2>양생공정 1단계</h2>
+							<div class="accordion-btn-group">
+								<a href="#" class="gray-btn btn-large">공정 비활성화</a>
+							</div>
+						</button>
+						<div class="panel">
+							<div class="d-flex j-content-between">
+								<h3>작업자 목록</h3>
+								<div>
+									<button type="button" class="line-gray-btn btn-small">작업자 추가</button>
+									<button type="button" class="line-primary-btn btn-small">저장</button>
+								</div>
+							</div>
+							<div class="checklist-chip mgt1">
+								<a href="#" class="chip-sort"><strong>홍길동</strong><button type="button" class="icon-cancle" onclick="this.parentElement.style.display='none'"></button></a>
+								<a href="#" class="chip-sort"><strong>홍길동</strong><button type="button" class="icon-cancle"></button></a>
+								<a href="#" class="chip-sort"><strong>홍길동</strong><button type="button" class="icon-cancle"></button></a>
+								<a href="#" class="chip-sort"><strong>홍길동</strong><button type="button" class="icon-cancle"></button></a>
+								<a href="#" class="chip-sort"><strong>홍길동</strong><button type="button" class="icon-cancle"></button></a>
+							</div>
+						</div>
+						<button class="accordion disabled">
+							<div class="num"><strong>2</strong></div>
+							<h2>양생공정 2단계</h2>
+							<div class="accordion-btn-group">
+								<a href="#" class="red-btn btn-large">공정 활성화</a>
+							</div>
+						</button>
+						<div class="panel">
+							<div class="d-flex j-content-between">
+								<h3>작업자 목록</h3>
+								<div>
+									<button type="button" class="line-gray-btn btn-small">작업자 추가</button>
+									<button type="button" class="line-primary-btn btn-small">저장</button>
+								</div>
+							</div>
+							<div class="checklist-chip mgt1">
+								<a href="#" class="chip-sort"><strong>홍길동</strong><button type="button" class="icon-cancle" onclick="this.parentElement.style.display='none'"></button></a>
+								<a href="#" class="chip-sort"><strong>홍길동</strong><button type="button" class="icon-cancle"></button></a>
+								<a href="#" class="chip-sort"><strong>홍길동</strong><button type="button" class="icon-cancle"></button></a>
+								<a href="#" class="chip-sort"><strong>홍길동</strong><button type="button" class="icon-cancle"></button></a>
+								<a href="#" class="chip-sort"><strong>홍길동</strong><button type="button" class="icon-cancle"></button></a>
+							</div>
+						</div>
+						<button class="accordion">
+							<div class="num"><strong>3</strong></div>
+							<h2>양생공정 3단계</h2>
+							<div class="accordion-btn-group">
+								<a href="#" class="gray-btn btn-large">공정 비활성화</a>
+							</div>
+						</button>
+						<div class="panel">
+							<div class="d-flex j-content-between">
+								<h3>작업자 목록</h3>
+								<div>
+									<button type="button" class="line-gray-btn btn-small">작업자 추가</button>
+									<button type="button" class="line-primary-btn btn-small">저장</button>
+								</div>
+							</div>
+							<div class="checklist-chip mgt1">
+								<a href="#" class="chip-sort"><strong>홍길동</strong><button type="button" class="icon-cancle" onclick="this.parentElement.style.display='none'"></button></a>
+								<a href="#" class="chip-sort"><strong>홍길동</strong><button type="button" class="icon-cancle"></button></a>
+								<a href="#" class="chip-sort"><strong>홍길동</strong><button type="button" class="icon-cancle"></button></a>
+								<a href="#" class="chip-sort"><strong>홍길동</strong><button type="button" class="icon-cancle"></button></a>
+								<a href="#" class="chip-sort"><strong>홍길동</strong><button type="button" class="icon-cancle"></button></a>
+							</div>
+						</div>
+                    </div>
+                </div>
+
+                <!--작업자알림 tab -->
+                <div id="setting_alert" class="tabcontent clearfix mgt1">
+                    <div class="setting_wrap">
+						<!--작업자알림 목록-->
+                        <div class="left mgt2">
+                            <div class="titTypeC d-flex j-content-between align-center">
+                                목록
+                                <div>
+                                    <button type="button" class="line-primary-btn btn-small">삭제</button>
+                                    <button type="button" class="primary-btn btn-small">추가</button>
+                                </div>
+                            </div>
+							<div class="response-container">
+								<table class="response-table">
+									<thead>
+										<tr>
+											<th>선택</th>
+											<th>번호</th>
+											<th>긴급알림</th>
+											<th>보기</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr class="selected-bg"><!-- 내용보기 중인(선택된) 행일 경우 추가 class=selected-bg -->
+											<td>
+												<label class="custom-checkbox">
+													<input type="checkbox">
+													<span class="checkmark"></span>
+												</label>
+											</td>
+											<td>1</td>
+											<td class="tL">긴급사고(충돌)</td>
+											<td><span><button type="button" class="gray-btn btn-small">보기</button></span></td>
+										</tr>
+										<tr>
+											<td>
+												<label class="custom-checkbox">
+													<input type="checkbox">
+													<span class="checkmark"></span>
+												</label>
+											</td>
+											<td>1</td>
+											<td class="tL">긴급사고(가스누출)</td>
+											<td><span><button type="button" class="gray-btn btn-small">보기</button></span></td>
+										</tr>
+										<tr>
+											<td>
+												<label class="custom-checkbox">
+													<input type="checkbox">
+													<span class="checkmark"></span>
+												</label>
+											</td>
+											<td>1</td>
+											<td class="tL">긴급사고(가스누출)</td>
+											<td><span><button type="button" class="gray-btn btn-small">보기</button></span></td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+
+                        <!--작업자알림 내용 -->
+                        <div class="right mgt2">
+                            <div class="titTypeC d-flex j-content-between align-center">
+                                내용
+                                <div>
+                                    <button type="button" class="line-primary-btn btn-small">초기화</button>
+                                    <button type="button" class="primary-btn btn-small">저장</button>
+                                </div>
+                            </div>
+                            <div class="basic_form mgt1">
+                                <table>
+                                    <colgroup><col style="width:25%"></colgroup>
+                                    <tbody>
+                                        <tr>
+                                            <th>알림명</th>
+											<td>긴급사고(충돌)</td>
+                                        </tr>
+                                        <tr>
+                                            <th>조건</th>
+                                            <td>
+												<div>
+													기본 조건
+													<div class="custom-select w30 mgl1">
+														<select>
+															<option value="0">선택없음</option>
+															<option value="1">안전지수</option>
+														</select>
+													</div>
+													<input type="text" class="w20"><div class="custom-select w20">
+														<select>
+															<option value="0">이상</option>
+															<option value="1">이하</option>
+															<option value="2">초과</option>
+															<option value="3">미만</option>
+															<option value="4">같음</option>
+														</select>
+													</div>
+													<button type="button" class="btn-large line-primary-btn icon-plus"></button>
+												</div>
+												<div class="mgt1">
+													추가 조건
+													<div class="custom-select w30 mgl1">
+														<select>
+															<option value="0">선택없음</option>
+															<option value="1">충돌</option>
+															<option value="2">협착</option>
+															<option value="3">추락</option>
+															<option value="4">가스누출</option>
+														</select>
+													</div>
+													<div class="custom-select w40">
+														<select>
+															<option value="0">선택없음</option>
+															<option value="1">감지 즉시</option>
+															<option value="2">감지 1분후</option>
+														</select>
+													</div>
+													<button type="button" class="btn-large line-primary-btn icon-cancle"></button>
+												</div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>대피로 안내</th>
+                                            <td>
+                                                <label class="custom-radio">표시
+                                                    <input type="radio" checked="checked">
+                                                    <span class="radio-checkmark"></span>
+                                                </label>
+                                                <label class="custom-radio">미표시
+                                                    <input type="radio">
+                                                    <span class="radio-checkmark"></span>
+                                                </label>
+                                            </td>
+                                        </tr>
+										<tr>
+                                            <th>긴급프로토콜</th>
+                                            <td>
+                                                
+                                            </td>
+                                        </tr>
+										<tr>
+                                            <th>알림 내용</th>
+                                            <td>
+                                                긴급사고 발생!<br>
+												{{사고일시}} {{사고위치}}에서 {{사고종류}} 발생하였습니다.<br>
+												사고 작업장에 위치하신 모든 작업자는 대피하시기 바랍니다! <br>
+												{{사고위치}}의 인근 작업장에 계신 모든 작업자는 주의하시기 바랍니다! 
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+						
+					</div>
+						
+                </div>
+
+                <!--관리자계정 tab -->
+                <div id="setting_admin" class="tabcontent clearfix mgt1">
+                    <div class="search__box mgt2">
+                        <ul class="col5">
+                            <li>
+                                <input type="text" placeholder="관리자명">
+                            </li>
+                            <li>
+                                <input type="text" placeholder="관리자ID">
+                            </li>
+                            <li>
+                                <div class="custom-select">
+                                    <select>
+                                        <option value="0">부서</option>
+                                        <option value="1">전체</option>
+                                    </select>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="custom-select">
+                                    <select>
+                                        <option value="0">계정상태</option>
+                                        <option value="1">전체</option>
+                                    </select>
+                                </div>
+                            </li>
+                        </ul>
+                        <span class="search__box--button">
+                            <button type="button" class="line-primary-btn btn-large">Search</button>
+                        </span>
+                    </div>
+                
+                    <div class="response-container">
+                        <div class="mgt2">Total <strong>23</strong></div>
+                        <table class="response-table">
+                            <thead>
+                            <tr>
+                                <th>관리자명</th>
+                                <th>관리자ID</th>
+                                <th>부서</th>
+                                <th>직급</th>
+                                <th>생성일</th>
+                                <th>작업상태</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td><a href="#" class="worker-name"><img src="images/dummy-profile.jpg" class="profile-photo"><strong>홍길동</strong></a></td>
+                                <td data-title="ID"><span>1234</span></td>
+                                <td><span>생산1팀</span></td>
+                                <td><span>부장</span></td>
+                                <td><span>21/04/06 12:00:00</span></td>
+                                <td><span><button type="button" class="second-btn btn-small">비활성화</button></span></td>
+                            </tr>
+                            <tr>
+                                <td><a href="#" class="worker-name"><img src="images/dummy-profile.jpg" class="profile-photo"><strong>홍길동</strong></a></td>
+                                <td data-title="ID"><span>1234</span></td>
+                                <td><span>생산1팀</span></td>
+                                <td><span>부장</span></td>
+                                <td><span>21/04/06 12:00:00</span></td>
+                                <td><span><button type="button" class="red-btn btn-small">활성화</button></span></td>
+                            </tr>
+                            <tr>
+                                <td><a href="#" class="worker-name"><img src="images/dummy-profile.jpg" class="profile-photo"><strong>홍길동</strong></a></td>
+                                <td data-title="ID"><span>1234</span></td>
+                                <td><span>생산1팀</span></td>
+                                <td><span>부장</span></td>
+                                <td><span>21/04/06 12:00:00</span></td>
+                                <td><span>승인대기</span></td>
+                            </tr>
+                            <tr>
+                                <td><a href="#" class="worker-name"><img src="images/dummy-profile.jpg" class="profile-photo"><strong>홍길동</strong></a></td>
+                                <td data-title="ID"><span>1234</span></td>
+                                <td><span>생산1팀</span></td>
+                                <td><span>부장</span></td>
+                                <td><span>21/04/06 12:00:00</span></td>
+                                <td><span><button type="button" class="red-btn btn-small">활성화</button></span></td>
+                            </tr>
+                            <tr>
+                                <td><a href="#" class="worker-name"><img src="images/dummy-profile.jpg" class="profile-photo"><strong>홍길동</strong></a></td>
+                                <td data-title="ID"><span>1234</span></td>
+                                <td><span>생산1팀</span></td>
+                                <td><span>부장</span></td>
+                                <td><span>21/04/06 12:00:00</span></td>
+                                <td><span><button type="button" class="red-btn btn-small">활성화</button></span></td>
+                            </tr>
+                            <tr>
+                                <td><a href="#" class="worker-name"><img src="images/dummy-profile.jpg" class="profile-photo"><strong>홍길동</strong></a></td>
+                                <td data-title="ID"><span>1234</span></td>
+                                <td><span>생산1팀</span></td>
+                                <td><span>부장</span></td>
+                                <td><span>21/04/06 12:00:00</span></td>
+                                <td><span><button type="button" class="red-btn btn-small">활성화</button></span></td>
+                            </tr>
+                            <tr>
+                                <td><a href="#" class="worker-name"><img src="images/dummy-profile.jpg" class="profile-photo"><strong>홍길동</strong></a></td>
+                                <td data-title="ID"><span>1234</span></td>
+                                <td><span>생산1팀</span></td>
+                                <td><span>부장</span></td>
+                                <td><span>21/04/06 12:00:00</span></td>
+                                <td><span><button type="button" class="red-btn btn-small">활성화</button></span></td>
+                            </tr>
+                        </tbody>
+                        </table>
+                        <div class="pagination mgt2">
+                            <a href="#" class="first"></a>
+                            <a href="#">1</a>
+                            <a class="active" href="#">2</a>
+                            <a href="#">3</a>
+                            <a href="#">4</a>
+                            <a href="#">5</a>
+                            <a href="#">6</a>
+                            <a href="#" class="last"></a>
+                        </div>
+                    </div>    
+                </div>
+
+            </div>
+        </div>
+	</div>
+</div>
+
+<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+<script src="js/custom.js"></script>
+
+
+</body>
+</html>

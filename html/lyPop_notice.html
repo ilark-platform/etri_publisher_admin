@@ -1,0 +1,542 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <title>ETRI</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="css/custom.css">
+</head>
+
+<body>
+
+<!-- 알림 레이어 팝업-->
+<a onclick="document.getElementById('layerPop').style.display='block'" class="btn-large primary-btn">alret layer popup</a>
+
+<div id="layerPop" class="modal">
+    <div class="ly_pop_container ly-alert">
+        <span onclick="document.getElementById('layerPop').style.display='none'" class="ly_pop-close"></span>
+
+        <p>
+            삭제 하시겠습니까?
+        </p>
+        
+        <div class="btn-wrap">
+            <button type="button" onclick="document.getElementById('layerPop').style.display='none'" class="btn-large line-primary-btn">아니오</button>
+            <button type="button" onclick="document.getElementById('layerPop').style.display='none'" class="btn-large primary-btn">예</button>
+        </div>
+    </div>
+</div>
+
+<!-- 공지사항 레이어 팝업-->
+<a onclick="document.getElementById('layerPop2').style.display='block'" class="btn-large primary-btn">공지사항</a>
+
+<div id="layerPop2" class="modal">
+    <div class="ly_pop_container">
+        <span onclick="document.getElementById('layerPop2').style.display='none'" class="ly_pop-close"></span>
+
+        <h2>공지사항</h2>
+        <div class="ly_contents">
+			<ul class="form__write">
+				<li>
+					<label>제목</label>
+					<div><input type="text"></div>
+				</li>
+				<li>
+					<label>공개설정</label>
+					<div>
+						<label class="custom-radio">구역 공지사항
+							<input type="radio" checked="checked">
+							<span class="radio-checkmark"></span>
+						</label>
+						<label class="custom-radio">전체 공지사항
+							<input type="radio">
+							<span class="radio-checkmark"></span>
+						</label>
+					</div>
+				</li>
+				<li>
+					<label>내용</label>
+					<div><textarea rows="5"></textarea></div>
+				</li>
+			</ul>
+		</div>
+        
+        <div class="btn-wrap">
+            <button type="button" onclick="document.getElementById('layerPop2').style.display='none'" class="btn-large line-primary-btn">취소</button>
+            <button type="button" onclick="document.getElementById('layerPop2').style.display='none'" class="btn-large primary-btn">등록</button>
+        </div>
+    </div>
+</div>
+
+<!-- 긴급사고 / 주의상황 알림 레이어 팝업-->
+<a onclick="document.getElementById('layerPop3').style.display='block'" class="btn-large primary-btn">긴급사고 / 주의상황 알림</a>
+
+<div id="layerPop3" class="modal">
+    <div class="ly_pop_container">
+        <span onclick="document.getElementById('layerPop3').style.display='none'" class="ly_pop-close"></span>
+
+        <h2>긴급사고 / 주의상황 알림</h2>
+        <div class="ly_contents">
+            <div class="ly_emerg_con">
+                <span class="icon-emerg"></span>
+                <span>
+                타이어 적재 작업구역에서<br>
+                <strong>지게차(ID번호) 충돌 사고가 발생</strong>했습니다.
+                <h4 class="mgt2">
+                    2021-01-01 15:23:41 <strong>운전자 : 홍길동</strong>
+                </h4>
+                <button type="button" class="btn-small second-btn mgt1">자세히 보기</button>
+            </span>
+            </div>
+		</div>
+        
+        <div class="btn-wrap">
+            <button type="button" onclick="document.getElementById('layerPop3').style.display='none'" class="btn-large line-primary-btn">이동</button>
+            <button type="button" onclick="document.getElementById('layerPop3').style.display='none'" class="btn-large primary-btn">다음알림</button>
+        </div>
+    </div>
+</div>
+
+
+<!-- 안전점검일지 작성 레이어 팝업-->
+<a onclick="document.getElementById('layerPop4').style.display='block'" class="btn-large primary-btn">안전점검일지 작성</a>
+
+<div id="layerPop4" class="modal m-full"><!-- 모달창이 모바일에서 전체로 열릴 경우 class=m-full 추가 -->
+    <div class="ly_pop_container width-middle">
+        <span onclick="document.getElementById('layerPop4').style.display='none'" class="ly_pop-close"></span>
+
+        <h2>안전점검일지 작성</h2>
+        <div class="d-flex j-content-between mgt2">
+            <div class="custom-select w40">
+                <select>
+                <option value="0">점검구역</option>
+                <option value="1">점검구역</option>
+                <option value="2">점검구역</option>
+                <option value="3">점검구역</option>
+                </select>
+            </div>
+            <button type="button" class="primary-btn btn-large">요약보기</button>
+        </div>
+        <div class="ly_contents">
+            <!--점검항목 -->
+            <div class="checklist-enroll w100">
+                <ul class="checkform">
+                    <li>
+                        <div class="titTypeC">조치진행 사항</div>
+                        <div class="checklog-list">
+                            <div class="work-area-card-id">H-23</div>
+                            <div class="checklist-article-box">
+                                <div class="subject">1. 작업장을 잘 정리하였는가?</div>
+                                <div>21/04/05까지</div>
+                            </div>
+                            <div class="checklist-article-box">
+                                <div class="subject">1. 작업장을 잘 정리하였는가?</div>
+                                <div>21/04/05까지</div>
+                            </div>
+                        </div>
+                        <div class="checklog-list">
+                            <div class="work-area-card-id">H-23</div>
+                            <div class="checklist-article-box">
+                                <div class="subject">1. 작업장을 잘 정리하였는가?</div>
+                                <div>21/04/05까지</div>
+                            </div>
+                            <div class="checklist-article-box">
+                                <div class="subject">1. 작업장을 잘 정리하였는가?</div>
+                                <div>21/04/05까지</div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>    
+                        <div class="titTypeC">현장 조치완료 사항</div>
+                        <div class="checklog-list">
+                            <div class="work-area-card-id">H-23</div>
+                            <div class="checklist-article-box">
+                                <div class="subject">1. 작업장을 잘 정리하였는가?</div>
+                                <div>현장조치</div>
+                            </div>
+                            <div class="checklist-article-box">
+                                <div class="subject">1. 작업장을 잘 정리하였는가?</div>
+                                <div>현장조치</div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="titTypeC">조치완료 예정 사항</div>
+                        <div class="checklog-list">
+                            <div class="work-area-card-id">H-23</div>
+                            <div class="checklist-article-box">
+                                <div class="subject">1. 작업장을 잘 정리하였는가?</div>
+                                <div class="m-hidden day">21/04/05 작성</div>
+                                <div class="chip-staus"><div class="dot red"></div>점검요망</div>
+                                <button type="button" class="m-hidden btn-small second-btn">자세히</button>
+                            </div>
+                            <div class="checklist-article-box">
+                                <div class="subject">1. 작업장을 잘 정리하였는가?</div>
+                                <div class="m-hidden day">21/04/05 작성</div>
+                                <div class="chip-staus"><div class="dot green"></div>조치완료</div>
+                                <button type="button" class="m-hidden btn-small second-btn">자세히</button>
+                            </div>
+                        </div>
+                    </li>	
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- 안전점검일지 작성02 레이어 팝업-->
+<a onclick="document.getElementById('layerPop5').style.display='block'" class="btn-large primary-btn">안전점검일지 작성-type2</a>
+
+<div id="layerPop5" class="modal m-full"><!-- 모달창이 모바일에서 전체로 열릴 경우 class=m-full 추가 -->
+    <div class="ly_pop_container width-middle">
+        <span onclick="document.getElementById('layerPop5').style.display='none'" class="ly_pop-close"></span>
+
+        <h2>안전점검일지 작성</h2>
+        <div class="d-flex j-content-between mgt2">
+            <div class="custom-select w40">
+                <select>
+                <option value="0">제 1성형</option>
+                <option value="1">점검구역</option>
+                <option value="2">점검구역</option>
+                <option value="3">점검구역</option>
+                </select>
+            </div>
+            <button type="button" class="primary-btn btn-large">요약보기</button>
+        </div>
+        <div class="titTypeC mgt1 tR">자동 임시저장 되었습니다.</div>
+        <div class="ly_contents">
+            <button class="accordion" id="defaultOpen">정리정돈</button>
+            <div class="panel">
+                <!--점검항목 -->
+                <div class="checklist-enroll w100">
+                    <ul class="checkform">
+                        <li>
+                            <div class="checklog-list">
+                                <span>점검항목</span>
+                                <div class="d-flex align-center">
+                                    <div class="checklist-article">1. 작업장을 잘 정리하였는가?</div>
+                                    <button type="button" class="line-gray-btn btn-large">양호</button>
+                                    <button type="button" class="line-gray-btn btn-large">불량</button>
+                                </div>
+                                <div class="check-write-input">
+                                    <input type="text" class="check-write-input-content" placeholder="지적사항, 조치 내용을 입력하세요.">
+                                    <div class="check-write-input-option">
+                                        <div class="calendar-picker">
+                                            <input type="text" placeholder="까지">
+                                            <button onclick="document.getElementById('layerPop').style.display='block'" type="button" class="icon-calendar"></button>
+                                        </div>
+                                        <button type="button" class="second-btn btn-large">사진첨부</button>
+                                    </div>
+                                </div>
+                                <div class="swiper-container">
+                                    <img src="images/dummy-profile.jpg">
+                                    <img src="images/dummy-profile.jpg">
+									<img src="images/dummy-profile.jpg">
+                                    <img src="images/dummy-profile.jpg">
+                                    <img src="images/dummy-profile.jpg">
+                                </div>
+                           
+                                <div class="mgt2">
+                                    <div class="d-flex align-center">
+										<div class="checklist-article">2. 작업장을 잘 정리하였는가?</div>
+										<button type="button" class="line-gray-btn btn-large">양호</button>
+										<button type="button" class="line-gray-btn btn-large">불량</button>
+									</div>
+									<div class="check-write-input">
+										<input type="text" class="check-write-input-content" placeholder="지적사항, 조치 내용을 입력하세요.">
+										<div class="check-write-input-option">
+											<div class="calendar-picker">
+												<input type="text" placeholder="까지">
+												<button onclick="document.getElementById('layerPop').style.display='block'" type="button" class="icon-calendar"></button>
+											</div>
+											<button type="button" class="second-btn btn-large">사진첨부</button>
+										</div>
+									</div>
+									<div class="swiper-container">
+										<img src="images/dummy-profile.jpg">
+										<img src="images/dummy-profile.jpg">
+										<img src="images/dummy-profile.jpg">
+										<img src="images/dummy-profile.jpg">
+										<img src="images/dummy-profile.jpg">
+									</div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+			
+			<button class="accordion" id="defaultOpen">보호구 착용상태</button>
+            <div class="panel">
+                <!--점검항목 -->
+                <div class="checklist-enroll w100">
+                    <ul class="checkform">
+                        <li>
+                            <div class="checklog-list">
+                                <span>점검항목</span>
+                                <div class="d-flex align-center">
+                                    <div class="checklist-article">1. 보호구는 착용하고 있는가?</div>
+                                    <button type="button" class="line-gray-btn btn-large">양호</button>
+                                    <button type="button" class="line-gray-btn btn-large">불량</button>
+                                </div>
+                                <div class="check-write-input">
+                                    <input type="text" class="check-write-input-content" placeholder="지적사항, 조치 내용을 입력하세요.">
+                                    <div class="check-write-input-option">
+                                        <div class="calendar-picker">
+                                            <input type="text" placeholder="까지">
+                                            <button onclick="document.getElementById('layerPop').style.display='block'" type="button" class="icon-calendar"></button>
+                                        </div>
+                                        <button type="button" class="second-btn btn-large">사진첨부</button>
+                                    </div>
+                                </div>
+                                <div class="swiper-container">
+                                    <img src="images/dummy-profile.jpg">
+                                    <img src="images/dummy-profile.jpg">
+									<img src="images/dummy-profile.jpg">
+                                    <img src="images/dummy-profile.jpg">
+                                    <img src="images/dummy-profile.jpg">
+                                </div>
+                           
+                                <div class="mgt2">
+                                    <div class="d-flex align-center">
+										<div class="checklist-article">2. 작업장을 잘 정리하였는가?</div>
+										<button type="button" class="line-gray-btn btn-large">양호</button>
+										<button type="button" class="line-gray-btn btn-large">불량</button>
+									</div>
+									<div class="check-write-input">
+										<input type="text" class="check-write-input-content" placeholder="지적사항, 조치 내용을 입력하세요.">
+										<div class="check-write-input-option">
+											<div class="calendar-picker">
+												<input type="text" placeholder="까지">
+												<button onclick="document.getElementById('layerPop').style.display='block'" type="button" class="icon-calendar"></button>
+											</div>
+											<button type="button" class="second-btn btn-large">사진첨부</button>
+										</div>
+									</div>
+									<div class="swiper-container">
+										<img src="images/dummy-profile.jpg">
+										<img src="images/dummy-profile.jpg">
+										<img src="images/dummy-profile.jpg">
+										<img src="images/dummy-profile.jpg">
+										<img src="images/dummy-profile.jpg">
+									</div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="btn-wrap">
+            <button type="button" onclick="document.getElementById('layerPop2').style.display='none'" class="btn-large primary-btn">점검완료</button>
+        </div>
+    </div>
+</div>
+
+
+<!-- 안전점검일지 작성03 레이어 팝업-->
+<a onclick="document.getElementById('layerPop6').style.display='block'" class="btn-large primary-btn">안전점검일지 작성-type3</a>
+
+<div id="layerPop6" class="modal m-full"><!-- 모달창이 모바일에서 전체로 열릴 경우 class=m-full 추가 -->
+    <div class="ly_pop_container width-middle">
+        <span onclick="document.getElementById('layerPop6').style.display='none'" class="ly_pop-close"></span>
+
+        <h2>21.06.11 안전점검일지</h2>
+        <div class="d-flex j-content-between mgt2">
+            <div class="custom-select w40">
+                <select>
+                <option value="0">제 1성형</option>
+                <option value="1">점검구역</option>
+                <option value="2">점검구역</option>
+                <option value="3">점검구역</option>
+                </select>
+            </div>
+            <button type="button" class="primary-btn btn-large">요약보기</button>
+        </div>
+		<div class="sort__area mgt1">
+			<a href="#" class="chip-sort">조치진행<strong>83</strong></a>
+			<a href="#" class="chip-sort active">현장조치<strong>23</strong></a>
+		</div>
+        <div class="ly_contents">
+            <button class="accordion" id="defaultOpen">정리정돈</button>
+            <div class="panel">
+                <!--점검항목 -->
+                <div class="checklist-enroll w100">
+                    <ul class="checkform">
+                        <li>
+                            <div class="checklog-list">
+                                <span>점검항목</span>
+                                <div class="d-flex align-center">
+                                    <div class="checklist-article">1. 작업장을 잘 정리하였는가?</div>
+                                    <button type="button" class="line-gray-btn btn-large">양호</button>
+                                    <button type="button" class="line-gray-btn btn-large">불량</button>
+                                </div>
+                                <div class="check-write-input">
+                                    <div class="check-write-input-content">
+										Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo
+									</div>
+                                    <div class="check-write-input-option">
+                                        <div class="calendar-picker">
+                                            <input type="text" placeholder="21.04.00까지">
+                                            <button onclick="document.getElementById('layerPop').style.display='block'" type="button" class="icon-calendar"></button>
+                                        </div>
+                                        <button type="button" class="second-btn btn-large">조치완료</button>
+                                    </div>
+                                </div>
+                                <div class="swiper-container">
+                                    <img src="images/dummy-profile.jpg">
+                                    <img src="images/dummy-profile.jpg">
+									<img src="images/dummy-profile.jpg">
+                                    <img src="images/dummy-profile.jpg">
+                                    <img src="images/dummy-profile.jpg">
+                                </div>
+                           
+                                <div class="mgt2">
+                                    <div class="d-flex align-center">
+										<div class="checklist-article">2. 작업장을 잘 정리하였는가?</div>
+										<button type="button" class="line-gray-btn btn-large">양호</button>
+										<button type="button" class="line-gray-btn btn-large">불량</button>
+									</div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+			
+			<button class="accordion" id="defaultOpen">보호구 착용상태</button>
+            <div class="panel">
+                <!--점검항목 -->
+                <div class="checklist-enroll w100">
+                    <ul class="checkform">
+                        <li>
+                            <div class="checklog-list">
+                                <span>점검항목</span>
+                                <div class="d-flex align-center">
+                                    <div class="checklist-article">1. 보호구는 착용하고 있는가?</div>
+                                    <button type="button" class="line-gray-btn btn-large">양호</button>
+                                    <button type="button" class="line-gray-btn btn-large">불량</button>
+                                </div>
+                                <div class="check-write-input">
+                                    <div class="check-write-input-content">
+										Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo
+									</div>
+                                    <div class="check-write-input-option">
+                                        <div class="calendar-picker">
+                                            <input type="text" placeholder="까지">
+                                            <button onclick="document.getElementById('layerPop').style.display='block'" type="button" class="icon-calendar"></button>
+                                        </div>
+                                        <button type="button" class="second-btn btn-large">사진첨부</button>
+                                    </div>
+                                </div>
+                                <div class="swiper-container">
+                                    <img src="images/dummy-profile.jpg">
+                                    <img src="images/dummy-profile.jpg">
+									<img src="images/dummy-profile.jpg">
+                                    <img src="images/dummy-profile.jpg">
+                                    <img src="images/dummy-profile.jpg">
+                                </div>
+                           
+                                <div class="mgt2">
+                                    <div class="d-flex align-center">
+										<div class="checklist-article">2. 작업장을 잘 정리하였는가?</div>
+										<button type="button" class="line-gray-btn btn-large">양호</button>
+										<button type="button" class="line-gray-btn btn-large">불량</button>
+									</div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="btn-wrap">
+            <button type="button" onclick="document.getElementById('layerPop2').style.display='none'" class="btn-large primary-btn">점검완료</button>
+        </div>
+    </div>
+</div>
+
+
+<!-- 사고조치 레이어 팝업-->
+<a onclick="document.getElementById('accident_action').style.display='block'" class="btn-large primary-btn">사고조치</a>
+
+<div id="accident_action" class="modal">
+    <div class="ly_pop_container">
+        <span onclick="document.getElementById('accident_action').style.display='none'" class="ly_pop-close"></span>
+
+        <h2>사고조치</h2>
+        <div class="ly_contents">
+			<ul class="form__write">
+				<li>
+					<label>조치상태 <span class="dirty">*</span></label>
+					<div>
+						<label class="custom-radio">완료
+							<input type="radio" checked="checked">
+							<span class="radio-checkmark"></span>
+						</label>
+					</div>
+				</li>
+				<li>
+					<label>중대재해 설정</label>
+					<div>
+						<label class="custom-radio">중대재해
+							<input type="radio">
+							<span class="radio-checkmark"></span>
+						</label>
+					</div>
+				</li>
+				<li>
+					<label>조치사항 <span class="dirty">*</span></label>
+					<div><textarea rows="5"></textarea></div>
+				</li>
+			</ul>
+		</div>
+        
+        <div class="btn-wrap">
+            <button type="button" onclick="document.getElementById('accident_action').style.display='none'" class="btn-large line-primary-btn">취소</button>
+            <button type="button" onclick="document.getElementById('accident_action').style.display='none'" class="btn-large primary-btn">저장</button>
+        </div>
+    </div>
+</div>
+	
+<!-- 메시지발송 레이어 팝업-->
+<a onclick="document.getElementById('msg_send').style.display='block'" class="btn-large primary-btn">메시지발송</a>
+
+<div id="msg_send" class="modal">
+    <div class="ly_pop_container">
+        <span onclick="document.getElementById('msg_send').style.display='none'" class="ly_pop-close"></span>
+
+        <h2>메시지발송</h2>
+        <div class="ly_contents">
+			<ul class="form__write">
+				<li>
+					<label>작업자</label>
+					<div>
+						<input type="text" disabled>
+					</div>
+				</li>
+				<li>
+					<label>메시지 내용</label>
+					<div><textarea rows="5"></textarea></div>
+				</li>
+			</ul>
+		</div>
+        
+        <div class="btn-wrap">
+            <button type="button" onclick="document.getElementById('msg_send').style.display='none'" class="btn-large line-primary-btn">취소</button>
+            <button type="button" onclick="document.getElementById('msg_send').style.display='none'" class="btn-large primary-btn">전송</button>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+<script src="js/custom.js"></script>
+
+
+</body>
+</html>

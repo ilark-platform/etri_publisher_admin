@@ -1,1 +1,1 @@
-# etri_publisher_admin
+demo: https://dev-jtkim.github.io/etri_publisher/

@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <title>ETRI</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="css/custom.css">
+
+</head>
+
+<body>
+
+<div class="join__wrap">
+    <div class="subject">
+        <img src="images/logo.png">
+        <h2 class="mgt1">한국타이어 산업안전관리 시스템</h2>
+    </div>
+    <h3 class="titTypeB">관리자등록</h3>
+    <div class="join-form">
+        <ul class="col2"><!-- 07/08 필드 순서 변경 -->
+            <li>
+                <span>아이디</span>
+                <input type="text" placeholder="아이디를 입력하세요">
+            </li>
+            <li>
+                <span>비밀번호</span>
+                <div style="position: relative;">
+                    <input type="password" placeholder="영문, 숫자, 특수문자를 조합한 8자리 이상" value="FakePSW" id="myInput">
+                    <a href="#" onclick="myFunction()" class="icon-password"></a><!-- 비밀번호 보이기 -->
+                </div>
+            </li>
+			<li>
+                <span>이름</span>
+                <input type="text">
+            </li>
+            <li>
+                <span>비밀번호 재확인</span>
+                <input type="password" placeholder="위에 입력한 비밀번호를 다시 한 번 입력하세요">
+            </li>
+			<li>
+                <span>부서 (파트)</span>
+                <select>
+                    <option>소속부서</option><option></option>
+                </select>
+            </li>
+            <li>
+                <span>이메일</span>
+                <div class="d-flex j-content-between align-center">
+                    <input type="text" class="w20">@<input type="text" class="w30">
+                    <select class="w40">
+                        <option>직접입력</option><option>naver.com</option>
+                    </select>
+                </div>
+            </li>
+            <li>
+                <span>직급</span>
+                <select>
+                    <option>직급</option><option></option>
+                </select>
+            </li>
+            <li>
+                <span>본인연락처</span>
+                <div class="d-flex j-content-between align-center">
+                    <select class="w30">
+                        <option>010</option><option>011</option>
+                    </select>
+                    -
+                    <input type="text" class="w30">-<input type="text" class="w30">
+                </div>
+            </li>
+            <li>
+                <span>등록 계정 타입</span>
+                <select>
+                    <option>안전관리자</option><option></option>
+                </select>
+            </li>
+            <li>
+                <span class="d-flex j-content-between align-center">비상연락망<a href="#" class="second-btn btn-small">추가하기</a></span>
+                <div class="d-flex j-content-between align-center">
+                    <select class="w30">
+                        <option>010</option><option>011</option>
+                    </select>
+                    -
+                    <input type="text" class="w30">-<input type="text" class="w30">
+                </div>
+            </li>
+            <li>
+                <span>주소</span>
+                <div class="d-flex j-content-between align-center">
+                    <input type="text">
+                    <button type="button" class="mgl1 btn-large second-btn">우편번호 찾기</button>
+                </div>
+                <input type="text" class="mgt1">
+            </li>
+        </ul>
+        <div class="tR">
+            <button type="button" class="w20 btn-large primary-btn" onclick="document.getElementById('layerPop_confirm').style.display='block'">등록</button>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- 비밀번호 재설정 layer popup-->
+<div id="layerPop_confirm" class="modal">
+    <div class="ly_pop_container ly-alert">
+        <span onclick="document.getElementById('layerPop_confirm').style.display='none'" class="ly_pop-close"></span>
+        <p>
+            <span class="d-block titTypeA">등록계정타입 : {{계정타입}}</span>
+            <br>  
+            계정 생성 승인이 요청되었습니다.
+        </p>
+        <div class="btn-wrap">
+            <button type="button" onclick="document.getElementById('layerPop_confirm').style.display='none'" class="btn-large primary-btn">확인</button>
+        </div>
+    </div>
+</div>
+<!--// 비밀번호 재설정 layer popup-->
+
+
+<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+<script src="js/custom.js"></script>
+
+
+</body>
+</html>

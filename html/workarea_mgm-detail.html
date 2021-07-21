@@ -1,0 +1,530 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <title>ETRI</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="css/custom.css">
+
+</head>
+
+<body>
+
+<div class="wrap">
+	<!-- header -->
+    <div class="header">
+		<div class="header__title">
+			<span>한국타이어 대전공장 안전관리시스템</span>
+		</div>
+		<div class="header__menu__toggle">
+			<div class="header__menu__hamburger">
+				<input class="hamburger__menu__btn" type="checkbox"/>
+
+				<span class="toolbar-menu"></span>
+
+				<div class="header__menu-area">
+					<div class="side__menu-list__close">
+						<span class="close"></span>
+					</div>
+					<!-- menu -->
+					<div class="side__menu-list">
+						<button class="accordion">사고관리</button>
+						<div class="panel">
+							<a href="#">전체사고관리</a>
+							<a href="#">AI종합진단</a>
+							<a href="#">AI개인진단</a>
+						</div>
+						<a class="accordion ">안전점검일지</a>
+						<button class="accordion">작업관리</button>
+						<div class="panel">
+							<a href="#">작업자관리</a>
+							<a href="#">작업구역관리</a>
+							<a href="#">체크리스트관리</a>
+						</div>
+						<a class="accordion">운영기기관리</a>
+						<button class="accordion">메시지관리</button>
+						<div class="panel">
+							<a href="#">메시지관리</a>
+							<a href="#">메시지템플릿</a>
+						</div>
+						<a class="accordion">설정</a>
+					</div>
+					<!-- //menu -->
+				</div>
+			</div>
+		</div>
+		
+		<div class="header__utility">
+			<a href="#" class="icon-alret"><span class="dot red">5</span></a>
+			<a href="#" class="icon-mail"><span class="dot green"></span></a>
+			<span class="user-info">
+				<a href="#" onclick="myFunction_userInfo()"><img src="images/dummy-profile.jpg"><span>홍길동</span> 안전관리자</a>
+				<div id="myDropdown" class="profile-container">
+					<img src="images/dummy-profile.jpg" class="profile-photo">
+					<div class="profile-info">
+						<span>홍길동</span>안전관리자</a>
+						<a href="#">Logout</a><a href="#">Setting</a>
+					</div>
+				</div>
+			</span>
+		</div>
+    </div>
+	
+	<div class="header__sub">
+		<div class="f-left">
+			<span class="today">2021-06-01 월요일</span>
+			<span class="noday">무재해 <strong>71</strong>일</span>
+		</div>
+		<div class="f-right">
+			<div class="emerg">
+				<a href="#">긴급사고 프로토콜 실행</a> <a href="#">구조대 지원 호출</a>
+			</div>
+			<div class="notice__area">
+				<span class="notice__area--date">2021-04-15</span>
+				<a href="#">5월 1일 지게차 안전점검을 실시합니다. <u>자세히보기</u></a>
+				<span class="icon-modify"><a href="#"></a></span>
+			</div>
+		</div>
+	</div>
+	
+	<header class="app">
+		<a href="#" class="preBtn">이전</a>
+		<h2>작업구역 상세정보</h2>
+	</header>
+	<div class="contents">
+        <div class="container">
+            <div class="titTypeA">작업구역관리</div>
+            <div class="container-box">
+
+				<div class="tab">
+                    <button class="tablinks" onclick="openCity(event, 'work-area-info')" id="defaultOpen">작업구역정보</button>
+                    <button class="tablinks" onclick="openCity(event, 'work-operation')">운영현황</button>
+                </div>
+				<!--작업구역정보 상세정보 -->
+				<div id="work-area-info" class="tabcontent clearfix mgt1">
+                    <!--작업구역정보 상세정보;;작업구역-->
+					<div class="worak-area-divide">
+						<div class="titTypeB">작업구역 상세정보</div>
+						<div class="info__wrap mgt2">
+							<ul class="col2">
+								<li><span>작업구역명</span>H-23</li>
+								<li><span>작업구역ID</span>H03</li>
+								<li><span>위험구역설정</span><button type="button" class="red-btn btn-small">위험구역</button></li>
+								<li><span>안전지수</span>23</li>
+								<li><span>출입허가</span><button type="button" class="second-btn btn-small">통제구역</button></li>
+								<li><span>작업인원</span>1234 명</li>
+								<li><span>운영기기 수</span>1234 개</li>
+								<li style="width:100%">
+									<span>작업공정</span>
+									<ul>
+										<li class="chip-sort">양생공정 1단계</li><li class="chip-sort">양생공정 1단계</li><li class="chip-sort">양생공정 1단계</li><li class="chip-sort">양생공정 1단계</li>
+									</ul>
+								</li>
+							</ul>
+						</div>
+						<button class="accordion">공지사항</button>
+						<div class="panel">
+							
+							
+							<div class="work-area-notice">
+<!-- 공지사항 레이어 팝업-->
+<div id="layerPop" class="modal">
+    <div class="ly_pop_container">
+        <span onclick="document.getElementById('layerPop').style.display='none'" class="ly_pop-close"></span>
+
+        <h2>공지사항</h2>
+		<div class="ly_contents">
+			<ul class="form__write">
+				<li>
+					<label>제목</label>
+					<div><input type="text"></div>
+				</li>
+				<li>
+					<label>공개설정</label>
+					<div>
+						<label class="custom-radio">구역 공지사항
+							<input type="radio" checked="checked">
+							<span class="radio-checkmark"></span>
+						</label>
+						<label class="custom-radio">전체 공지사항
+							<input type="radio">
+							<span class="radio-checkmark"></span>
+						</label>
+					</div>
+				</li>
+				<li>
+					<label>내용</label>
+					<div><textarea rows="5"></textarea></div>
+				</li>
+			</ul>
+		</div>
+        
+        <div class="btn-wrap">
+            <button type="button" onclick="document.getElementById('layerPop').style.display='none'" class="btn-large line-primary-btn">취소</button>
+            <button type="button" onclick="document.getElementById('layerPop').style.display='none'" class="btn-large primary-btn">등록</button>
+        </div>
+    </div>
+</div>
+<!-- //공지사항 레이어 팝업-->
+
+								<div class="d-flex j-content-between mgt1">
+									<span>H-23</span>
+									<button onclick="document.getElementById('layerPop').style.display='block'" class="line-primary-btn btn-small">작성하기</button>
+								</div>
+								
+								<div class="operate__area">
+									<button class="operate-list accordion">
+										<div class="opetation"><strong>16</strong></div>
+										<h2>최근 주요한 사고가 다수 발생했습니다.</h2>
+										<div class="operate-info">21/04/00 12:00:00<strong>홍길동</strong></div>
+									</button>
+									<div class="panel">
+										<div class="tR">
+											<button type="button" class="line-gray-btn btn-small">삭제</button>
+											<button type="button" class="line-primary-btn btn-small">수정</button>
+										</div>
+										Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar sic tempor. Sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus pronin sapien nunc accuan eget.
+									</div>
+									
+									<button class="operate-list accordion">
+										<div class="opetation"><span class="icon-notice"></span></div>
+										<h2>최근 주요한 사고가 다수 발생했습니다.</h2>
+										<div class="operate-info">21/04/00 12:00:00<strong>홍길동</strong></div>
+									</button>
+									<div class="panel">
+										<div class="tR">
+											<button type="button" class="line-gray-btn btn-small">삭제</button>
+											<button type="button" class="line-primary-btn btn-small">수정</button>
+										</div>
+										Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar sic tempor. Sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus pronin sapien nunc accuan eget.
+									</div>
+									<button class="operate-list accordion">
+										<div class="opetation"><strong>16</strong></div>
+										<h2>최근 주요한 사고가 다수 발생했습니다.</h2>
+										<div class="operate-info">21/04/00 12:00:00<strong>홍길동</strong></div>
+									</button>
+									<div class="panel">
+										<div class="tR">
+											<button type="button" class="line-gray-btn btn-small">삭제</button>
+											<button type="button" class="line-primary-btn btn-small">수정</button>
+										</div>
+										Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar sic tempor. Sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus pronin sapien nunc accuan eget.
+									</div>
+									<div class="panel">
+										<div class="tR">
+											<button type="button" class="line-gray-btn btn-small">삭제</button>
+											<button type="button" class="line-primary-btn btn-small">수정</button>
+										</div>
+										Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar sic tempor. Sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus pronin sapien nunc accuan eget.
+									</div>
+									<button class="operate-list accordion">
+										<div class="opetation"><strong>16</strong></div>
+										<h2>최근 주요한 사고가 다수 발생했습니다.</h2>
+										<div class="operate-info">21/04/00 12:00:00<strong>홍길동</strong></div>
+									</button>
+									<div class="panel">
+										<div class="tR">
+											<button type="button" class="line-gray-btn btn-small">삭제</button>
+											<button type="button" class="line-primary-btn btn-small">수정</button>
+										</div>
+										Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar sic tempor. Sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus pronin sapien nunc accuan eget.
+									</div>
+									<div class="panel">
+										<div class="tR">
+											<button type="button" class="line-gray-btn btn-small">삭제</button>
+											<button type="button" class="line-primary-btn btn-small">수정</button>
+										</div>
+										Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar sic tempor. Sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus pronin sapien nunc accuan eget.
+									</div>
+									<button class="operate-list accordion">
+										<div class="opetation"><strong>16</strong></div>
+										<h2>최근 주요한 사고가 다수 발생했습니다.</h2>
+										<div class="operate-info">21/04/00 12:00:00<strong>홍길동</strong></div>
+									</button>
+									<div class="panel">
+										<div class="tR">
+											<button type="button" class="line-gray-btn btn-small">삭제</button>
+											<button type="button" class="line-primary-btn btn-small">수정</button>
+										</div>
+										Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar sic tempor. Sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus pronin sapien nunc accuan eget.
+									</div>
+									<div class="panel">
+										<div class="tR">
+											<button type="button" class="line-gray-btn btn-small">삭제</button>
+											<button type="button" class="line-primary-btn btn-small">수정</button>
+										</div>
+										Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar sic tempor. Sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus pronin sapien nunc accuan eget.
+									</div>
+									<button class="operate-list accordion">
+										<div class="opetation"><strong>16</strong></div>
+										<h2>최근 주요한 사고가 다수 발생했습니다.</h2>
+										<div class="operate-info">21/04/00 12:00:00<strong>홍길동</strong></div>
+									</button>
+									<div class="panel">
+										<div class="tR">
+											<button type="button" class="line-gray-btn btn-small">삭제</button>
+											<button type="button" class="line-primary-btn btn-small">수정</button>
+										</div>
+										Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar sic tempor. Sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus pronin sapien nunc accuan eget.
+									</div>
+									<button class="operate-list accordion">
+										<div class="opetation"><strong>16</strong></div>
+										<h2>최근 주요한 사고가 다수 발생했습니다.</h2>
+										<div class="operate-info">21/04/00 12:00:00<strong>홍길동</strong></div>
+									</button>
+									<div class="panel">
+										<div class="tR">
+											<button type="button" class="line-gray-btn btn-small">삭제</button>
+											<button type="button" class="line-primary-btn btn-small">수정</button>
+										</div>
+										Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar sic tempor. Sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus pronin sapien nunc accuan eget.
+									</div>
+								</div>
+								<div class="pagination">
+									<a href="#" class="first"></a>
+									<a href="#">1</a>
+									<a class="active" href="#">2</a>
+									<a href="#">3</a>
+									<a href="#">4</a>
+									<a href="#">5</a>
+									<a href="#">6</a>
+									<a href="#" class="last"></a>
+								  </div>
+							</div>
+						</div>
+					</div>
+					<div class="worak-area-divide m-hidden">
+					<!--작업구역정보 상세정보;;실시간 cctv-->
+                    <button class="accordion">실시간 cctv</button>
+						<div class="panel">
+							<div class="cctv_box">
+								<h4>운영기기식별정보</h4>
+								<div>
+									<iframe width="100%" height="160" src="https://www.youtube.com/embed/MbwihiZZjkU?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+								</div>
+							</div>
+							<div class="cctv_box">
+								<h4>운영기기식별정보</h4>
+								<div>
+									<iframe width="100%" height="160" src="https://www.youtube.com/embed/MbwihiZZjkU?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+								</div>
+							</div>
+							<div class="cctv_box">
+								<h4>운영기기식별정보</h4>
+								<div>
+									<iframe width="100%" height="160" src="https://www.youtube.com/embed/MbwihiZZjkU?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="worak-area-divide accident__log">
+						<!--작업구역정보 상세정보;;사고log-->
+						<button class="accordion">사고 LOG</button>
+						<div class="panel">
+							<div class="d-flex j-content-between mgt1">
+								<span><a href="#" class="chip-sort">긴급<strong>83</strong>건</a><a href="#" class="chip-sort">주의<strong>83</strong>건</a></span>
+								<span>21/04/01 13:00:01<a href="#" class="icon-reload"></a></span>
+							</div>
+							<div class="timeline">
+								<div class="timeline-content right">
+								  <div class="timeline-box">
+									<h3>21/04/00 12:00:00 <span>H-23</span> <span>H03</span></h3>
+									<div><span class="icon-accident">사고ID <span class="icon-forklift"></span>지게차ID</span> 충돌사고발생</div>
+								</div>
+								</div>
+								<div class="timeline-content right">
+									<div class="timeline-box">
+										<h3>21/04/00 12:00:00 <span>H-23</span> <span>H03</span></h3>
+										<div><span class="icon-accident">사고ID <span class="icon-forklift"></span>지게차ID</span> 위험레벨1 - 급속회전</div>
+									</div>
+								</div>
+								<div class="timeline-content right">
+									<div class="timeline-box">
+										<h3>21/04/00 12:00:00 <span>H-23</span> <span>H03</span></h3>
+										<div><span class="icon-accident">사고ID <span class="icon-forklift"></span>지게차ID</span> 위험레벨1 - 맥박수 이상</div>
+									  </div>
+								</div>
+								<div class="timeline-content right">
+									<div class="timeline-box">
+									  <h3>21/04/00 12:00:00 <span>H-23</span> <span>H03</span></h3>
+									  <div><span class="icon-accident">사고ID <span class="icon-forklift"></span>지게차ID</span> 충돌사고발생</div>
+								  </div>
+								  </div>
+								  <div class="timeline-content right">
+									  <div class="timeline-box">
+										  <h3>21/04/00 12:00:00 <span>H-23</span> <span>H03</span></h3>
+										  <div><span class="icon-accident">사고ID <span class="icon-forklift"></span>지게차ID</span> 충돌사고발생</div>
+									  </div>
+								  </div>
+								  <div class="timeline-content right">
+									  <div class="timeline-box">
+										  <h3>21/04/00 12:00:00 <span>H-23</span> <span>H03</span></h3>
+										  <div><span class="icon-accident">사고ID <span class="icon-forklift"></span>지게차ID</span> 충돌사고발생</div>
+										</div>
+								  </div>
+								  <div class="timeline-content right">
+									<div class="timeline-box">
+										<h3>21/04/00 12:00:00 <span>H-23</span> <span>H03</span></h3>
+										<div><span class="icon-accident">사고ID <span class="icon-forklift"></span>지게차ID</span> 충돌사고발생</div>
+									  </div>
+								  </div>
+							</div>
+							<div class="d-flex j-content-between mgt1">
+								<a href="#" class="icon-preview">이전</a>
+								<a href="#" class="icon-next">다음</a>
+							</div>
+						</div>
+					</div>
+                </div>
+                <!--운영현황 상세정보-->
+				<div id="work-operation" class="tabcontent clearfix mgt1">
+					<!--운영현황 상세정보;;작업자-->
+                    <button class="accordion">작업자</button>
+                    <div class="panel">
+                        <div class="search__box mgt1">
+                            <ul class="col3">
+                                <li>
+                                    <div class="custom-select">
+                                        <select>
+                                        <option value="0">안전지수</option>
+                                        <option value="1">전체</option>
+                                        <option value="2">출입통제</option>
+                                        <option value="3">출입허용</option>
+                                        </select>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="custom-select">
+                                        <select>
+                                        <option value="0">주시여부</option>
+                                        <option value="1">전체</option>
+                                        <option value="2">높음(61~100)</option>
+                                        <option value="3">보통(30~60)</option>
+                                        <option value="3">낮음(0~29)</option>
+                                        </select>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="custom-select">
+                                        <select>
+                                        <option value="0">건강상태</option>
+                                        <option value="1">전체</option>
+                                        <option value="2">높음(61~100)</option>
+                                        <option value="3">보통(30~60)</option>
+                                        <option value="3">낮음(0~29)</option>
+                                        </select>
+                                    </div>
+                                </li>
+                                <li><input type="text" placeholder="작업자명, 작업공정명"></li>
+                            </ul>
+                            <span class="search__box--button">
+                                <button type="button" class="line-primary-btn btn-large">Search</button>
+                            </span>
+                        </div>
+            
+                        <div class="work-area-tb response-container mgt2">
+                            <table class="response-table">
+                                <thead>
+                                <tr>
+                                    <th>작업자명</th>
+                                    <th>작업공정</th>
+                                    <th>안전지수</th>
+                                    <th>주시여부</th>
+                                    <th>건강상태</th>
+                                    <th>메시지</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <th>
+                                        <a href="#"><img src="images/dummy-profile.jpg" class="profile-photo">홍길동</a>
+                                    </th>
+                                    <td><span>양생공정 1단계</span></td>
+                                    <td data-title="안전지수"><span>29</span></td>
+                                    <td><span><button type="button" class="second-btn btn-small">주시설정</button></span></td>
+                                    <td data-title="건강상태"><span><div class="dot green"></div>보통</span></td>
+                                    <td class="m-hidden"><span><button type="button" class="gray-btn btn-small">메시지 발송</button></span></td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        <a href="#"><img src="images/dummy-profile.jpg" class="profile-photo">홍길동</a>
+                                    </th>
+                                    <td><span>양생공정 1단계</span></td>
+                                    <td data-title="안전지수"><span>29</span></td>
+                                    <td><span><button type="button" class="red-btn btn-small">주시중</button></span></td>
+                                    <td data-title="건강상태"><span><div class="dot blue"></div>양호</span></td>
+                                    <td class="m-hidden"><span><button type="button" class="gray-btn btn-small">메시지 발송</button></span></td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        <a href="#"><img src="images/dummy-profile.jpg" class="profile-photo">홍길동</a>
+                                    </th>
+                                    <td><span>양생공정 1단계</span></td>
+                                    <td data-title="안전지수"><span>29</span></td>
+                                    <td><span><button type="button" class="red-btn btn-small">주시중</button></span></td>
+                                    <td data-title="건강상태"><span><div class="dot orange"></div>주의</span></td>
+                                    <td class="m-hidden"><span><button type="button" class="gray-btn btn-small">메시지 발송</button></span></td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        <a href="#"><img src="images/dummy-profile.jpg" class="profile-photo">홍길동</a>
+                                    </th>
+                                    <td><span>양생공정 1단계</span></td>
+                                    <td data-title="안전지수"><span>29</span></td>
+                                    <td><span><button type="button" class="red-btn btn-small">주시중</button></span></td>
+                                    <td data-title="건강상태"><span><div class="dot red"></div>위험</span></td>
+                                    <td class="m-hidden"><span><button type="button" class="gray-btn btn-small">메시지 발송</button></span></td>
+                                </tr>
+                            </tbody>
+                            </table>
+                        </div>
+                    </div>
+					<!--운영현황 상세정보;;운영기기-->
+                    <button class="accordion">운영기기</button>
+                    <div class="panel">
+                        <div class="sort__area">
+                            <a href="#" class="chip-sort">전체<strong>83</strong></a>
+                            <a href="#" class="chip-sort active">지게차<strong>23</strong></a>
+                            <a href="#" class="chip-sort">CCTV<strong>3</strong></a>
+                            <a href="#" class="chip-sort">Sensor<strong>123</strong></a>
+                        </div>
+						<div class="operate__area">
+							<div class="operate-list">
+								<div class="opetation tool01"></div>
+								<h2>OP-1000</h2>
+								<div class="operate-info">등록일시<strong>2021-05-22 11:23:23</strong>수리이력<strong>10</strong></div>
+								<div class="chip-staus"><span class="dot red"></span>신호없음</div>
+							</div>
+							<div class="operate-list">
+								<div class="opetation tool02"></div>
+								<h2>OP-1000</h2>
+								<div class="operate-info">등록일시<strong>2021-05-22 11:23:23</strong>수리이력<strong>10</strong></div>
+								<div class="chip-staus"><span class="dot green"></span>운영중</div>
+							</div>
+							<div class="operate-list">
+								<div class="opetation tool03"></div>
+								<h2>OP-1000</h2>
+								<div class="operate-info">등록일시<strong>2021-05-22 11:23:23</strong>수리이력<strong>10</strong></div>
+								<div class="chip-staus"><span class="dot orange"></span>점검중</div>
+							</div>
+						</div>
+                        
+                    </div>        
+                </div>
+                
+                
+                
+            </div>
+        </div>
+	</div>
+</div>
+
+<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+<script src="js/custom.js"></script>
+
+
+</body>
+</html>

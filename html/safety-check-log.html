@@ -1,0 +1,339 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <title>ETRI</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="css/custom.css">
+
+</head>
+
+<body>
+
+<div class="wrap">
+	<!-- header -->
+    <div class="header">
+		<div class="header__title">
+			<span>한국타이어 대전공장 안전관리시스템</span>
+		</div>
+		<div class="header__menu__toggle">
+			<div class="header__menu__hamburger">
+				<input class="hamburger__menu__btn" type="checkbox"/>
+
+				<span class="toolbar-menu"></span>
+
+				<div class="header__menu-area">
+					<div class="side__menu-list__close">
+						<span class="close"></span>
+					</div>
+                    <!-- LNB 개인정보 영역 -->
+					<div class="header_myinfo">
+						<div class="header-profile">
+							<img src="images/dummy-profile.jpg" class="profile-photo">
+							<div class="emergency"><span class="dot red"></span>주시대상</div><!-- 주시대상 상태에 따라 추가 -->
+						</div>
+						<div class="profile-info">
+							<span>홍길동</span>ID : 776</a>
+							<div>타이어 성형 2팀 | A08</div>
+							<a href="#">Logout</a><a href="#">Setting</a>
+						</div>
+					</div>
+					<!--// LNB 개인정보 영역 -->
+					<!-- menu -->
+					<div class="side__menu-list">
+						<button class="accordion">사고관리</button>
+						<div class="panel">
+							<a href="#">전체사고관리</a>
+							<a href="#">AI종합진단</a>
+							<a href="#">AI개인진단</a>
+						</div>
+						<a class="accordion ">안전점검일지</a>
+						<button class="accordion">작업관리</button>
+						<div class="panel">
+							<a href="#">작업자관리</a>
+							<a href="#">작업구역관리</a>
+							<a href="#">체크리스트관리</a>
+						</div>
+						<a class="accordion">운영기기관리</a>
+						<button class="accordion">메시지관리</button>
+						<div class="panel">
+							<a href="#">메시지관리</a>
+							<a href="#">메시지템플릿</a>
+						</div>
+						<a class="accordion">설정</a>
+					</div>
+					<!-- //menu -->
+				</div>
+			</div>
+		</div>
+
+		
+	<!--긴급사고 알림 snackbar -->
+		<div id="snackbar">
+			<span onclick="this.parentElement.style.display='none';" class="ly_pop-close"></span>
+			<h2>긴급사고 / 주의상황 알림</h2>
+				<div class="ly_emerg_con">
+					<span class="icon-emerg"></span>
+					<span>
+					타이어 적재 작업구역에서<br>
+					<strong>지게차(ID번호) 충돌 사고가 발생</strong>했습니다.
+					<h4 class="mgt1">
+						2021-01-01 15:23:41 <strong>운전자 : 홍길동</strong>
+					</h4>
+					<button type="button" class="btn-small second-btn mgt1">자세히 보기</button>
+				</span>
+				</div>
+			<div class="btn-wrap">
+				<button type="button" class="btn-large line-darkgray-btn">이동</button>
+				<button type="button" class="btn-large red-btn">다음알림</button>
+			</div>
+		</div>
+	<!--//긴급사고 알림 snackbar -->
+
+		<div class="header__utility">
+			<a href="#" class="icon-alret" onclick="snackFunction()"><span class="dot red">5</span></a>
+			<a href="#" class="icon-mail"><span class="dot green">2</span></a>
+			<span class="user-info">
+				<a href="#" onclick="myFunction_userInfo()"><img src="images/dummy-profile.jpg"><span>홍길동</span> 안전관리자</a>
+				<div id="myDropdown" class="profile-container">
+					<img src="images/dummy-profile.jpg" class="profile-photo">
+					<div class="profile-info">
+						<span>홍길동</span>안전관리자</a>
+						<a href="#">Logout</a><a href="#">Setting</a>
+					</div>
+				</div>
+			</span>
+		</div>
+    </div>
+	<div class="header__sub">
+		<div class="f-left">
+			<span class="today">2021-06-01 월요일</span>
+			<span class="noday">무재해 <strong>71</strong>일</span>
+		</div>
+		<div class="f-right">
+			<div class="emerg">
+				<a href="#">긴급사고 프로토콜 실행</a> <a href="#">구조대 지원 호출</a>
+			</div>
+			<div class="notice__area">
+				<span class="notice__area--date">2021-04-15</span>
+				<a href="#">5월 1일 지게차 안전점검을 실시합니다. <u>자세히보기</u></a>
+				<span class="icon-modify"><a href="#"></a></span>
+			</div>
+		</div>
+	</div>
+	
+<!-- 조치이력 관리 레이어 팝업-->
+<div id="layerPop" class="modal">
+    <div class="ly_pop_container width-middle">
+        <span onclick="document.getElementById('layerPop').style.display='none'" class="ly_pop-close"></span>
+
+        <h2>조치이력 관리</h2>
+		<div class="ly_contents">
+            <div class="search__box mgt2">
+				<ul class="col4">
+					<li>
+						<div class="custom-select">
+							<select>
+							<option value="0">년</option>
+							<option value="1">2020</option>
+							<option value="2">2019</option>
+							<option value="3">2018</option>
+							</select>
+						</div>
+					</li>
+					<li>
+						<div class="custom-select">
+							<select>
+							<option value="0">월</option>
+							<option value="1">1월</option>
+							<option value="2">2월</option>
+							<option value="3">3월</option>
+							</select>
+						</div>
+					</li>
+					<li>
+						<div class="custom-select">
+							<select>
+							<option value="0">조치여부</option>
+							<option value="1">전체</option>
+							<option value="2">조치완료</option>
+							<option value="3">조치예정</option>
+							</select>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div class="response-container" style="height:300px">
+				<table class="response-table">
+					<thead>
+						<tr>
+							<th>해당 구역</th>
+							<th>조치내용</th>
+							<th>작성일</th>
+							<th>완료일</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>H-23</td>
+							<td>Lorem ipsum dolor sit amet</td>
+							<td>2020/11/12</td>
+							<td>2020/11/12</td>
+						</tr>
+						<tr>
+							<td>H-23</td>
+							<td>Lorem ipsum dolor sit amet</td>
+							<td>2020/11/12</td>
+							<td><span class="primary">2021/11/12</span></td><!--조치 완료 예정 항목일 경우 class="primary"-->
+						</tr>
+						<tr>
+							<td>H-23</td>
+							<td>Lorem ipsum dolor sit amet</td>
+							<td>2020/11/12</td>
+							<td><span class="primary">2021/11/12</span></td>
+						</tr>
+                        <tr>
+							<td>H-23</td>
+							<td>Lorem ipsum dolor sit amet</td>
+							<td>2020/11/12</td>
+							<td><span class="primary">2021/11/12</span></td>
+						</tr>
+						<tr>
+							<td>H-23</td>
+							<td>Lorem ipsum dolor sit amet</td>
+							<td>2020/11/12</td>
+							<td><span class="primary">2021/11/12</span></td>
+						</tr>
+						<tr>
+							<td>H-23</td>
+							<td>Lorem ipsum dolor sit amet</td>
+							<td>2020/11/12</td>
+							<td><span class="primary">2021/11/12</span></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+    </div>
+</div>
+<!-- //조치이력 관리 레이어 팝업-->	
+	<div class="contents">
+        <div class="container">
+            <div class="d-flex j-content-between align-center">
+				<div class="titTypeA">안전 점검 일지</div>
+                <div>
+                    <button type="button" onclick="document.getElementById('layerPop').style.display='block'" class="line-primary-btn btn-large">조치이력 관리</button>
+                    <button type="button" class="line-primary-btn btn-large">점검일지 관리</button>
+                </div>
+			</div>
+            <div class="container-box safetyCheck_wrap">
+                <div class="titTypeB">
+                    점검일지 리스트
+                </div>
+                <div class="d-flex j-content-between align-center mgt1">
+                    <div class="custom-select w20">
+                        <select>
+                        <option value="0">2021/04</option>
+                        <option value="1">2021/03</option>
+                        <option value="2">2021/02</option>
+                        <option value="3">2021/01</option>
+                        </select>
+                    </div>
+                    <div>
+                        <button type="button" class="second-btn btn-small">공유</button>
+                        <button type="button" class="second-btn btn-small">리스트 인쇄</button>
+                        <button type="button" class="second-btn btn-small">PDF 출력</button>
+                        <button type="button" class="second-btn btn-small">엑셀다운로드</button>
+                    </div>
+                </div>
+
+                <div class="safetyCheck-calendar mgt1">
+                    <table>
+                        <thead>
+                            <tr><th>월</th><th>화</th><th>수</th><th>목</th><th>금</th><th>토</th><th>일</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="check-request"><!-- 양호율이 50%이하일 경우 추가 class=check-request -->
+                                    <span class="day">12</span>
+                                    <h3>양호율<span>32%</span></h3>
+                                    <ul class="list">
+                                        <li>점검요망<span class="select">12</span></li><!-- 숫자 개수에 따라 배경색이 다른 경우 class=select -->
+                                        <li>조치진행<span>12</span></li>
+                                        <li>현장조치<span>12</span></li>
+                                    </ul>
+                                    <button type="button" class="line-primary-btn btn-small">자세히 보기</button>
+                                </td>
+                                <td>
+                                    <span class="day">13</span>
+                                    <h3>양호율<span>88%</span></h3>
+                                    <ul class="list">
+                                        <li>점검요망<span class="select">12</span></li>
+                                        <li>조치진행<span class="select">12</span></li>
+                                        <li>현장조치<span>12</span></li>
+                                    </ul>
+                                    <button type="button" class="line-primary-btn btn-small">자세히 보기</button>
+                                </td>
+                                <td class="pre-checking"><!-- 오늘날자 이전에 점검요망일 경우 class=pre-checking  -->
+                                    <span class="day">13</span>
+                                    <h3></h3>
+                                    <ul class="list">
+                                        <li>점검요망<span>0</span></li>
+                                    </ul>
+                                </td>
+                                <td class="today"><!-- 오늘날자일 경우 class=today -->
+                                    <span class="day">13</span>
+                                    <h3>점검중</h3>
+                                    <ul class="list">
+                                        <li>점검요망<span class="select">12</span></li>
+                                        <li>조치진행<span class="select">12</span></li>
+                                        <li>현장조치<span>12</span></li>
+                                    </ul>
+                                    <button type="button" class="primary-btn btn-small">작성하기</button>
+                                </td>
+                                <td>
+                                    <span class="day">13</span>
+                                    <h3>양호율<span>88%</span></h3>
+                                    <ul class="list">
+                                        <li>점검요망<span class="select">12</span></li>
+                                        <li>조치진행<span class="select">12</span></li>
+                                        <li>현장조치<span>12</span></li>
+                                    </ul>
+                                    <button type="button" class="line-primary-btn btn-small">자세히 보기</button>
+                                </td>
+                                <td>
+                                    <span class="day">13</span>
+                                    <h3></h3>
+                                    <ul class="list">
+                                        <li>점검요망<span>12</span></li>
+                                    </ul>
+                                    <button type="button" class="line-primary-btn btn-small">자세히 보기</button>
+                                </td>
+                                <td>
+                                    <span class="day">13</span>
+                                    <h3>양호율<span>88%</span></h3>
+                                    <ul class="list">
+                                        <li>점검요망<span class="select">12</span></li>
+                                        <li>조치진행<span class="select">12</span></li>
+                                        <li>현장조치<span>12</span></li>
+                                    </ul>
+                                    <button type="button" class="line-primary-btn btn-small">자세히 보기</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+	</div>
+</div>
+
+<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+<script src="js/custom.js"></script>
+
+
+</body>
+</html>

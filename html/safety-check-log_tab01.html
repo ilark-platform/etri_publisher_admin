@@ -1,0 +1,426 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <title>ETRI</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="css/custom.css">
+
+</head>
+
+<body>
+
+<div class="wrap">
+	<!-- header -->
+    <div class="header">
+		<div class="header__title">
+			<span>한국타이어 대전공장 안전관리시스템</span>
+		</div>
+		<div class="header__menu__toggle">
+			<div class="header__menu__hamburger">
+				<input class="hamburger__menu__btn" type="checkbox"/>
+
+				<span class="toolbar-menu"></span>
+
+				<div class="header__menu-area">
+					<div class="side__menu-list__close">
+						<span class="close"></span>
+					</div>
+                    <!-- LNB 개인정보 영역 -->
+					<div class="header_myinfo">
+						<div class="header-profile">
+							<img src="images/dummy-profile.jpg" class="profile-photo">
+							<div class="emergency"><span class="dot red"></span>주시대상</div><!-- 주시대상 상태에 따라 추가 -->
+						</div>
+						<div class="profile-info">
+							<span>홍길동</span>ID : 776</a>
+							<div>타이어 성형 2팀 | A08</div>
+							<a href="#">Logout</a><a href="#">Setting</a>
+						</div>
+					</div>
+					<!--// LNB 개인정보 영역 -->
+					<!-- menu -->
+					<div class="side__menu-list">
+						<button class="accordion">사고관리</button>
+						<div class="panel">
+							<a href="#">전체사고관리</a>
+							<a href="#">AI종합진단</a>
+							<a href="#">AI개인진단</a>
+						</div>
+						<a class="accordion ">안전점검일지</a>
+						<button class="accordion">작업관리</button>
+						<div class="panel">
+							<a href="#">작업자관리</a>
+							<a href="#">작업구역관리</a>
+							<a href="#">체크리스트관리</a>
+						</div>
+						<a class="accordion">운영기기관리</a>
+						<button class="accordion">메시지관리</button>
+						<div class="panel">
+							<a href="#">메시지관리</a>
+							<a href="#">메시지템플릿</a>
+						</div>
+						<a class="accordion">설정</a>
+					</div>
+					<!-- //menu -->
+				</div>
+			</div>
+		</div>
+
+		
+	<!--긴급사고 알림 snackbar -->
+		<div id="snackbar">
+			<span onclick="this.parentElement.style.display='none';" class="ly_pop-close"></span>
+			<h2>긴급사고 / 주의상황 알림</h2>
+				<div class="ly_emerg_con">
+					<span class="icon-emerg"></span>
+					<span>
+					타이어 적재 작업구역에서<br>
+					<strong>지게차(ID번호) 충돌 사고가 발생</strong>했습니다.
+					<h4 class="mgt1">
+						2021-01-01 15:23:41 <strong>운전자 : 홍길동</strong>
+					</h4>
+					<button type="button" class="btn-small second-btn mgt1">자세히 보기</button>
+				</span>
+				</div>
+			<div class="btn-wrap">
+				<button type="button" class="btn-large line-darkgray-btn">이동</button>
+				<button type="button" class="btn-large red-btn">다음알림</button>
+			</div>
+		</div>
+	<!--//긴급사고 알림 snackbar -->
+
+		<div class="header__utility">
+			<a href="#" class="icon-alret" onclick="snackFunction()"><span class="dot red">5</span></a>
+			<a href="#" class="icon-mail"><span class="dot green">2</span></a>
+			<span class="user-info">
+				<a href="#" onclick="myFunction_userInfo()"><img src="images/dummy-profile.jpg"><span>홍길동</span> 안전관리자</a>
+				<div id="myDropdown" class="profile-container">
+					<img src="images/dummy-profile.jpg" class="profile-photo">
+					<div class="profile-info">
+						<span>홍길동</span>안전관리자</a>
+						<a href="#">Logout</a><a href="#">Setting</a>
+					</div>
+				</div>
+			</span>
+		</div>
+    </div>
+	<div class="header__sub">
+		<div class="f-left">
+			<span class="today">2021-06-01 월요일</span>
+			<span class="noday">무재해 <strong>71</strong>일</span>
+		</div>
+		<div class="f-right">
+			<div class="emerg">
+				<a href="#">긴급사고 프로토콜 실행</a> <a href="#">구조대 지원 호출</a>
+			</div>
+			<div class="notice__area">
+				<span class="notice__area--date">2021-04-15</span>
+				<a href="#">5월 1일 지게차 안전점검을 실시합니다. <u>자세히보기</u></a>
+				<span class="icon-modify"><a href="#"></a></span>
+			</div>
+		</div>
+	</div>
+	
+	<div class="contents">
+        <div class="container">
+            <div class="d-flex j-content-between align-center">
+				<div class="titTypeA">안전 점검 일지</div>
+                <div>
+                    <button type="button" onclick="document.getElementById('layerPop').style.display='block'" class="line-primary-btn btn-large">조치이력 관리</button>
+                    <button type="button" class="line-primary-btn btn-large">점검일지 관리</button>
+                </div>
+			</div>
+            <div class="container-box safetyCheck_wrap">
+                <div class="tab">
+                    <button class="tablinks" onclick="openCity(event, 'safety-check-log01')" id="defaultOpen">구역별 점검일지</button>
+                    <button class="tablinks" onclick="openCity(event, 'safety-check-log02')">공정별 항목관리</button>
+                    <button class="tablinks" onclick="openCity(event, 'safety-check-log03')">점검항목 관리</button>
+                </div>
+
+				<!--구역별 점검일지 tab1 -->
+				<div id="safety-check-log01" class="tabcontent clearfix mgt1">
+                    <!--구역별 점검일지 전체 -->
+                    <div class="checklist_wrap">
+                        <!--구역명 목록 -->
+                        <div class="divide mgt2">
+                            <div class="titTypeB">구역명</div>
+                            <ul class="work-area-card">
+                                <li>
+                                    <a class="work-area-card-id">H-23</a>
+                                </li>
+                                <li>
+                                    <a class="work-area-card-id">H-23</a>
+                                </li>
+                                <li>
+                                    <a class="work-area-card-id">H-23</a>
+                                </li>
+                                <li>
+                                    <a class="work-area-card-id">H-23</a>
+                                </li>
+                                <li>
+                                    <a class="work-area-card-id">H-23</a>
+                                </li>
+                                <li>
+                                    <a class="work-area-card-id">H-23</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!--구역명 편집화면 -->
+                        <div class="checklist-enroll mgt2">
+                            <div class="titTypeB">H-23</div>
+                            
+                            <ul class="checkform mgt1">
+                                <li><span>작업공정</span>
+                                    <div class="d-flex j-content-between">
+                                        <div class="checklist-chip">
+                                            <a class="chip-sort"><strong>양생공정 1단계</strong><button type="button" class="icon-cancle" onclick="this.parentElement.style.display='none'"></button></a>
+                                            <a class="chip-sort"><strong>양생공정 1단계</strong><button type="button" class="icon-cancle"></button></a>
+                                            <a class="chip-sort"><strong>양생공정 1단계</strong><button type="button" class="icon-cancle"></button></a>
+                                        </div>
+                                        <button type="button" class="second-btn btn-large">추가</button>
+                                    </div>
+                                    <div class="info__wrap mgt1">
+                                        <a class="chip-sort">양생공정 1단계</a>
+                                        <a class="chip-sort">양생공정 1단계</a>
+                                        <a class="chip-sort">양생공정 1단계</a>
+                                        <a class="chip-sort">양생공정 1단계</a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="titTypeC mgt2">공정명</div>
+                                    <span>부문</span>
+                                    <div class="checklog-list">
+                                        <span>점검항목</span>
+                                        <div class="d-flex">
+                                            <div class="checklist-article">1. 작업장을 잘 정리하였는가?</div>
+                                            <button type="button" class="line-gray-btn btn-large disabled">양호</button>
+                                            <button type="button" class="line-gray-btn btn-large disabled">불량</button>
+                                        </div>
+                                        <div class="d-flex">
+                                            <div class="checklist-article">2. 작업장을 잘 정리하였는가?</div>
+                                            <button type="button" class="line-gray-btn btn-large disabled">양호</button>
+                                            <button type="button" class="line-gray-btn btn-large disabled">불량</button>
+                                        </div>
+                                    </div>
+                                    <span>부문</span>
+                                    <div class="checklog-list">
+                                        <span>점검항목</span>
+                                        <div class="d-flex">
+                                            <div class="checklist-article">1. 작업장을 잘 정리하였는가?</div>
+                                            <button type="button" class="line-gray-btn btn-large disabled">양호</button>
+                                            <button type="button" class="line-gray-btn btn-large disabled">불량</button>
+                                        </div>
+                                        <div class="d-flex">
+                                            <div class="checklist-article">2. 작업장을 잘 정리하였는가?</div>
+                                            <button type="button" class="line-gray-btn btn-large disabled">양호</button>
+                                            <button type="button" class="line-gray-btn btn-large disabled">불량</button>
+                                        </div>
+                                    </div>
+                                </li>	
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+				<!--공정별 항목관리 tab2 -->
+				<div id="safety-check-log02" class="tabcontent clearfix mgt1">
+                    <!--공정별 항목관리 전체 -->
+                    <div class="checklist_wrap">
+                        <!--공정별 점검항목 -->
+                        <div class="checklist-enroll divide">
+                            <div class="titTypeB d-flex j-content-between mgt2">
+                                <div class="custom-select w30">
+                                    <select>
+                                    <option value="0">공정명</option>
+                                    <option value="1">전체</option>
+                                    <option value="2">공정명</option>
+                                    <option value="3">공정명</option>
+                                    </select>
+                                </div>
+                                <button type="button" class="primary-btn btn-large">신규추가</button>
+                            </div>
+                            <ul class="checkform">
+                                <li>
+                                    <div class="titTypeC">공정명</div>
+                                    <span>부문</span>
+                                    <div class="checklog-list">
+                                        <span>점검항목</span>
+                                        <div class="d-flex">
+                                            <div class="checklist-article">1. 작업장을 잘 정리하였는가?</div>
+                                            <button type="button" class="line-gray-btn btn-large disabled">삭제</button>
+                                        </div>
+                                        <div class="d-flex">
+                                            <div class="checklist-article">1. 작업장을 잘 정리하였는가?</div>
+                                            <button type="button" class="line-gray-btn btn-large disabled">삭제</button>
+                                        </div>
+                                    </div>
+                                    <span>부문</span>
+                                    <div class="checklog-list">
+                                        <span>점검항목</span>
+                                        <div class="d-flex">
+                                            <div class="checklist-article">1. 작업장을 잘 정리하였는가?</div>
+                                            <button type="button" class="line-gray-btn btn-large disabled">삭제</button>
+                                        </div>
+                                        <div class="d-flex">
+                                            <div class="checklist-article">1. 작업장을 잘 정리하였는가?</div>
+                                            <button type="button" class="line-gray-btn btn-large disabled">삭제</button>
+                                        </div>
+                                    </div>
+                                </li>	
+                            </ul>
+                            <div class="btn-wrap">
+                                <button type="button" class="btn-large primary-btn">저장</button>
+                            </div>
+                        </div>
+
+                        <!--전체 점검항목 리스트 -->
+                        <div class="checklist-enroll mgt2">
+                            <div class="titTypeB tR">
+                                <button type="button" class="second-btn btn-large">선택등록</button>
+                            </div>
+                            <ul class="checkform mgt2">
+                                <li>
+                                    <span>부문</span>
+                                    <div class="checklog-list">
+                                        <span>점검항목</span>
+                                        <div class="d-flex">
+                                            <div class="checklist-article">1. 작업장을 잘 정리하였는가?</div>
+                                            <button type="button" class="line-gray-btn btn-large disabled">선택</button>
+                                        </div>
+                                        <div class="d-flex">
+                                            <div class="checklist-article">2. 작업장을 잘 정리하였는가?</div>
+                                            <button type="button" class="line-gray-btn btn-large disabled">선택</button>
+                                        </div>
+                                    </div>
+                                    <span>부문</span>
+                                    <div class="checklog-list">
+                                        <span>점검항목</span>
+                                        <div class="d-flex">
+                                            <div class="checklist-article">1. 작업장을 잘 정리하였는가?</div>
+                                            <button type="button" class="line-gray-btn btn-large disabled">선택</button>
+                                        </div>
+                                        <div class="d-flex">
+                                            <div class="checklist-article">2. 작업장을 잘 정리하였는가?</div>
+                                            <button type="button" class="line-gray-btn btn-large disabled">선택</button>
+                                        </div>
+                                    </div>
+                                </li>	
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+				<!--점검항목 관리 tab3 -->
+				<div id="safety-check-log03" class="tabcontent clearfix mgt1">
+                    <!--점검항목 관리 전체 -->
+                    <div class="checklist_wrap">
+                        <!--점검부문 추가 -->
+                        <div class="checklist-enroll divide mgt2">
+                            <div class="titTypeB mgt2">
+                                점검부문 추가
+                            </div>
+                            <ul class="checkform">
+                                <li>
+                                    <span>부문명</span>
+                                    <div class="d-flex">
+                                        <input type="text" placeholder=""><button type="button" class="second-btn btn-large">저장</button>
+                                    </div>
+                                </li>	
+                            </ul>
+                        </div>
+
+                        <!--전체 점검항목 리스트 -->
+                        <div class="checklist-enroll mgt2">
+                            <div class="titTypeB d-flex j-content-between align-center">
+                                <div class="custom-select w30">
+                                    <select>
+                                    <option value="0">전체</option>
+                                    <option value="1">공정명</option>
+                                    <option value="2">공정명</option>
+                                    <option value="3">공정명</option>
+                                    </select>
+                                </div>
+                                <button type="button" class="primary-btn btn-large">항목추가</button>
+                            </div>
+                            <ul class="checkform">
+                                <li>
+                                    <span>부문</span>
+                                    <div class="d-flex">
+                                        <div class="custom-select w30">
+                                            <select>
+                                            <option value="0">전체</option>
+                                            <option value="1">공정명</option>
+                                            <option value="2">공정명</option>
+                                            <option value="3">공정명</option>
+                                            </select>
+                                        </div>
+                                        <input type="text" placeholder="기계설비의 청소나 정비상태는 좋은가?">
+                                        <button type="button"  onclick="document.getElementById('layerPop2').style.display='block'"  class="line-primary-btn btn-large">등록</button>
+                                        <button type="button" class="line-gray-btn btn-large">삭제</button>
+                                    </div>
+                                    <div class="d-flex">
+                                        <div class="checklist-article02">정리정돈</div>
+                                        <input type="text" placeholder="기계설비의 청소나 정비상태는 좋은가?" disabled>
+                                        <button type="button" class="line-gray-btn btn-large">수정</button>
+                                        <button type="button" class="line-gray-btn btn-large">삭제</button>
+                                    </div>
+                                    <div class="d-flex">
+                                        <div class="checklist-article02">정리정돈</div>
+                                        <input type="text" placeholder="기계설비의 청소나 정비상태는 좋은가?" disabled>
+                                        <button type="button" class="line-gray-btn btn-large">수정</button>
+                                        <button type="button" class="line-gray-btn btn-large">삭제</button>
+                                    </div>
+                                </li>	
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+	</div>
+</div>
+<!-- 항목 등록 layer popup-->
+<div id="layerPop2" class="modal">
+    <div class="ly_pop_container">
+        <span onclick="document.getElementById('layerPop2').style.display='none'" class="ly_pop-close"></span>
+
+        <h2>등록하기</h2>
+        <div class="ly_contents" style="height:100px;overflow:visible">
+			<ul class="form__write mgt2">
+				<li>
+					<div class="d-flex j-content-between">
+                        <div class="custom-select w30">
+                            <select>
+                            <option value="0">부문명</option>
+                            <option value="1">부문명</option>
+                            <option value="2">부문명</option>
+                            <option value="3">부문명</option>
+                            </select>
+                        </div>
+                        <input type="text" placeholder="작업장의 정리정돈 상태는?">
+                    </div>
+				</li>
+			</ul>
+		</div>
+        
+        <div class="btn-wrap">
+            <button type="button" onclick="document.getElementById('layerPop2').style.display='none'" class="btn-large line-primary-btn">취소</button>
+            <button type="button" onclick="document.getElementById('layerPop2').style.display='none'" class="btn-large primary-btn">저장</button>
+        </div>
+    </div>
+</div>
+<!--// 항목 등록 layer popup-->
+
+
+<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+<script src="js/custom.js"></script>
+
+
+</body>
+</html>

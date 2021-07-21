@@ -1,0 +1,364 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <title>ETRI</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="css/custom.css">
+
+</head>
+
+<body>
+
+<div class="wrap">
+	<!-- header -->
+    <div class="header">
+		<div class="header__title">
+			<span>한국타이어 대전공장 안전관리시스템</span>
+		</div>
+		<div class="header__menu__toggle">
+			<div class="header__menu__hamburger">
+				<input class="hamburger__menu__btn" type="checkbox"/>
+
+				<span class="toolbar-menu"></span>
+
+				<div class="header__menu-area">
+					<div class="side__menu-list__close">
+						<span class="close"></span>
+					</div>
+                    <!-- LNB 개인정보 영역 -->
+					<div class="header_myinfo">
+						<div class="header-profile">
+							<img src="images/dummy-profile.jpg" class="profile-photo">
+							<div class="emergency"><span class="dot red"></span>주시대상</div><!-- 주시대상 상태에 따라 추가 -->
+						</div>
+						<div class="profile-info">
+							<span>홍길동</span>ID : 776</a>
+							<div>타이어 성형 2팀 | A08</div>
+							<a href="#">Logout</a><a href="#">Setting</a>
+						</div>
+					</div>
+					<!--// LNB 개인정보 영역 -->
+					<!-- menu -->
+					<div class="side__menu-list">
+						<button class="accordion">사고관리</button>
+						<div class="panel">
+							<a href="#">전체사고관리</a>
+							<a href="#">AI종합진단</a>
+							<a href="#">AI개인진단</a>
+						</div>
+						<a class="accordion ">안전점검일지</a>
+						<button class="accordion">작업관리</button>
+						<div class="panel">
+							<a href="#">작업자관리</a>
+							<a href="#">작업구역관리</a>
+							<a href="#">체크리스트관리</a>
+						</div>
+						<a class="accordion">운영기기관리</a>
+						<button class="accordion">메시지관리</button>
+						<div class="panel">
+							<a href="#">메시지관리</a>
+							<a href="#">메시지템플릿</a>
+						</div>
+						<a class="accordion">설정</a>
+					</div>
+					<!-- //menu -->
+				</div>
+			</div>
+		</div>
+
+		
+	<!--긴급사고 알림 snackbar -->
+		<div id="snackbar">
+			<span onclick="this.parentElement.style.display='none';" class="ly_pop-close"></span>
+			<h2>긴급사고 / 주의상황 알림</h2>
+				<div class="ly_emerg_con">
+					<span class="icon-emerg"></span>
+					<span>
+					타이어 적재 작업구역에서<br>
+					<strong>지게차(ID번호) 충돌 사고가 발생</strong>했습니다.
+					<h4 class="mgt1">
+						2021-01-01 15:23:41 <strong>운전자 : 홍길동</strong>
+					</h4>
+					<button type="button" class="btn-small second-btn mgt1">자세히 보기</button>
+				</span>
+				</div>
+			<div class="btn-wrap">
+				<button type="button" class="btn-large line-darkgray-btn">이동</button>
+				<button type="button" class="btn-large red-btn">다음알림</button>
+			</div>
+		</div>
+	<!--//긴급사고 알림 snackbar -->
+
+		<div class="header__utility">
+			<a href="#" class="icon-alret" onclick="snackFunction()"><span class="dot red">5</span></a>
+			<a href="#" class="icon-mail"><span class="dot green">2</span></a>
+			<span class="user-info">
+				<a href="#" onclick="myFunction_userInfo()"><img src="images/dummy-profile.jpg"><span>홍길동</span> 안전관리자</a>
+				<div id="myDropdown" class="profile-container">
+					<img src="images/dummy-profile.jpg" class="profile-photo">
+					<div class="profile-info">
+						<span>홍길동</span>안전관리자</a>
+						<a href="#">Logout</a><a href="#">Setting</a>
+					</div>
+				</div>
+			</span>
+		</div>
+    </div>
+	
+	<div class="header__sub">
+		<div class="f-left">
+			<span class="today">2021-06-01 월요일</span>
+			<span class="noday">무재해 <strong>71</strong>일</span>
+		</div>
+		<div class="f-right">
+			<div class="emerg">
+				<a href="#">긴급사고 프로토콜 실행</a> <a href="#">구조대 지원 호출</a>
+			</div>
+			<div class="notice__area">
+				<span class="notice__area--date">2021-04-15</span>
+				<a href="#">5월 1일 지게차 안전점검을 실시합니다. <u>자세히보기</u></a>
+				<span class="icon-modify"><a href="#"></a></span>
+			</div>
+		</div>
+	</div>
+	
+	<div class="contents">
+        <div class="container ai-total">
+			<div class="d-flex j-content-between align-center">
+				<div class="titTypeA">AI안전진단 리포트</div> <!--07/08 타이틀명 변경 -->
+				<button type="button" class="primary-btn btn-large icon-pdf">PDF로 저장</button>
+			</div>
+            
+            <div class="container-box">
+				<div class="search__box mgt2">
+                    <ul>
+                        <li>
+							<button type="button" class="btn-large primary-btn">일간</button>
+						</li>
+                        <li>
+                            <div class="custom-select">
+                                <select>
+                                <option value="0">2021/04/13</option>
+                                <option value="1">2021/04/12</option>
+                                <option value="2">2021/04/11</option>
+                                <option value="3">2021/04/10</option>
+                                </select>
+                            </div>
+                        </li>
+					</ul>
+				</div>
+				
+				<div class="d-flex j-content-between mgt2">
+					<div class="ai-con01 w100">
+						<p>
+						{{월}}월 {{일}}일 {{회사명}} 작업자의 평균 안전지수는 <strong class="emergency">{{nn}}점</strong>입니다.</p>
+						평균 근로시간은 {{평균근로시간}} 시간이며, 작업자들의 건강상태는 대체로 {{건강상태}} 상태입니다.<br>
+						사고 위험이 가장 자주 발생하는 시간대는 {{시간대}} 로, 해당 시간대에 전 구역에 대한 주시가 필요합니다.<br><br>
+						{{회사명}} 작업자의 일 평균 사고, 주의상황 발생 빈도는 {{사고빈도}} 입니다.<br> 
+						전국 일 평균 사고 빈도는 {{전국 평균 사고 빈도}} 로, 위급한 사고가 발생하지 않도록 최다 발생 주의 사고인 {{위험원인}} 에 특히 유의해야 합니다.
+					</div>
+				</div>
+				<div class="d-flex j-content-between mgt2">
+					<div class="ai-con04">
+						<div class="w50">
+							<h2 class="titTypeC">작업자 안전지수</h2>
+							<img src="images/graph02.jpg">
+						</div>
+						<div class="w50 mgt1">
+							<div class="summary-card-wrap">
+								<span class="summary-card">
+									<h6>평균 근로시간</h6>
+									<strong>9.5 h</strong>
+								</span>
+								<span class="summary-card">
+									<h6>평균 건강상태</h6>
+									<strong>양호</strong>
+								</span>
+								<span class="summary-card">
+									<h6>평균 사고빈도</h6>
+									<strong>5회/일</strong>
+								</span>
+								<span class="summary-card">
+									<h6>위험 빈발 시간대</h6>
+									<strong>3시</strong>
+								</span>
+							</div> 
+						</div>
+					</div>
+					
+					<div class="ai-con05 response-container">
+						<h2 class="titTypeC">주시 권장 작업자</h2>
+						
+						<table class="response-table">
+							<tbody>
+								<tr>
+									<td>1</td>
+									<td><a href="#" class="worker-name photo-dot"><img src="images/dummy-profile.jpg" class="profile-photo"><strong>홍길동</strong></a></td><!-- 프로필사진에 선택점 추가시 class=photo-dot -->
+									<td>안전지수<div class="num">20점</div></td>
+									<td><button type="button" class="red-btn btn-small">주시중</button></td>
+									<td><button onclick="document.getElementById('layerPop').style.display='block'" type="button" class="gray-btn btn-small">메시지 발송</button></td>
+								</tr>
+								<tr>
+									<td>2</td>
+									<td><a href="#" class="worker-name"><img src="images/dummy-profile.jpg" class="profile-photo"><strong>홍길동</strong></a></td>
+									<td>안전지수<div class="num">50점</div></td>
+									<td><button type="button" class="red-btn btn-small">주시중</button></td>
+									<td><button onclick="document.getElementById('layerPop').style.display='block'" type="button"  class="gray-btn btn-small">메시지 발송</button></td>
+								</tr>
+								<tr>
+									<td>3</td>
+									<td><a href="#" class="worker-name"><img src="images/dummy-profile.jpg" class="profile-photo"><strong>홍길동</strong></a></td>
+									<td>안전지수<div class="num">30점</div></td>
+									<td><button type="button" class="red-btn btn-small">주시중</button></td>
+									<td><button onclick="document.getElementById('layerPop').style.display='block'" type="button" class="gray-btn btn-small" >메시지 발송</button></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+<!-- 메시지 발송 레이어 팝업-->
+<div id="layerPop" class="modal">
+    <div class="ly_pop_container">
+        <span onclick="document.getElementById('layerPop').style.display='none'" class="ly_pop-close"></span>
+
+        <h2>메시지 발송</h2>
+        <div class="ly_contents">
+			<ul class="form__write">
+				<li>
+					<label>작업자</label>
+					<div><input type="text"></div>
+				</li>
+				<li>
+					<label>메시지 내용</label>
+					<div><textarea rows="5"></textarea></div>
+				</li>
+			</ul>
+		</div>
+        
+        <div class="btn-wrap">
+            <button type="button" onclick="document.getElementById('layerPop').style.display='none'" class="btn-large line-primary-btn">취소</button>
+            <button type="button" onclick="document.getElementById('layerPop').style.display='none'" class="btn-large primary-btn">전송</button>
+        </div>
+    </div>
+</div>
+<!-- //메시지 발송 레이어 팝업-->
+				
+			<div class="search__box">
+				<ul class="col5">
+					<li><input type="text" placeholder="작업자명"></li>
+					<li><input type="text" placeholder="작업자ID"></li>
+					<li><input type="text" placeholder="작업자명"></li>
+					<li>
+						<div class="custom-select">
+							<select>
+							<option value="0">조치상태</option>
+							<option value="1">전체</option>
+							<option value="2">높음(61~100)</option>
+							<option value="3">보통(30~60)</option>
+							<option value="3">낮음(0~29)</option>
+							</select>
+						</div>
+					</li>
+					<li>
+						<label class="custom-checkbox">미평가 조회
+							<input type="checkbox">
+							<span class="checkmark"></span>
+						</label>
+					</li>
+				</ul>
+				<span class="search__box--button">
+					<button type="button" class="line-primary-btn btn-large">Search</button>
+				</span>
+			</div>
+
+			<div class="response-container">
+				<table class="response-table">
+					<thead>
+					<tr>
+						<th>리포트 ID</th>
+						<th>작업자명</th>
+						<th>작업자 ID</th>
+						<th>안전지수</th>
+						<th>생성일시</th>
+						<th>AI리포트 열람</th>
+						<th>체크리스트 작성</th>
+						<th>작업종료</th>
+						<th>평가서 상태</th>
+					</tr>
+					</thead>
+					<tbody>
+					<tr>
+						<td><span>1</span></td>
+						<td><a href="#" class="worker-name"><img src="images/dummy-profile.jpg" class="profile-photo"><strong>홍길동</strong></a></td>
+						<td><span>12345</span></td>
+						<td><span>50점</span></td>
+						<td><span>21/11/12 13:12</span></td>
+						<td><span>열람</span></td>
+						<td><span>Y</span></td>
+						<td><span>Y</span></td>
+						<td><div class="chip-staus"><span class="dot gray"></span>미평가</div></td><!-- 미평가 일 경우 dot 색상 class=gray, 작성완료일 경우 class=blue -->
+					</tr>
+					<tr>
+						<td><span>1</span></td>
+						<td><a href="#" class="worker-name"><img src="images/dummy-profile.jpg" class="profile-photo"><strong>홍길동</strong></a></td>
+						<td><span>12345</span></td>
+						<td><span>50점</span></td>
+						<td><span>21/11/12 13:12</span></td>
+						<td><span>열람</span></td>
+						<td><span>Y</span></td>
+						<td><span>Y</span></td>
+						<td><div class="chip-staus"><span class="dot blue"></span>작성완료</div></td>
+					</tr>
+					<tr>
+						<td><span>1</span></td>
+						<td><a href="#" class="worker-name"><img src="images/dummy-profile.jpg" class="profile-photo"><strong>홍길동</strong></a></td>
+						<td><span>12345</span></td>
+						<td><span>50점</span></td>
+						<td><span>21/11/12 13:12</span></td>
+						<td><span>열람</span></td>
+						<td><span>Y</span></td>
+						<td><span>Y</span></td>
+						<td><div class="chip-staus"><span class="dot gray"></span>미평가</div></td>
+					</tr>
+					<tr>
+						<td><span>1</span></td>
+						<td><a href="#" class="worker-name"><img src="images/dummy-profile.jpg" class="profile-photo"><strong>홍길동</strong></a></td>
+						<td><span>12345</span></td>
+						<td><span>50점</span></td>
+						<td><span>21/11/12 13:12</span></td>
+						<td><span>열람</span></td>
+						<td><span>Y</span></td>
+						<td><span>Y</span></td>
+						<td><div class="chip-staus"><span class="dot gray"></span>미평가</div></td>
+					</tr>
+				</tbody>
+				</table>
+				<div class="pagination mgt2">
+					<a href="#" class="first"></a>
+					<a href="#">1</a>
+					<a class="active" href="#">2</a>
+					<a href="#">3</a>
+					<a href="#">4</a>
+					<a href="#">5</a>
+					<a href="#">6</a>
+					<a href="#" class="last"></a>
+				</div>
+			</div>
+
+									
+				</div>
+            </div>
+        </div>
+	</div>
+</div>
+
+<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+<script src="js/custom.js"></script>
+
+
+</body>
+</html>
