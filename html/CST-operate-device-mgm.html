@@ -1,0 +1,1105 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <title>ETRI</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+</head>
+
+<body>
+
+<div class="wrap">
+	<!-- header -->
+    <div class="header m-hidden">
+		<div class="header__title">
+			<span>한국타이어 대전공장 안전관리시스템</span>
+		</div>
+		<div class="header__menu__toggle">
+			<div class="header__menu__hamburger">
+				<input class="hamburger__menu__btn" type="checkbox"/>
+
+				<span class="toolbar-menu"></span>
+
+				<div class="header__menu-area">
+					<div class="side__menu-list__close">
+						<span class="close"></span>
+					</div>
+                    <!-- LNB 개인정보 영역 -->
+					<div class="header_myinfo">
+						<div class="header-profile">
+							<img src="images/dummy-profile.jpg" class="profile-photo">
+							<div class="emergency"><span class="dot red"></span>주시대상</div><!-- 주시대상 상태에 따라 추가 -->
+						</div>
+						<div class="profile-info">
+							<span>홍길동</span>ID : 776</a>
+							<div>타이어 성형 2팀 | A08</div>
+							<a href="#">Logout</a><a href="#">Setting</a>
+						</div>
+					</div>
+					<!--// LNB 개인정보 영역 -->
+					<!-- menu -->
+					<div class="side__menu-list">
+						<button class="accordion">사고관리</button>
+						<div class="panel">
+							<a href="#">전체사고관리</a>
+							<a href="#">AI종합진단</a>
+							<a href="#">AI개인진단</a>
+						</div>
+						<a class="accordion ">안전점검일지</a>
+						<button class="accordion">작업관리</button>
+						<div class="panel">
+							<a href="#">작업자관리</a>
+							<a href="#">작업구역관리</a>
+							<a href="#">체크리스트관리</a>
+						</div>
+						<a class="accordion">운영기기관리</a>
+						<button class="accordion">메시지관리</button>
+						<div class="panel">
+							<a href="#">메시지관리</a>
+							<a href="#">메시지템플릿</a>
+						</div>
+						<a class="accordion">설정</a>
+					</div>
+					<!-- //menu -->
+				</div>
+			</div>
+		</div>
+
+		
+	<!--긴급사고 알림 snackbar -->
+		<div id="snackbar">
+			<span onclick="this.parentElement.style.display='none';" class="ly_pop-close"></span>
+			<h2>긴급사고 / 주의상황 알림</h2>
+				<div class="ly_emerg_con">
+					<span class="icon-emerg"></span>
+					<span>
+					타이어 적재 작업구역에서<br>
+					<strong>지게차(ID번호) 충돌 사고가 발생</strong>했습니다.
+					<h4 class="mgt1">
+						2021-01-01 15:23:41 <strong>운전자 : 홍길동</strong>
+					</h4>
+					<button type="button" class="btn-small second-btn mgt1">자세히 보기</button>
+				</span>
+				</div>
+			<div class="btn-wrap">
+				<button type="button" class="btn-large line-darkgray-btn">이동</button>
+				<button type="button" class="btn-large red-btn">다음알림</button>
+			</div>
+		</div>
+	<!--//긴급사고 알림 snackbar -->
+
+		<div class="header__utility">
+			<a href="#" class="icon-alret" onclick="snackFunction()"><span class="dot red">5</span></a>
+			<a href="#" class="icon-mail"><span class="dot green">2</span></a>
+			<span class="user-info">
+				<a href="#" onclick="myFunction_userInfo()"><img src="images/dummy-profile.jpg"><span>홍길동</span> 안전관리자</a>
+				<div id="myDropdown" class="profile-container">
+					<img src="images/dummy-profile.jpg" class="profile-photo">
+					<div class="profile-info">
+						<span>홍길동</span>안전관리자</a>
+						<a href="#">Logout</a><a href="#">Setting</a>
+					</div>
+				</div>
+			</span>
+		</div>
+    </div>
+	<div class="header__sub m-hidden">
+		<div class="f-left">
+			<span class="today">2021-06-01 월요일</span>
+			<span class="noday">무재해 <strong>71</strong>일</span>
+		</div>
+		<div class="f-right">
+			<div class="emerg">
+				<a href="#">긴급사고 프로토콜 실행</a> <a href="#">구조대 지원 호출</a>
+			</div>
+			<div class="notice__area">
+				<span class="notice__area--date">2021-04-15</span>
+				<a href="#">5월 1일 지게차 안전점검을 실시합니다. <u>자세히보기</u></a>
+				<span class="icon-modify"><a href="#"></a></span>
+			</div>
+		</div>
+	</div>
+	
+	<header class="app">
+		<a href="#" class="preBtn">이전</a>
+		<h2>운영기기 관리</h2>
+	</header>
+
+	
+<!-- 운영기기 등록 레이어 팝업-->
+<div id="layerPop-operateEnroll" class="modal m-full"><!-- 모달창이 모바일에서 전체로 열릴 경우 class=m-full 추가 -->
+    <div class="ly_pop_container width-middle">
+        <span onclick="document.getElementById('layerPop-operateEnroll').style.display='none'" class="ly_pop-close"></span>
+        <h2>새로운 기기 등록 <span class="titTypeC mgl1">21/01/01</span></h2>
+		<div class="ly_contents">
+			<div class="tab">
+				<button class="tablinks active" onclick="openCity(event, 'operate_device_enroll')">하나의 기기 등록</button>
+				<button class="tablinks" onclick="openCity(event, 'operate_device_enrolls')">여러개의 기기 등록</button>
+			</div>
+			<!--하나의 기기 등록 tab -->
+			<div id="operate_device_enroll" class="tabcontent clearfix mgt1">
+				<div class="basic_form mgt1">
+					<table>
+						<colgroup><col style="width:20%"><col style="width:30%"><col style="width:20%"><col style="width:30%"></colgroup>
+						<tbody>
+							<tr>
+								<th>기기종류</th>
+								<td>
+									<div class="custom-select">
+										<select>
+											<option value="0">전체</option>
+											<option value="1">CCTV</option>
+											<option value="2">Sensors</option>
+										</select>
+									</div>
+								</td>
+								<th>설치구역</th>
+								<td>
+									<div class="custom-select">
+										<select>
+											<option value="0">전체</option>
+											<option value="1"></option>
+											<option value="2"></option>
+										</select>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<th>대체기기 찾기</th>
+								<td colspan="3">
+									<div class="custom-select w40">
+										<select>
+											<option value="0">기기종류</option>
+											<option value="1">CCTV</option>
+											<option value="2">Sensors</option>
+										</select>
+									</div>
+									<input type="text" style="width:59%" placeholder="기기 관리번호 입력">
+								</td>
+							</tr>
+							<tr>
+								<th>제품사진</th>
+								<td>
+									<button type="button" class="btn-large second-btn">사진첨부</button>
+								</td>
+								<th>모델명</th>
+								<td>
+									<input type="text">
+								</td>
+							</tr>
+							<tr>
+								<th>제조사</th>
+								<td>
+									<input type="text">
+								</td>
+								<th>제조날짜</th>
+								<td>
+									<div class="calendar-picker">
+										<input type="text">
+										<button onclick="document.getElementById('layerPop').style.display='block'" type="button" class="icon-calendar"></button>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<th>기본 사양서</th>
+								<td colspan="3">
+									<button type="button" class="btn-large second-btn">파일첨부</button>
+									<button type="button" class="btn-large line-gray-btn">직접기입</button>
+								</td>
+							</tr>
+							<tr>
+								<th>KC안전인증번호/인증서류</th>
+								<td colspan="3">
+									<input type="text" style="width:71%">
+									<button type="button" class="btn-large line-gray-btn">인증서류 등록</button>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			
+			<!--여러개의 기기 등록 tab -->
+			<div id="operate_device_enrolls" class="tabcontent clearfix mgt1">
+				<div class="basic_form mgt1">
+					<table>
+						<colgroup><col style="width:20%"><col style="width:70%"></colgroup>
+						<tbody>
+							<tr>
+								<th>파일등록</th>
+								<td>
+									<div class="caution">기기 복수 등록을 위해 아래 샘플 양식을 다운받아 작성 후 등록하세요.</div>
+									<div class="mgt1">
+										<button type="button" class="btn-large line-gray-btn">파일 다운로드</button>
+										<button type="button" class="btn-large second-btn">파일첨부</button>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<th>제품사진</th>
+								<td>
+									<button type="button" class="btn-large second-btn">사진첨부</button>
+								</td>
+							</tr>
+							<tr>
+								<th>기본사양서</th>
+								<td>
+									<button type="button" class="btn-large second-btn">파일첨부</button>
+									<button type="button" class="btn-large line-gray-btn">직접기입</button>
+								</td>
+							</tr>
+							<tr>
+								<th>KC 인증서류</th>
+								<td>
+									<button type="button" class="btn-large line-gray-btn">인증서류 등록</button>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="titTypeC mgt2">총 12개의 기기</div>
+				<div class="info__wrap">
+					<ul class="col4">
+						<li>CCTV <strong>2개</strong></li>
+						<li>Sensors <strong>233개</strong></li>
+						<li>Biometric devices <strong>22개</strong></li>
+					</ul>
+				</div>
+			</div>
+
+		</div>
+		<div class="btn-wrap">
+            <button type="button" onclick="document.getElementById('layerPop--operateEnroll').style.display='none'" class="btn-large primary-btn">등록</button>
+        </div>
+    </div>
+</div>
+<!-- //운영기기 등록 레이어 팝업-->
+	
+<!-- 관리번호 상세정보 레이어 팝업-->
+<div id="layerPop-mgm-detail" class="modal m-full"><!-- 모달창이 모바일에서 전체로 열릴 경우 class=m-full 추가 -->
+    <div class="ly_pop_container width-middle">
+        <span onclick="document.getElementById('layerPop-mgm-detail').style.display='none'" class="ly_pop-close"></span>
+        <h2>상세정보 | 안전점검</h2><!--07/08 세로 구분선 추가 -->
+		<div class="ly_contents">
+			<div class="tab">
+				<button class="tablinks active" onclick="openCity(event, 'operate_detail_info')">상세정보</button>
+				<button class="tablinks" onclick="openCity(event, 'operate_detail_safety')">안전점검</button>
+				<button class="tablinks" onclick="openCity(event, 'operate_detail_history')">디렉팅 로그 히스토리</button>
+			</div>
+			<!--상세정보 tab -->
+			<div id="operate_detail_info" class="tabcontent clearfix mgt1">
+				<div class="titTypeA mgt2">OP0111 <span class="mgl1 primary">Sensors</span></div>
+				<div class="basic_form_ul mgt1">
+					<ul class="col2">
+						<li class="w100">
+							<label>제품사진</label>
+							<div class="com">
+								<img src="images/graph02.jpg" class="maxW100">
+							</div>
+						</li>
+						<li>
+							<label>제조사</label>
+							<div class="com">
+								SEIMENS
+							</div>
+						</li>
+						<li>
+							<label>제조날짜</label>
+							<div class="com">
+								21/01/01
+							</div>
+						</li>
+						<li>
+							<label>모델명</label>
+							<div class="com">
+								XA-22223AR
+							</div>
+						</li>
+						<li>
+							<label>기본 사양서</label>
+							<div class="com">
+								filename.pdf
+							</div>
+						</li>
+						<li>
+							<label>KC인증번호</label>
+							<div class="com">
+								12345
+							</div>
+						</li>
+						<li>
+							<label>KC안전인증서류</label>
+							<div class="com">
+								filename.pdf
+							</div>
+						</li>
+						<li class="w100">
+							<label>설치날짜</label>
+							<div class="com">
+								21/01/01
+							</div>
+						</li>
+						<li class="w100">
+							<label>설치된 구역</label>
+							<div class="com">
+								A구역 394 컨베이어벨트 상단
+								<button type="button" class="btn-small line-gray-btn">위치보기</button>
+							</div>
+						</li>
+						<li class="w100">
+							<label>센서</label>
+							<div class="com">
+								<div class="msg-write">
+									<span class="checklist-chip">
+										<a href="#" class="chip-sort"><strong>OP-01111</strong><span class="icon-cancle" onclick="this.parentElement.style.display='none'"></span></a>
+										<a href="#" class="chip-sort"><strong>OP-01111</strong><span class="icon-cancle"></span></a>
+									</span>
+									<button type="button" class="accordion"><a href="#" class="icon-plus line-gray-btn btn-small"></a></button>
+									<div class="panel" style="max-height: 600px">
+										<input type="text" placeholder="관리번호,모델명을 입력하세요.">
+										<div class="receiver-wrap mgt1">
+											<div class="d-flex j-content-between"><strong>OP-01111 : Sensor ZA-312233AR </strong> <button type="button" class="gray-btn btn-small">등록</button></div>
+											<div class="mgt1 d-flex j-content-between"><strong>OP-01111 : Sensor ZA-312233AR </strong> <button type="button" class="gray-btn btn-small">등록</button></div>
+											<div class="mgt1 d-flex j-content-between"><strong>OP-01111 : Sensor ZA-312233AR </strong> <button type="button" class="gray-btn btn-small">등록</button></div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</li>	
+						<li class="w100">
+							<label>메모(특이사항)</label>
+							<div class="com">
+								<textarea rows="5"></textarea>
+							</div>
+						</li>		
+					</ul>
+				</div>
+			</div>
+			
+			<!--안전점검 tab -->
+			<div id="operate_detail_safety" class="tabcontent clearfix mgt1">
+				<div class="titTypeC mgt2">안전점검 히스토리</div>
+				<div class="response-container">
+					<table class="full-table">
+						<colgroup><col width="10%"><col width="20%"><col width="20%"><col width="50%"></colgroup>
+						<thead>
+							<tr>
+								<th>번호</th>
+								<th>점검날짜</th>
+								<th>점검자</th>
+								<th>내용</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>1</td>
+								<td>21/01/01</td>
+								<td>홍길동</td>
+								<td class="tL">
+									상태: 리코딩이 간헐적으로 작동됨<br>
+									원인: 전원선 상태 불량<br>
+									해결: 전원선 교체
+								</td>
+							</tr>
+							<tr>
+								<td>1</td>
+								<td>21/01/01</td>
+								<td>홍길동</td>
+								<td class="tL">
+									상태: 리코딩이 간헐적으로 작동됨<br>
+									원인: 전원선 상태 불량<br>
+									해결: 전원선 교체
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="titTypeC mgt2">안전점검 리포트 작성</div>
+				<textarea rows="7" class="mgt1">
+리포트번호: SF_OP0001(리포트에서 미리 부여됨)
+점검 날짜:
+점검자:
+원인:
+해결:
+점검결과:</textarea>
+			</div>
+
+			<!--디렉팅 로그 히스토리 tab -->
+			<div id="operate_detail_history" class="tabcontent clearfix mgt1">
+				<div class="response-container">
+					<table class="full-table">
+						<colgroup><col width="20%"><col width="20%"><col width="60%"></colgroup>
+						<thead>
+							<tr>
+								<th>날짜</th>
+								<th>Batch Number</th>
+								<th>Indivisual Log</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>21/01/01</td>
+								<td></td>
+								<td class="tL">
+								</td>
+							</tr>
+							<tr>
+								<td>21/01/01</td>
+								<td></td>
+								<td class="tL">
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+		<div class="btn-wrap">
+            <button type="button" onclick="document.getElementById('layerPop--operateEnroll').style.display='none'" class="btn-large primary-btn">등록</button>
+        </div>
+    </div>
+</div>
+<!-- // 관리번호 상세정보 레이어 팝업-->
+
+<!-- 설치된 구역 레이어 팝업-->
+<div id="layerPop-mgm-location" class="modal">
+    <div class="ly_pop_container">
+        <span onclick="document.getElementById('layerPop-mgm-location').style.display='none'" class="ly_pop-close"></span>
+        <h2>설치된 구역</h2>
+		<div class="ly_contents">
+			<div class="titTypeA mgt1">OP0111 <span class="mgl1 primary">CCTV</span></div>
+			<div class="titTypeC mgt2 worker-detail-location primary">제1성형 <span class="mgl1">A구역 234 컨베이어벨트 상단</span></div>
+			<div class="mgt2" style="height:200px;background: #ddd;">
+				지도영역
+			</div>
+		</div>
+    </div>
+</div>
+<!-- // 설치된 구역 레이어 팝업-->
+
+	<div class="contents">
+        <div class="container">
+            <div class="titTypeA">운영기기 관리</div>
+            <div class="container-box">
+                <div class="tab">
+                    <button class="tablinks" onclick="openCity(event, 'operate_device_status')" id="defaultOpen">운영기기 현황</button>
+                    <button class="tablinks" onclick="openCity(event, 'operate_device_mgm')">운영기기 점검/관리</button>
+                </div>
+                <!--운영기기 현황 tab -->
+                <div id="operate_device_status" class="tabcontent clearfix mgt1">
+                    <div class="operate_device_status_wrap">
+						<!-- 운영기기 현황 리스트 -->
+                        <div class="left mgt1">
+							<div class="d-flex j-content-between align-center">
+								
+								<!-- Swiper 분류 -->
+								<div class="swiper-container messageSort">
+									<div class="swiper-wrapper">
+										<div class="swiper-slide"><a href="#" class="chip-sort">전체 <strong>124</strong></a></div>
+										<div class="swiper-slide"><a href="#" class="chip-sort">운영중 <strong>123</strong></a></div>
+										<div class="swiper-slide"><a href="#" class="chip-sort">점검중 <strong>123</strong></a></div>
+										<div class="swiper-slide"><a href="#" class="chip-sort">작동오류 <strong>123</strong></a></div>
+										<div class="swiper-slide"><a href="#" class="chip-sort">교체예정 <strong>123</strong></a></div>
+										<div class="swiper-slide"><a href="#" class="chip-sort">폐기 <strong>123</strong></a></div>
+									</div>
+								</div>
+								<button type="button" onclick="document.getElementById('layerPop-operateEnroll').style.display='block'" class="m-hidden w20 primary-btn btn-large">운영기기 등록</button><!--07/08 버튼 크기 지정 class=w20 추가 -->
+							</div>
+							
+							<button class="accordion mgt1">검색필터</button>
+                			<div class="panel">
+								<div class="search__box mgt1">
+									<ul class="operate-sort">
+										<li class="w100 d-flex j-content-between">
+											<div class="info__wrap">
+												<h3>운영기기종류
+													<div class="f-right">
+														<button type="button" class="btn-small line-gray-btn">전체선택</button>
+														<button type="button" class="btn-small line-gray-btn">선택해제</button>
+													</div>
+												</h3>
+												<label class="custom-checkbox">CCTV(1300)
+													<input type="checkbox">
+													<span class="checkmark"></span>
+												</label>
+												<label class="custom-checkbox">Sensors(1100)
+													<input type="checkbox">
+													<span class="checkmark"></span>
+												</label>
+												<label class="custom-checkbox">Sensors(455)
+													<input type="checkbox">
+													<span class="checkmark"></span>
+												</label>
+												<label class="custom-checkbox">웨어러블(322)
+													<input type="checkbox">
+													<span class="checkmark"></span>
+												</label>
+                                                <label class="custom-checkbox">안전고리(322)
+													<input type="checkbox">
+													<span class="checkmark"></span>
+												</label>
+											</div>
+											<div class="info__wrap">
+												<h3>상태
+													<div class="f-right">
+														<button type="button" class="btn-small line-gray-btn">전체선택</button>
+														<button type="button" class="btn-small line-gray-btn">선택해제</button>
+													</div>
+												</h3>
+												<label class="custom-checkbox">운영중(n)
+													<input type="checkbox">
+													<span class="checkmark"></span>
+												</label>
+												<label class="custom-checkbox">작동오류(n)
+													<input type="checkbox">
+													<span class="checkmark"></span>
+												</label>
+												<label class="custom-checkbox">점검중(n)
+													<input type="checkbox">
+													<span class="checkmark"></span>
+												</label>
+												<label class="custom-checkbox">교체예정(n)
+													<input type="checkbox">
+													<span class="checkmark"></span>
+												</label>
+                                                <label class="custom-checkbox">폐기(n)
+													<input type="checkbox">
+													<span class="checkmark"></span>
+												</label>
+											</div>
+											<div class="info__wrap">
+												<h3>센서위치
+													<div class="f-right">
+														<button type="button" class="btn-small line-gray-btn">전체선택</button>
+														<button type="button" class="btn-small line-gray-btn">선택해제</button>
+													</div>
+												</h3>
+												<label class="custom-checkbox">제 1성형파트
+													<input type="checkbox">
+													<span class="checkmark"></span>
+												</label>
+												<label class="custom-checkbox">제 2성형파트
+													<input type="checkbox">
+													<span class="checkmark"></span>
+												</label>
+                                                <label class="custom-checkbox">작업자(n)
+													<input type="checkbox">
+													<span class="checkmark"></span>
+												</label>
+                                                <label class="custom-checkbox">포장(n)
+													<input type="checkbox">
+													<span class="checkmark"></span>
+												</label>
+                                                <label class="custom-checkbox">상하자구역(n)
+													<input type="checkbox">
+													<span class="checkmark"></span>
+												</label>
+											</div>
+										</li>
+										<li class="w100"></li>
+										<li class="w100">
+											<div class="calendar-picker w20">
+												<input type="text" placeholder="기간선택">
+												<button onclick="document.getElementById('layerPop').style.display='block'" type="button" class="icon-calendar"></button>
+											</div>
+											<span>~</span>
+											<div class="calendar-picker w20">
+												<input type="text" placeholder="기간선택">
+												<button onclick="document.getElementById('layerPop').style.display='block'" type="button" class="icon-calendar"></button>
+											</div>
+											<input type="text" class="w40 mgl1" placeholder="기기 관리번호/모델명 검색">
+										</li>
+									</ul>
+									<span class="search__box--button">
+										<button type="button" class="line-primary-btn btn-large">Search</button>
+									</span>
+								</div>
+							</div>
+                            <div class="titTypeB" style="margin-top:30px">운영기기 리스트 <strong>(선택 결과 : n)</strong></div>
+							<div class="operate-device-list">
+								<div>
+									<select>
+										<option value="0">상태변경</option>
+										<option value="1">운영중</option>
+										<option value="2">점검중</option>
+										<option value="3">작동오류</option>
+										<option value="4">교체예정</option>
+										<option value="5">폐기</option>
+									</select>
+									<button type="button" class="line-primary-btn btn-large">상태적용</button>
+								</div>
+                                <div class="m-hidden">
+                                    <button type="button" class="second-btn btn-small">공유</button>
+									<button type="button" class="second-btn btn-small">리스트 인쇄</button>
+									<button type="button" class="second-btn btn-small">PDF 출력</button>
+									<button type="button" class="second-btn btn-small">엑셀다운로드</button>
+                                </div>
+                            </div>
+                            <div class="response-container">
+								<table class="full-table">
+									<thead>
+										<tr>
+											<th>선택</th>
+											<th>설치날짜</th>
+											<th>관리번호</th>
+											<th>센서위치</th>
+											<th>기기종류</th>
+											<th>모델명</th>
+											<th>상태</th>
+											<th>최근데이터 발신시각</th>
+											<th>점검이력</th>
+											<th>제조날짜</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>
+												<label class="custom-checkbox">
+													<input type="checkbox">
+													<span class="checkmark"></span>
+												</label>
+											</td>
+											<td>21/01/01</td>
+											<td><a href="#" onclick="document.getElementById('layerPop-mgm-detail').style.display='block'">OP-01111</a></td>
+											<td><a href="#" onclick="document.getElementById('layerPop-mgm-location').style.display='block'">제 1성형파트</a></td>
+											<td>CCTV</td>
+											<td>XA-22223AR</td>
+											<td class="emergency">작동오류</td>
+											<td class="emergency">21/01/01 13:33</td>
+											<td>1회</td>
+											<td>21/01/01<div>1년 7개월 후 교체</div></td>
+										</tr>
+                                        <tr>
+											<td>
+												<label class="custom-checkbox">
+													<input type="checkbox">
+													<span class="checkmark"></span>
+												</label>
+											</td>
+											<td>21/01/01</td>
+											<td><a href="#" onclick="document.getElementById('layerPop-mgm-detail').style.display='block'">OP-01111</a></td>
+											<td><a href="#" onclick="document.getElementById('layerPop-mgm-location').style.display='block'">제 1성형파트</a></td>
+											<td>CCTV</td>
+											<td>XA-22223AR</td>
+											<td class="emergency">작동오류</td>
+											<td class="emergency">21/01/01 13:33</td>
+											<td>1회</td>
+											<td>21/01/01</td>
+										</tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="pagination mgt2">
+                                <a href="#" class="first"></a>
+                                <a href="#">1</a>
+                                <a class="active" href="#">2</a>
+                                <a href="#">3</a>
+                                <a href="#">4</a>
+                                <a href="#">5</a>
+                                <a href="#">6</a>
+                                <a href="#" class="last"></a>
+                            </div>    
+
+							
+                        </div>
+
+                        <!--운영기기 status 통계-->
+                        <div class="right mgt2">
+                            <div class="titTypeB">운영기기 status 통계</div>
+							<div class="mgt2 tC">
+								<img src="images/line-graph.gif" style="width:80%">
+							</div>
+							<div class="mgt2 tC">
+								<img src="images/bar-graph.gif" style="width:80%">
+							</div>
+                        </div>
+                    </div>
+                </div>
+
+				
+<!-- 점검하기 레이어 팝업-->
+<div id="layerPop-check" class="modal m-full"><!-- 모달창이 모바일에서 전체로 열릴 경우 class=m-full 추가 -->
+    <div class="ly_pop_container width-middle">
+        <span onclick="document.getElementById('layerPop-check').style.display='none'" class="ly_pop-close"></span>
+        <h2>운영기기 점검 <span class="titTypeC mgl1">리포트번호 SF-OPCK0001</span></h2>
+		<div class="ly_contents">	
+			<div class="search__box">
+				<ul class="">
+					<li class="w100">
+						<input type="text" class="w30" placeholder="작성자"><!--07/08 검색버튼 삭제 및 입력폼 크기 변경(w40 -> w30) -->
+						<div class="calendar-picker w30 mgl1">
+							<input type="text" placeholder="점검날짜">
+							<button type="button" class="icon-calendar"></button>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div class="titTypeA mgt1">
+				OP0111 <span class="primary">CCTV</span>
+				<span class="titTypeC worker-detail-location primary" style="display: inline-block">제1성형</span>
+			</div>
+			
+			<div class="basic_form mgt1">
+				<table>
+					<colgroup><col style="width:20%"><col style="width:70%"></colgroup>
+					<tbody>
+						<tr>
+							<th>작동상태</th>
+							<td>
+								<textarea rows="2"></textarea>
+							</td>
+						</tr>
+						<tr>
+							<th>원인</th>
+							<td class="tR">
+								<textarea rows="2"></textarea>
+								<button type="button" class="mgt1 btn-small second-btn">파일첨부</button>
+							</td>
+						</tr>
+						<tr>
+							<th>해결</th>
+							<td>
+								<textarea rows="2"></textarea>
+							</td>
+						</tr>
+						<tr>
+							<th>상태변경</th>
+							<td>
+								<select class="w50">
+									<option value="0">교체예정</option>
+									<option value="1"></option>
+								</select>
+								<button type="button" class="btn-large line-gray-btn">상태적용</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div class="btn-wrap">
+            <button type="button" class="btn-large line-primary-btn">임시저장</button>
+            <button type="button" class="btn-large primary-btn">점검완료</button>
+        </div>
+    </div>
+</div>
+<!-- //점검하기 레이어 팝업-->
+
+<!-- 리포트작성 레이어 팝업-->
+<div id="layerPop-report-enroll" class="modal m-full">
+    <div class="ly_pop_container width-middle">
+        <span onclick="document.getElementById('layerPop-report-enroll').style.display='none'" class="ly_pop-close"></span>
+        <h2>운영기기 점검 리포트 <span class="titTypeC mgl1">리포트번호 SF-OPCK0001</span></h2>
+		<div class="ly_contents">	
+			<div class="search__box">
+				<ul class="">
+					<li class="w100">
+						<input type="text" class="w30" placeholder="작성자">
+						<div class="calendar-picker w30 mgl1">
+							<input type="text" placeholder="작성날짜">
+							<button type="button" class="icon-calendar"></button>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div class="titTypeA mgt1">
+				OP0111 <span class="primary">CCTV</span>
+				<span class="titTypeC worker-detail-location primary" style="display: inline-block">제1성형</span>
+			</div>
+			
+			<div class="basic_form mgt1">
+				<table>
+					<colgroup><col style="width:20%"><col style="width:70%"></colgroup>
+					<tbody>
+						<tr>
+							<th>작동상태</th>
+							<td>
+								<textarea rows="2" disabled>작동하지 않음</textarea>
+							</td>
+						</tr>
+						<tr>
+							<th>원인</th>
+							<td class="tR">
+								<textarea rows="2" disabled>렌즈파손</textarea>
+								<div class="mgt1 d-flex j-content-between">첨부 파일명.pdf <button type="button" class=" btn-small second-btn">파일첨부</button>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<th>해결</th>
+							<td>
+								<textarea rows="2" disabled>교체결정</textarea>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<!--07/08 테이블 내 2개 항목 분리 -->
+				<table class="mgt2">
+					<colgroup><col style="width:20%"><col style="width:70%"></colgroup>
+					<tbody>
+						<tr>
+							<th>처리내용</th>
+							<td>
+								<div class="calendar-picker">
+									<input type="text" placeholder="처리완료일">
+									<button type="button" class="icon-calendar"></button>
+								</div>
+								<textarea rows="2" class="mgt1"></textarea>
+							</td>
+						</tr>
+						<tr>
+							<th>관리자의 종합의견</th>
+							<td>
+								<textarea rows="2"></textarea>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div class="btn-wrap d-flex j-content-between align-center">
+			<div>
+				<button type="button" class="second-btn btn-small">공유</button>
+				<button type="button" class="second-btn btn-small">리스트 인쇄</button>
+				<button type="button" class="second-btn btn-small">PDF 출력</button>
+				<button type="button" class="second-btn btn-small">엑셀다운로드</button>
+			</div>
+			<div>
+				<button type="button" class="btn-large line-primary-btn">임시저장</button>
+				<button type="button" class="btn-large primary-btn">리포트완료</button>
+			</div>
+        </div>
+    </div>
+</div>
+<!-- //리포트작성 레이어 팝업-->
+				
+<!-- 점검이슈 통계 레이어 팝업-->
+<div id="layerPop-statistics" class="modal m-full">
+    <div class="ly_pop_container width-middle">
+        <span onclick="document.getElementById('layerPop-statistics').style.display='none'" class="ly_pop-close"></span>
+        <h2>점검이슈 통계</h2>
+		<div class="ly_contents">	
+			<div class="tab">
+				<button class="tablinks" onclick="openCity(event, 'operate_statistics_graph01')" id="defaultOpen">주요 문제 원인</button>
+				<button class="tablinks" onclick="openCity(event, 'operate_statistics_graph02')">기기종류</button>
+				<button class="tablinks" onclick="openCity(event, 'operate_statistics_graph03')">기기별 주요이슈</button>
+			</div>
+			<!--주요 문제 원인 tab -->
+			<div id="operate_statistics_graph01" class="tabcontent clearfix mgt1 tC">
+				<img src="images/sample-graph.png" class="w50">
+			</div>
+			<!--기기종류 tab -->
+			<div id="operate_statistics_graph02" class="tabcontent clearfix mgt1 tC">
+				<img src="images/sample-graph.png" class="w50">
+			</div>
+			<!--기기별 주요이슈 tab -->
+			<div id="operate_statistics_graph03" class="tabcontent clearfix mgt1 tC">
+				<img src="images/bar-graph.gif" class="w50">
+ 			</div>
+		</div>
+		<div class="btn-wrap">
+			<button type="button" class="second-btn btn-small">공유</button>
+			<button type="button" class="second-btn btn-small">리스트 인쇄</button>
+			<button type="button" class="second-btn btn-small">PDF 출력</button>
+			<button type="button" class="second-btn btn-small">엑셀다운로드</button>
+        </div>
+    </div>
+</div>
+<!-- //점검이슈 통계 레이어 팝업-->
+
+				
+				<!--운영기기 점검/관리 tab -->
+                <div id="operate_device_mgm" class="tabcontent clearfix mgt1">
+                    <div class="operate_device_mgm_wrap">
+						<!--점검 대상 기기 리스트 -->
+                        <div class="left mgt1">
+                            <div class="titTypeB d-flex j-content-between align-center" style="padding-bottom: 7px">
+                                점검 대상 기기 리스트
+                                <div class="m-hidden">
+                                    <button type="button" class="primary-btn btn-large">점검대상기기 추가</button>
+                                </div>
+                            </div>
+							<div class="sort__area mgt1">
+								<a href="#" class="chip-sort">점검중<strong>23</strong></a>
+								<a href="#" class="chip-sort">점검완료<strong>3</strong></a>
+							</div>
+							<div class="response-container">
+								<table class="full-table">
+									<thead>
+										<tr>
+											<th>점검대상</th>
+											<th>종류</th>
+											<th>위치</th>
+											<th width="15%">상태</th>
+											<th width="36%">세부상태</th>
+											<th>점검여부</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<th>OP-0001</th>
+											<td>CCTV</td>
+											<td>제1성형</td>
+											<td>작동오류</td>
+											<td class="tL">긴급사고(충돌)</td>
+											<td><button type="button" onclick="document.getElementById('layerPop-check').style.display='block'" class="gray-btn btn-small">점검하기</button></td>
+										</tr>
+										<tr>
+											<th>OP-0001</th>
+											<td>CCTV</td>
+											<td>제1성형</td>
+											<td>작동오류</td>
+											<td class="tL">긴급사고(충돌)</td>
+											<td><button type="button" onclick="document.getElementById('layerPop-check').style.display='block'" class="gray-btn btn-small">점검하기</button></td>
+										</tr>
+										<tr>
+											<th>OP-0001</th>
+											<td>CCTV</td>
+											<td>제1성형</td>
+											<td>작동오류</td>
+											<td class="tL">긴급사고(충돌)</td>
+											<td><a href="#">점검내용</a></td>
+										</tr>
+										<tr>
+											<th>OP-0001</th>
+											<td>CCTV</td>
+											<td>제1성형</td>
+											<td>작동오류</td>
+											<td class="tL">긴급사고(충돌)</td>
+											<td><button type="button" onclick="document.getElementById('layerPop-check').style.display='block'" class="gray-btn btn-small">점검하기</button></td>
+										</tr>
+										<tr>
+											<th>OP-0001</th>
+											<td>CCTV</td>
+											<td>제1성형</td>
+											<td>작동오류</td>
+											<td class="tL">긴급사고(충돌)</td>
+											<td><a href="#">점검내용</a></td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+							<div class="pagination mgt2">
+                                <a href="#" class="first"></a>
+                                <a href="#">1</a>
+                                <a class="active" href="#">2</a>
+                                <a href="#">3</a>
+                                <a href="#">4</a>
+                                <a href="#">5</a>
+                                <a href="#">6</a>
+                                <a href="#" class="last"></a>
+                            </div>   
+						</div>
+
+                        <!--점검리포트-->
+                        <div class="right mgt1">
+                            <div class="titTypeB d-flex j-content-between align-center" style="padding-bottom: 7px">
+                                점검리포트
+                                <div>
+                                    <button type="button" onclick="document.getElementById('layerPop-statistics').style.display='block'" class="primary-btn btn-large">점검이슈 통계</button>
+                                </div>
+                            </div>
+							<div class="search__box mgt2">
+								<ul>
+									<li class="w100">
+										<select class="w20">
+											<option value="0">년</option>
+											<option value="1">2020</option>
+											<option value="2">2019</option>
+											<option value="3">2018</option>
+										</select>
+                                        <select class="w20">
+											<option value="0">월</option>
+											<option value="1">1월</option>
+											<option value="2">2월</option>
+											<option value="3">3월</option>
+										</select>
+										<div class="calendar-picker w30 mgl1">
+                                            <input type="text" placeholder="특정기간 조회">
+                                            <button type="button" class="icon-calendar"></button>
+                                        </div>
+									</li>
+								</ul>
+								<span class="search__box--button">
+									<button type="button" class="line-primary-btn btn-large">Search</button>
+								</span>
+							</div>
+							<div class="sort__area mgt2">
+								<a href="#" class="chip-sort">작성대기<strong>23</strong></a>
+								<a href="#" class="chip-sort">작성완료<strong>3</strong></a>
+							</div>
+							<div class="response-container">
+								<table class="full-table">
+									<thead>
+										<tr>
+											<th>점검기기ID</th>
+											<th>종류</th>
+											<th width="18%">위치</th>
+											<th width="30%">세부상태</th>
+											<th width="18%">해결방안</th>
+											<th>리포트 등록일시</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<th>OP-0001</th>
+											<td>CCTV</td>
+											<td>제1성형</td>
+											<td class="tL">긴급사고(충돌)</td>
+											<td>수리</td>
+											<td><button type="button" onclick="document.getElementById('layerPop-report-enroll').style.display='block'" class="gray-btn btn-small">리포트작성</button></td>
+										</tr>
+										<tr>
+											<th>OP-0001</th>
+											<td>CCTV</td>
+											<td>제1성형</td>
+											<td class="tL">긴급사고(충돌)</td>
+											<td>폐기 및 교체</td>
+											<td><button type="button" onclick="document.getElementById('layerPop-report-enroll').style.display='block'" class="gray-btn btn-small">리포트작성</button></td>
+										</tr>
+										<tr>
+											<th>OP-0001</th>
+											<td>CCTV</td>
+											<td>제1성형</td>
+											<td class="tL">긴급사고(충돌)</td>
+											<td>수리</td>
+											<td><a href="#">21/04/01 12:00:00</a></td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+							<div class="pagination mgt2">
+                                <a href="#" class="first"></a>
+                                <a href="#">1</a>
+                                <a class="active" href="#">2</a>
+                                <a href="#">3</a>
+                                <a href="#">4</a>
+                                <a href="#">5</a>
+                                <a href="#">6</a>
+                                <a href="#" class="last"></a>
+                            </div>   
+						</div>
+						
+					</div>
+						
+                </div>
+
+            </div>
+        </div>
+	</div>
+</div>
+
+
+<!-- Swiper JS -->
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+<script src="js/custom.js"></script>
+
+
+</body>
+</html>

@@ -35,9 +35,9 @@ button, input[type='button'], input[type='submit'], input[type='reset']{cursor:p
   --swiper-navigation-size:30px;
 }
 .primary {color: var(--primary) !important;}
-.normal{color: var(--green);}
+.normal{color: var(--green)!important;}
 .emergency, .dirty{color: var(--red)!important;}
-.caution{color: var(--orange);}
+.caution{color: var(--orange)!important;}
 .scrutiny{color: var(--blue);}
 .dot{display:inline-block;width:8px;height:8px;border-radius: 8px;margin-right: 4px;}
 .dot.red{background-color: var(--red);}
@@ -238,7 +238,7 @@ img.profile-photo {float:left; width:60px;height: 60px;border-radius: 60px;displ
 .dashboard__area--right{width:75%}
 .graph__box{background-color: #2c2c37;display:block;margin-bottom:12px; border-radius: 10px;box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.15);}
 .graph__box>h2{font-size:16px;color:rgba(255, 255, 255, 0.5);padding:18px 20px;border-radius: 10px 10px 0 0;border-bottom: 1px solid rgba(255, 255, 255, 0.04);}
-.graph__box>div{color:#fff;padding:24px 40px 30px;}
+.graph__box>div{color:rgba(255, 255, 255, 0.6);padding:24px 40px 30px;}
 .graph__box>div img{width: 100%;}
 .map__option{background-color: #302162;width:100%;height: 60px;padding:10px 20px;border-radius: 10px;box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.15);}
 .card__popup{position:relative;display:inline-block;cursor:pointer;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;}
@@ -427,6 +427,7 @@ dl.state_box dd{width:41%;font-weight: bold;font-size: 14px; text-align: right;}
 #work-operation .panel:nth-child(4){width:38%; float:right;margin-left: 15px;padding-left: 20px;border-left: 1px solid #ddd;}
 .icon-notice{width:30px;height:30px;display: inline-block;background: url(https://icongr.am/fontawesome/bullhorn.svg?size=24&color=777777) no-repeat center;}
 .icon-preview:before{content: '';width:24px;height:20px;vertical-align: middle;display: inline-block;background: url(https://icongr.am/entypo/chevron-thin-left.svg?size=14&color=bbbbbb) no-repeat 0 center;}
+.icon-preview.current_location:before{width:35px;height:30px;background: url(https://icongr.am/entypo/chevron-thin-left.svg?size=24&color=ffffff) no-repeat 0 center;}
 .icon-next:after{content: '';width:24px;height:20px;vertical-align: middle;display: inline-block;background: url(https://icongr.am/entypo/chevron-thin-right.svg?size=14&color=bbbbbb) no-repeat right center;}
 
 
@@ -510,8 +511,8 @@ dl.state_box dd{width:41%;font-weight: bold;font-size: 14px; text-align: right;}
 .ai-con04 img{width:100%;margin-top: 30px}
 .ai-con03 .summary-card{width: 100%;box-sizing: border-box;margin: 22px 0 -10px}
 .ai-total h2.titTypeB.mgt2{margin-top: 70px!important}
-.ai-recore{height: 180px; background:url('../images/graph04.jpg') no-repeat center;background-size: contain;text-align: center;margin:10px auto;padding-top: 80px}
-.ai-recore>strong{display: block;font-size: 40px;line-height: 20px;color: var(--primary)}
+.ai-recore{height: 180px; background:url('../images/graph04.jpg') no-repeat center;background-size: contain;text-align: center;margin:10px auto;padding-top: 70px}
+.ai-recore>strong{display: block;font-size: 40px;line-height: 36px;color: var(--primary)}
 .ai-con04{display:flex;justify-content: space-between; width:55%;border: 1px solid var(--lightline);border-radius: 12px;padding: 20px;margin-top: 20px;}
 .ai-con05{width:44%;border: 1px solid var(--lightline);border-radius: 12px;padding: 20px;margin-top: 20px;}
 .ai-con04 .summary-card{display: inline-block;width: 46%;margin: 10px 0 0 8px;padding:10px;text-align: center;box-sizing: border-box;}
@@ -870,7 +871,6 @@ input:checked + .toggle-switch:before {-webkit-transform: translateX(20px);-ms-t
 .tab button.active{border-bottom:3px solid var(--primary);color:var(--primary);font-weight: bold;}
 .tabcontent{display:none;}
 
-
 .primary-btn{background-color: var(--primary);color:rgba(255, 255, 255, 1)!important;min-width: 77px;}
 .second-btn{background-color: #999;color:rgba(255, 255, 255, 1)!important;min-width: 77px;}
 .gray-btn{background-color: rgba(210,210,210,0.5);color:rgba(0, 0, 0, 0.7)!important;min-width: 77px;}
@@ -886,7 +886,63 @@ input:checked + .toggle-switch:before {-webkit-transform: translateX(20px);-ms-t
 .btn-large{display: inline-block;height:38px;padding:0 18px;text-align: center;border-radius: 4px;font-size: 16px;line-height: 36px;}
 .btn-small{display: inline-block;height:26px;padding:1px 12px 1px;text-align: center;border-radius: 4px;font-size: 13px;box-sizing: border-box}
 button:hover{opacity: .8;}
-	
+
+/* 건설안전 only css*/
+.construct .summary-card > h6{display: block;}
+.construct .summary-card strong {font-size: 18px;float: unset;margin-left: 35px;}
+.dashboard__area.construct .accordion{position: relative; background-color:transparent;padding: 14px 20px 14px;color:rgba(255, 255, 255, 0.5);border-bottom: 0;}
+.dashboard__area.construct .accordion h2{font-size: 16px;display: inline-block;}
+.dashboard__area.construct .chip-sort{background-color:transparent;border: 1px solid rgba(255, 255, 255, 0.2); margin-bottom: 6px;}
+.dashboard__area.construct .panel{background-color:transparent;padding: 0px 20px 20px;}
+.dashboard__area.construct button.accordion:after{position: absolute;right:16px;top: 14px;}
+.dashboard__area.construct .response-table tbody td,
+.dashboard__area.construct .response-table tbody th{border-top: 1px solid rgba(255, 255, 255, 0.08);}
+.dashboard__area.construct .response-table{border-bottom: 1px solid rgba(255, 255, 255, 0.1);}
+.dashboard__area.construct .response-table tbody tr:hover{background-color:rgba(0, 0, 0, 0.1)}
+.dashboard__area.construct .response-table tbody .chip-staus{border:1px solid rgba(255, 255, 255, 0.1);}
+.dashboard__area.construct .graph__box .response-container,
+.worker__area.construct>ul>li .response-container{overflow-y: auto;height: 300px;}
+.dashboard__area.construct .graph__box .response-table,
+.worker__area.construct>ul>li .response-table{table-layout:fixed;margin:0}
+.worker__area.construct>ul>li{width:59%}
+.worker__area.construct>ul>li.w40 select{color:#fff;}
+.worker__area.construct>ul>li.w40 .response-table img.profile-photo{vertical-align: top;margin-right: 2px;}
+.worker__area.construct>ul>li.w40 .response-table .worker-name strong{display: inline-block}
+.worker__area.construct>ul>li.w100 .chip-staus{background-color: transparent;min-width: unset}
+.dashboard__area.construct .dashboard__area--right .titTypeC {font-size: 16px;color: rgba(255, 255, 255, 0.5);}
+.worker__area.construct>ul>li.w40 .response-table .popuptext img.profile-photo {width: 60px;height: 60px}
+
+.worker__area.construct>ul>li.w40 .response-table .card__popup .popuptext{width: 290px;text-align: left;bottom:auto;top:50px;left:30px;margin-left: 0;}
+.worker__area.construct>ul>li.w40 .response-table tbody td.card__popup{overflow-x: visible;width:120px;padding:6px 14px;}
+.construct-worker dl.state_box dt,
+.construct-worker dl.state_box dd {width:24%;padding:2px 6px}
+.construct-worker .worker-state-health{width:100%}
+.construct-worker .swiper-slide{padding:0 10px}
+.construct-worker .conclusion{float: right;margin: -30px 10px 10px;height: 50px;}
+.construct-worker .conclusion .chip-sort{display: block;min-width:110px;margin-bottom: 4px; padding: 2px 10px;font-weight: normal;font-size: 12px;}
+.construct-worker .conclusion .chip-sort>strong{float: right;}
+.construct-worker .worker-state-health>.total{background: url('https://icongr.am/material/google-maps.svg?size=20&color=50505c') no-repeat 0px 1px}
+
+.health_condition{margin: 4px 0 10px;}
+.health_condition>select{width:240px;color:#fff;}
+.safeChain .chip-staus{color:inherit;margin-left: 10px}
+.worker__area.construct02>.d-flex, .health_condition {padding:0 10px}
+.worker__area.construct02 .sort__area{color:rgba(255, 255, 255, 0.5)}
+.warning_area_gas{color:var(--red);font-size: 14px}
+.warning_area_gas>a{display: inline-block;margin: 2px 2px; color:#fff;font-weight: bold;padding:0 4px;border-radius: 4px;background: var(--red)}
+.worker__area.construct02 .chip-sort{color:#fff}
+.current_location{font-size: 16px;color: #fff;line-height: 40px;}
+
+
+
+@media only screen and (min-width: 1100px) {
+  .response-table {
+      margin:10px 0;
+      display: table;
+      border-bottom: 1px solid #ccc;
+  }
+}
+
 header.app, .hidden {display:none}
 
 @media only screen and (max-width: 1100px) {
@@ -915,8 +971,6 @@ header.app, .hidden {display:none}
 	.header__sub .notice__area{margin: 0;padding:5px 10px;width: 100%;}
 	.header__sub .notice__area>a{width: 64%;display: inline-block;vertical-align: middle;text-overflow: ellipsis;white-space:nowrap;word-wrap:normal;overflow: hidden;}
 	#snackbar{width: 96%;right: 0px;margin:0 6px;}
-
-	
 	
   .search__box li {width:50%;}
   .search__box--button{position: relative;right:auto;bottom:auto;display: block;margin:5px 4px}
@@ -934,7 +988,7 @@ header.app, .hidden {display:none}
 	.map__option{height: auto;padding: 10px 10px 16px}	
 	.map__option .chip{padding: 7px 10px;margin-left: 4px;}
 	.map__option .f-right{float: unset!important;padding-left: 6px}
-    .map__option .custom-checkbox:last-child, .map__option .custom-radio:last-child{padding-right:0}
+  .map__option .custom-checkbox:last-child, .map__option .custom-radio:last-child{padding-right:0}
 
 	.worker__area>ul>li{width:100%}
 	.worker-info{padding:0;}
@@ -959,7 +1013,6 @@ header.app, .hidden {display:none}
 	.conveyer__area .conveyer-info-wrap ul li .conveyer-info{width:100%;}
 	.conveyer__area .conveyer-info-wrap ul li .conveyer-vod{width:100%;}
 	.conveyer__area .conveyer-vod{padding:10px}
-	
 	
   .work-area-tb.response-container tbody tr {position: relative;padding: 6px 0;border-bottom: 1px solid #ebebeb;}
   .work-area-tb .response-table td[data-title] span{padding-left:68px}
@@ -1038,7 +1091,7 @@ header.app, .hidden {display:none}
 
 	.info__wrap{padding:10px 0 10px 14px;}
 	.info__wrap .col2>li{width:54%;font-weight: bold;}
-    .info__wrap .col2>li:nth-child(2n){width:44%;font-weight: bold;}
+  .info__wrap .col2>li:nth-child(2n){width:44%;font-weight: bold;}
 	.info__wrap li span{width: 71px;padding: 8px 0px 8px 0;font-size: 12px;}
 	.info__wrap li>ul>li{margin: 4px 0px 2px 0;}
 	#work-area-info .worak-area-divide>.accordion:after,
@@ -1137,7 +1190,29 @@ header.app, .hidden {display:none}
 .full-table table{width: 1000px !important;}
 
 .tab button {font-size: 15px;}
+.construct .summary-card{width:100%;box-sizing: border-box;margin-top: 5px;}
+.construct .accident-all-tb .response-table td:nth-child(6) span{left: 64px;top:5px}
+.construct .accident-all-tb .response-table td:nth-child(7) span{left: 130px;}
+.construct .accident-all-tb .response-table td:nth-child(8) span{left: 180px;bottom: 0px;top:unset}
+.construct .accident-all-tb .response-table td:nth-child(9) span{position: initial;padding:0;}
+.construct .accident-all-tb .response-table td:nth-child(9)>div{position: absolute;right:4px;top: 28px;padding:3px 6px;}
+.dashboard__area.construct .response-table{display: inline-table;border-top:0}
+.dashboard__area.construct .response-table tbody, .dashboard__area.construct .response-table tr,
+.dashboard__area.construct .response-table th, .dashboard__area.construct .response-table td{display: revert;background-color: transparent;overflow-x:visible}
+.dashboard__area.construct .response-table tbody td .chip-staus>span{padding-left: 0}
+.worker__area.construct>ul>li{width:100%!important}
+.worker__area.construct>ul>li.w40 .response-table tbody tr td:first-child{width:88px;padding:6px 3px;}
+.worker__area.construct>ul>li.w40 .response-table tbody tr td{font-size: 12px}
+.worker__area.construct>ul>li.w40 .response-table tbody tr td .chip-staus{padding:4px}
+.worker__area.construct>ul>li.w100>.d-flex{display: block;}
+.worker__area.construct>ul>li.w100 .sort__area{margin-top: 10px;}
+.worker__area.construct02>.d-flex{display: block;}
+.worker__area.construct02>.d-flex .sort__area{margin-top: 10px}
+
 }
+
+
+
 
 .safetyCheck-calendar-app{width:100%;background-color: #fff;padding:14px 10px 4px;position: fixed;top:100px;z-index: 1;box-shadow: 0px 2px 12px 0px rgb(0 0 0 / 14%)}
 .safetyCheck-calendar-app .custom-select{margin-left: 6px;width: 46%;font-size: 16px;font-weight: bold;line-height: 16px;}
@@ -1230,7 +1305,7 @@ ul.safetyCheck-log-wrap>li .safetyCheck-log .list span.select{background-color: 
 }
 
 .response-table {
-    border-top: 1px solid #ccc;;
+    border-top: 1px solid #ccc;
 }
 
 .response-table tbody td span{
@@ -1475,10 +1550,6 @@ ul.safetyCheck-log-wrap>li .safetyCheck-log .list span.select{background-color: 
   background-repeat: no-repeat;
   background-position: calc(100% - var(--side-padding)) center;
 }
-
-
-
-
 
 
 #button {

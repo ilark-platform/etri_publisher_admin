@@ -1,0 +1,444 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <title>ETRI</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="css/custom.css">
+</head>
+
+<body class="dashboard__section">
+<div class="wrap">
+	<!-- header -->
+    <div class="header">
+		<div class="header__title">
+			<span>한국타이어 대전공장 안전관리시스템</span>
+		</div>
+		<div class="header__menu__toggle">
+			<div class="header__menu__hamburger">
+				<input class="hamburger__menu__btn" type="checkbox"/>
+
+				<span class="toolbar-menu"></span>
+
+				<div class="header__menu-area">
+					<div class="side__menu-list__close">
+						<span class="close"></span>
+					</div>
+					<!-- menu -->
+					<div class="side__menu-list">
+						<button class="accordion">사고관리</button>
+						<div class="panel">
+							<a href="#">전체사고관리</a>
+							<a href="#">AI종합진단</a>
+							<a href="#">AI개인진단</a>
+						</div>
+						<a class="accordion ">안전점검일지</a>
+						<button class="accordion">작업관리</button>
+						<div class="panel">
+							<a href="#">작업자관리</a>
+							<a href="#">작업구역관리</a>
+							<a href="#">체크리스트관리</a>
+						</div>
+						<a class="accordion">운영기기관리</a>
+						<button class="accordion">메시지관리</button>
+						<div class="panel">
+							<a href="#">메시지관리</a>
+							<a href="#">메시지템플릿</a>
+						</div>
+						<a class="accordion">설정</a>
+					</div>
+					<!-- //menu -->
+				</div>
+			</div>
+		</div>
+
+		
+	<!--긴급사고 알림 snackbar -->
+		<div id="snackbar">
+			<span onclick="this.parentElement.style.display='none';" class="ly_pop-close"></span>
+			<h2>긴급사고 / 주의상황 알림</h2>
+				<div class="ly_emerg_con">
+					<span class="icon-emerg"></span>
+					<span>
+                        홍길동 작업자의<br>
+                        <strong>위험레벨1-안전고리 미체결 유지 주의상황이 발생</strong>했습니다.
+					<h4 class="mgt1">
+						2021-01-01 15:23:41 <strong>작업구역 : 작업구역명</strong>
+					</h4>
+					<button type="button" class="btn-small second-btn mgt1">자세히 보기</button>
+				</span>
+				</div>
+			<div class="btn-wrap">
+				<button type="button" class="btn-large line-darkgray-btn">이동</button>
+				<button type="button" class="btn-large red-btn">다음알림</button>
+			</div>
+		</div>
+	<!--//긴급사고 알림 snackbar -->
+
+		<div class="header__utility">
+			<a href="#" class="icon-alret" onclick="snackFunction()"><span class="dot red">5</span></a>
+			<a href="#" class="icon-mail"><span class="dot green">2</span></a>
+			<span class="user-info">
+				<a href="#" onclick="myFunction_userInfo()"><img src="images/dummy-profile.jpg"><span>홍길동</span> 안전관리자</a>
+				<div id="myDropdown" class="profile-container">
+					<img src="images/dummy-profile.jpg" class="profile-photo">
+					<div class="profile-info">
+						<span>홍길동</span>안전관리자</a>
+						<a href="#">Logout</a><a href="#">Setting</a>
+					</div>
+				</div>
+			</span>
+		</div>
+    </div>
+	<div class="header__sub">
+		<div class="f-left">
+			<span class="today">2021-06-01 월요일</span>
+			<span class="noday">무재해 <strong>71</strong>일</span>
+			<!--0704 수정 : AI 리포트 버튼추가 -->
+			<div class="emerg mgl1">
+				<a href="#" class="aiReport">AI 리포트</a>
+			</div>
+			<!--// 0704 수정 : AI 리포트 버튼추가 -->
+		</div>
+		<div class="f-right">
+			<div class="emerg">
+				<a href="#">긴급사고 프로토콜 실행</a> <a href="#">구조대 지원 호출</a>
+			</div>
+			<div class="notice__area">
+				<span class="notice__area--date">2021-04-15</span>
+				<a href="#">5월 1일 지게차 안전점검을 실시합니다. <u>자세히보기</u></a>
+				<span class="icon-modify"><a href="#"></a></span>
+			</div>
+		</div>
+	</div>
+	
+	<div class="contents">
+		<div class="dashboard__area construct">
+			<div class="dashboard__area--left">
+				<div class="graph__box">
+					<h2>오늘의 종합 안전 지수</h2>
+					<div><img src="images/dashboard-graph03.gif"></div>
+				</div>
+				<div class="graph__box">
+                    <button class="accordion">
+                        <h2>운영기기현황</h2>
+                        <div class="sort__area mgt1">
+                            <a href="#" class="chip-sort">전체<strong>83</strong></a>
+                            <a href="#" class="chip-sort active">안전고리<strong>23</strong></a>
+                            <a href="#" class="chip-sort">웨어러블<strong>3</strong></a>
+                            <a href="#" class="chip-sort">센서<strong>123</strong></a>
+                        </div>
+                    </button>
+                    <div class="panel">
+                        <div class="response-container">
+							<table class="response-table">
+								<tbody>
+									<tr>
+										<th>OP-10000</th>
+										<td>H03구역</td>
+										<td>홍길동</td>
+										<td><div class="chip-staus"><span class="dot orange"></span>점검중</div></td>
+									</tr>
+									<tr>
+										<th>OP-10000</th>
+										<td>H03구역</td>
+										<td></td>
+										<td><div class="chip-staus"><span class="dot green"></span>운영중</div></td>
+									</tr>
+									<tr>
+										<th>OP-10000</th>
+										<td>H03구역</td>
+										<td>홍길동</td>
+										<td><div class="chip-staus"><span class="dot red"></span>신호없음</div></td>
+									</tr>
+                                    <tr>
+										<th>OP-10000</th>
+										<td>H03구역</td>
+										<td></td>
+										<td><div class="chip-staus"><span class="dot green"></span>운영중</div></td>
+									</tr>
+									<tr>
+										<th>OP-10000</th>
+										<td>H03구역</td>
+										<td>홍길동</td>
+										<td><div class="chip-staus"><span class="dot red"></span>신호없음</div></td>
+									</tr>
+                                    <tr>
+										<th>OP-10000</th>
+										<td>H03구역</td>
+										<td></td>
+										<td><div class="chip-staus"><span class="dot green"></span>운영중</div></td>
+									</tr>
+									<tr>
+										<th>OP-10000</th>
+										<td>H03구역</td>
+										<td>홍길동</td>
+										<td><div class="chip-staus"><span class="dot red"></span>신호없음</div></td>
+									</tr>
+                                    <tr>
+										<th>OP-10000</th>
+										<td>H03구역</td>
+										<td>홍길동</td>
+										<td><div class="chip-staus"><span class="dot red"></span>신호없음</div></td>
+									</tr>
+                                    <tr>
+										<th>OP-10000</th>
+										<td>H03구역</td>
+										<td>홍길동</td>
+										<td><div class="chip-staus"><span class="dot red"></span>신호없음</div></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>            
+                    </div>
+				</div>
+			</div>
+			<div class="dashboard__area--right">
+				<div class="map__option">
+                    <label class="custom-radio">안전고리
+                        <input type="radio" checked="checked">
+                        <span class="radio-checkmark"></span>
+                    </label>
+                    <label class="custom-radio">가스농도
+                        <input type="radio">
+                        <span class="radio-checkmark"></span>
+                    </label>
+				</div>
+
+                <div class="worker__area construct">
+                    <ul>
+                        <li>
+							<div class="d-flex j-content-between align-center">
+                            	<h2 class="titTypeC">시간별 위험현황</h2>
+								<div class="sort__area">
+									<a href="#" class="chip-sort">긴급<strong>83건</strong></a>
+									<a href="#" class="chip-sort active">주의<strong>23건</strong></a>
+								</div>
+							</div>
+							<div class="mgt2" style="height: 292px">
+								<img src="images/graph-dark.png" style="width:80%">
+							</div>
+						</li>
+                        <li class="w40">
+							<div class="d-flex j-content-between align-center">
+                            	<h2 class="titTypeC">안전고리 미체결 작업자</h2>
+								<select class="w40"><option>전체 작업구역</option></select>
+							</div>
+                            <div class="response-container mgt1">
+                                <table class="response-table">
+                                    <tbody>
+                                        <tr>
+                                            <td class="card__popup" onclick="myFunction_card()"><!-- 클릭시 프로필카드 팝업 생성 -->
+												<div class="worker-name photo-dot"><img src="images/dummy-profile.jpg" class="profile-photo"><strong>홍길동<br>1F 12 구역</strong></div><!-- 프로필사진에 선택점 추가시 class=photo-dot -->
+												<div class="popuptext" id="cardPopup"><!--작업자 팝업 card -->
+													<div class="card__popup--header">
+														<span class="card__popup--header-id">jlee.ab</span>
+														<span class="card__popup--condition emergency"><div class="db_icon worker-green"></div></span><!--작업자 아이콘 상태별 worker-green-->
+													</div>
+													<div class="card__popup--info">
+														<img src="images/dummy-profile.jpg" class="profile-photo">
+														<div class="card__popup--detail">
+															<span>홍길동</span>안전관리자</a>
+														</div>
+														<a href="#" class="card__popup--button icon-phone"></a>
+														<a href="#" class="card__popup--button icon-eye"></a>
+														<a href="#" class="card__popup--button icon-push-message"></a>
+													</div>
+													<div class="card__state d-flex j-content-between">
+														<dl class="card__list"><dt>안전지수</dt><dd>45%</dd></dl>
+														<dl class="card__list"><dt>건강상태</dt><dd>양호</dd></dl>
+													</div>
+												</div>
+											</td>
+                                            <td>해발 300m</td>
+                                            <td>긴급<div class="num">123건</div></td>
+                                            <td>주의<div class="num">23건</div></td>
+                                            <td><div class="chip-staus"><span class="dot red"></span>미체결</div></td>
+                                        </tr>
+                                        <tr>
+                                            <td><a href="#" class="worker-name"><img src="images/dummy-profile.jpg" class="profile-photo"><strong>홍길동<br>1F 12 구역</strong></a></td>
+                                            <td>해발 300m</td>
+                                            <td>긴급<div class="num">123건</div></td>
+                                            <td>주의<div class="num">23건</div></td>
+                                            <td><div class="chip-staus"><span class="dot orange"></span>불량체결</div></td>
+                                        </tr>
+                                        <tr>
+                                            <td><a href="#" class="worker-name photo-dot"><img src="images/dummy-profile.jpg" class="profile-photo"><strong>홍길동<br>1F 12 구역</strong></a></td><!-- 프로필사진에 선택점 추가시 class=photo-dot -->
+                                            <td>해발 300m</td>
+                                            <td>긴급<div class="num">123건</div></td>
+                                            <td>주의<div class="num">23건</div></td>
+                                            <td><div class="chip-staus"><span class="dot red"></span>미체결</div></td>
+                                        </tr>
+										<tr>
+                                            <td><a href="#" class="worker-name photo-dot"><img src="images/dummy-profile.jpg" class="profile-photo"><strong>홍길동<br>1F 12 구역</strong></a></td><!-- 프로필사진에 선택점 추가시 class=photo-dot -->
+                                            <td>해발 300m</td>
+                                            <td>긴급<div class="num">123건</div></td>
+                                            <td>주의<div class="num">23건</div></td>
+                                            <td><div class="chip-staus"><span class="dot red"></span>미체결</div></td>
+                                        </tr>
+                                        <tr>
+                                            <td><a href="#" class="worker-name"><img src="images/dummy-profile.jpg" class="profile-photo"><strong>홍길동<br>1F 12 구역</strong></a></td>
+                                            <td>해발 300m</td>
+                                            <td>긴급<div class="num">123건</div></td>
+                                            <td>주의<div class="num">23건</div></td>
+                                            <td><div class="chip-staus"><span class="dot orange"></span>불량체결</div></td>
+                                        </tr>
+                                        <tr>
+                                            <td><a href="#" class="worker-name photo-dot"><img src="images/dummy-profile.jpg" class="profile-photo"><strong>홍길동<br>1F 12 구역</strong></a></td><!-- 프로필사진에 선택점 추가시 class=photo-dot -->
+                                            <td>해발 300m</td>
+                                            <td>긴급<div class="num">123건</div></td>
+                                            <td>주의<div class="num">23건</div></td>
+                                            <td><div class="chip-staus"><span class="dot red"></span>미체결</div></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </li>
+						<li class="w100">
+							<div class="d-flex j-content-between align-center">
+								<h2 class="titTypeC">작업자 현황</h2>
+								<div class="sort__area">
+									<a href="#" class="chip-sort">전체<strong>83명</strong></a>
+									<a href="#" class="chip-staus"><span class="dot red"></span>위험 <strong>8명</strong></a>
+									<a href="#" class="chip-staus"><span class="dot orange"></span>주의 <strong>43명</strong></a>
+									<a href="#" class="chip-staus"><span class="dot blue"></span>양호 <strong>123명</strong></a>
+									<a href="#" class="chip-staus"><span class="dot green"></span>좋음 <strong>3명</strong></a>
+									<a href="#" class="chip-staus"><span class="dot gray"></span>인식불가 <strong>89명</strong></a>
+								</div>
+							</div>
+							
+							<!-- Swiper :: 작업자 현황-->
+                            <div class="mgt2">
+								<div class="swiper-container construct-worker">
+									<div class="swiper-wrapper">
+										<div class="swiper-slide">
+											<div class="worker-state-health">
+												<h3 class="total">1F 12'11구역</h3>
+												<dl class="state_box">
+													<dt>긴급사고</dt><dd >123건</dd>
+													<dt>주의상황</dt><dd>12건</dd>
+													<dt>작업자</dt><dd>2345명</dd>
+												</dl>
+												<div class="conclusion">
+													<div class="chip-sort">미체결 <strong>83명</strong></div>
+													<div class="chip-sort">불량체결 <strong>2383명</strong></div>
+												</div>
+												<div><img src="images/dashboard-graph02.gif" class="w100"></div>
+											</div>
+										</div>
+									</div>
+									<div class="swiper-wrapper">
+										<div class="swiper-slide">
+											<div class="worker-state-health">
+												<h3 class="total">1F 12'11구역</h3>
+												<dl class="state_box">
+													<dt>긴급사고</dt><dd >123건</dd>
+													<dt>주의상황</dt><dd>12건</dd>
+													<dt>작업자</dt><dd>2345명</dd>
+												</dl>
+												<div class="conclusion">
+													<div class="chip-sort">미체결 <strong>83명</strong></div>
+													<div class="chip-sort">불량체결 <strong>2383명</strong></div>
+												</div>
+												<div><img src="images/dashboard-graph02.gif" class="w100"></div>
+											</div>
+										</div>
+									</div>
+									<div class="swiper-wrapper">
+										<div class="swiper-slide">
+											<div class="worker-state-health">
+												<h3 class="total">1F 12'11구역</h3>
+												<dl class="state_box">
+													<dt>긴급사고</dt><dd >123건</dd>
+													<dt>주의상황</dt><dd>12건</dd>
+													<dt>작업자</dt><dd>2345명</dd>
+												</dl>
+												<div class="conclusion">
+													<!-- 체결내용 없을 경우 div만 -->
+												</div>
+												<div><img src="images/dashboard-graph02.gif" class="w100"></div>
+											</div>
+										</div>
+									</div>
+									<div class="swiper-wrapper">
+										<div class="swiper-slide">
+											<div class="worker-state-health">
+												<h3 class="total">1F 12'11구역</h3>
+												<dl class="state_box">
+													<dt>긴급사고</dt><dd >123건</dd>
+													<dt>주의상황</dt><dd>12건</dd>
+													<dt>작업자</dt><dd>2345명</dd>
+												</dl>
+												<div class="conclusion">
+													<div class="chip-sort">미체결 <strong>83명</strong></div>
+												</div>
+												<div><img src="images/dashboard-graph02.gif" class="w100"></div>
+											</div>
+										</div>
+									</div>
+									<div class="swiper-wrapper">
+										<div class="swiper-slide">
+											<div class="worker-state-health">
+												<h3 class="total">1F 12'11구역</h3>
+												<dl class="state_box">
+													<dt>긴급사고</dt><dd >123건</dd>
+													<dt>주의상황</dt><dd>12건</dd>
+													<dt>작업자</dt><dd>2345명</dd>
+												</dl>
+												<div class="conclusion">
+													<div class="chip-sort">미체결 <strong>83명</strong></div>
+													<div class="chip-sort">불량체결 <strong>2383명</strong></div>
+												</div>
+												<div><img src="images/dashboard-graph02.gif" class="w100"></div>
+											</div>
+										</div>
+									</div>
+									<div class="swiper-button-next"></div>
+									<div class="swiper-button-prev"></div>
+								</div>
+							</div>
+						</li>
+                    </ul>
+            	</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Swiper JS -->
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script>
+var swiper = new Swiper(".construct-worker", {
+	slidesPerView: 4,
+	spaceBetween: 0,
+	//slidesPerGroup: 2,
+	loop: false,
+	loopFillGroupWithBlank: true,
+	navigation: {
+	  nextEl: ".swiper-button-next",
+	  prevEl: ".swiper-button-prev",
+	},
+	breakpoints: {
+	  240: {
+		slidesPerView: 1,
+	  },
+	  768: {
+		slidesPerView: 3,
+	  },
+	  1024: {
+		slidesPerView: 4,
+	  },
+	},
+});
+</script>
+
+<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+<script src="js/custom.js"></script>
+
+
+</body>
+</html>

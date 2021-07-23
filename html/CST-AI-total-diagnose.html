@@ -1,0 +1,339 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <title>ETRI</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="css/custom.css">
+
+</head>
+
+<body>
+
+<div class="wrap">
+	<!-- header -->
+    <div class="header">
+		<div class="header__title">
+			<span>한국타이어 대전공장 안전관리시스템</span>
+		</div>
+		<div class="header__menu__toggle">
+			<div class="header__menu__hamburger">
+				<input class="hamburger__menu__btn" type="checkbox"/>
+
+				<span class="toolbar-menu"></span>
+
+				<div class="header__menu-area">
+					<div class="side__menu-list__close">
+						<span class="close"></span>
+					</div>
+					<!-- menu -->
+					<div class="side__menu-list">
+						<button class="accordion">사고관리</button>
+						<div class="panel">
+							<a href="#">전체사고관리</a>
+							<a href="#">AI종합진단</a>
+							<a href="#">AI개인진단</a>
+						</div>
+						<a class="accordion ">안전점검일지</a>
+						<button class="accordion">작업관리</button>
+						<div class="panel">
+							<a href="#">작업자관리</a>
+							<a href="#">작업구역관리</a>
+							<a href="#">체크리스트관리</a>
+						</div>
+						<a class="accordion">운영기기관리</a>
+						<button class="accordion">메시지관리</button>
+						<div class="panel">
+							<a href="#">메시지관리</a>
+							<a href="#">메시지템플릿</a>
+						</div>
+						<a class="accordion">설정</a>
+					</div>
+					<!-- //menu -->
+				</div>
+			</div>
+		</div>
+		
+		<div class="header__utility">
+			<a href="#" class="icon-alret"><span class="dot red">5</span></a>
+			<a href="#" class="icon-mail"><span class="dot green"></span></a>
+			<span class="user-info">
+				<a href="#" onclick="myFunction_userInfo()"><img src="images/dummy-profile.jpg"><span>홍길동</span> 안전관리자</a>
+				<div id="myDropdown" class="profile-container">
+					<img src="images/dummy-profile.jpg" class="profile-photo">
+					<div class="profile-info">
+						<span>홍길동</span>안전관리자</a>
+						<a href="#">Logout</a><a href="#">Setting</a>
+					</div>
+				</div>
+			</span>
+		</div>
+    </div>
+	
+	<div class="header__sub">
+		<div class="f-left">
+			<span class="today">2021-06-01 월요일</span>
+			<span class="noday">무재해 <strong>71</strong>일</span>
+		</div>
+		<div class="f-right">
+			<div class="emerg">
+				<a href="#">긴급사고 프로토콜 실행</a> <a href="#">구조대 지원 호출</a>
+			</div>
+			<div class="notice__area">
+				<span class="notice__area--date">2021-04-15</span>
+				<a href="#">5월 1일 지게차 안전점검을 실시합니다. <u>자세히보기</u></a>
+				<span class="icon-modify"><a href="#"></a></span>
+			</div>
+		</div>
+	</div>
+	
+	<div class="contents">
+        <div class="container ai-total">
+			<div class="d-flex j-content-between align-center">
+				<div class="titTypeA">AI종합진단리포트</div>
+				<button type="button" class="primary-btn btn-large icon-pdf">PDF로 저장</button>
+			</div>
+            
+            <div class="container-box">
+				<div class="search__box mgt2">
+                    <ul>
+                        <li>
+							<button type="button" class="btn-large primary-btn segment-btn-lt">일간</button>
+							<button type="button" class="btn-large line-primary-btn segment-btn-ct">주간</button>
+							<button type="button" class="btn-large line-primary-btn segment-btn-rt">월간</button>
+						</li>
+                        <li>
+                            <div class="custom-select">
+                                <select>
+                                <option value="0">2021/04</option>
+                                <option value="1">2021/03</option>
+                                <option value="2">2021/02</option>
+                                <option value="3">2021/01</option>
+                                </select>
+                            </div>
+                        </li>
+					</ul>
+				</div>
+				
+                <div class="ai-con01 w100">
+                    <p>{{회사명}}의 월간 평균 안전지수는 <strong class="emergency">{{nn}}점</strong>입니다.</p>
+                    이는 전년도 평균 안전지수 대비 <strong>{{n%}}{{증가/감소}}</strong>한 점수입니다.<br>
+                    가장 많이 발생하는 위험원인은 {{최다 발생 위험원인}} 건이며, 위험 원인 발생에 따른 긴급 사고 발생 비율은 {{nn%}}입니다. <br>
+                    {{위험행동 최다 발생 구역명}} 구역에서 위험상황이 가장 자주 발생하므로 {{위험행동 최다 발생 구역명}} 구역에 안전 사고 발생에 관한 주의 조치와 즉각적인 개선이 필요합니다.<br><br>
+                    {{회사명}}의 월간 대비 사업장의 총 안전도는 <strong>{{총 개선율%}} {{증가/감소}}</strong> 하였으므로, 지속적으로 주시하시기 바랍니다.
+                </div>
+				<div class="d-flex j-content-between mgt2">
+					<div class="ai-con02">
+						<h2 class="titTypeC">안전지수</h2>
+						<img src="images/graph02.jpg">
+					</div>
+					<div class="ai-con03">
+						<h2 class="titTypeC">사고/위험 발생</h2>
+						<div class="summary-card-wrap">
+							<span class="summary-card summary-emerg">
+								<h6>긴급사고</h6>
+								<strong>123건</strong>
+							</span>
+							<span class="summary-card summary-caution">
+								<h6>주의상황</h6>
+								<strong>123건</strong>
+							</span>
+						</div> 
+					</div>
+                    <div class="ai-con02 w40">
+						<h2 class="titTypeC">위험원인</h2>
+						<img src="images/CST-bar-graph.gif">
+					</div>
+				</div>
+				
+                <h2 class="titTypeB mgt2">안전 개선율</h2>
+				<div class="response-container">
+					<table class="response-table">
+						<colgroup><col width="25%"><col width="10%"><col width="10%"><col width="10%"><col width="45%"></colgroup>
+						<thead>
+							<tr>
+								<th>구분</th>
+								<th>{{21.00.00 / 21.00.00~21.00.00}}</th>
+								<th>{{1일 전/7일 전/30일 전}} 대비</th>
+								<th>개선율</th>
+                                <th>총 개선율</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<th>안전지수</th>
+								<td class="tR">136점</td>
+								<td class="tR"><span class="icon-increase">120점</span></td>
+                                <td class="tR"></td>
+								<td rowspan="8">
+									<div class="ai-recore">
+										<strong>72%</strong>개선
+									</div>
+									n일 전 대비 사업장 안전도가 <strong class="primary">nn%</strong> 증가하였습니다.
+								</td>
+							</tr>
+							<tr>
+								<th>주시작업자 수</th>
+								<td class="tR">10명</td>
+								<td class="tR"><span class="icon-decrease">20점</span></td>
+                                <td class="tR"></td>
+							</tr>
+							<tr>
+								<th>주시구역 수</th>
+								<td class="tR">6점</td>
+								<td class="tR"><span class="icon-decrease">20점</span></td>
+                                <td class="tR"></td>
+							</tr>
+							<tr>
+								<th>긴급사고 발생 건수</th>
+								<td class="tR">36점</td>
+								<td class="tR"><span class="icon-decrease">20점</span></td>
+                                <td class="tR"></td>
+							</tr>
+							<tr>
+								<th>주의사고 발생 건수</th>
+								<td class="tR">36점</td>
+								<td class="tR"><span class="icon-increase">120점</span></td>
+                                <td class="tR"></td>
+							</tr>
+							<tr>
+								<th>위험원인 발생 건수</th>
+								<td class="tR">36점</td>
+								<td class="tR"><span class="icon-increase">120점</span></td>
+                                <td class="tR"></td>
+							</tr>
+							<tr>
+								<th>운영기기 사고 발생 건수</th>
+								<td class="tR">36점</td>
+								<td class="tR"><span class="icon-increase">120점</span></td>
+                                <td class="tR"></td>
+							</tr>
+							<tr>
+								<th>작업자 사고 발생 건수</th>
+								<td class="tR">36점</td>
+								<td class="tR"><span class="icon-increase">120점</span></td>
+                                <td class="tR"></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				
+				<h2 class="titTypeB mgt2">사고 발생 통계</h2>
+				<div class="tC"><img src="images/graph03.jpg"></div>
+				
+				<div class="recommend-list">
+					<div class="left">
+						<button class="line-gray-btn btn-small">더보기</button> 
+						<h2 class="titTypeB">주시 권장 작업자</h2>
+						<div class="response-container">
+							<table class="response-table">
+								<tbody>
+									<tr>
+										<td>1</td>
+										<td><a href="#" class="worker-name photo-dot"><img src="images/dummy-profile.jpg" class="profile-photo"><strong>홍길동</strong></a></td><!-- 프로필사진에 선택점 추가시 class=photo-dot -->
+										<td>긴급사고<div class="num">123건</div></td>
+										<td>주의상황<div class="num">123건</div></td>
+										<td>건강유의<div class="num">123건</div></td>
+										<td><button type="button" class="red-btn btn-small">주시중</button></td>
+										<td><button onclick="document.getElementById('layerPop').style.display='block'" type="button" class="gray-btn btn-small">메시지 발송</button></td>
+									</tr>
+									<tr>
+										<td>2</td>
+										<td><a href="#" class="worker-name"><img src="images/dummy-profile.jpg" class="profile-photo"><strong>홍길동</strong></a></td>
+										<td>긴급사고<div class="num">123건</div></td>
+										<td>주의상황<div class="num">123건</div></td>
+										<td>건강유의<div class="num">123건</div></td>
+										<td><button type="button" class="red-btn btn-small">주시중</button></td>
+										<td><button onclick="document.getElementById('layerPop').style.display='block'" type="button"  class="gray-btn btn-small">메시지 발송</button></td>
+									</tr>
+									<tr>
+										<td>3</td>
+										<td><a href="#" class="worker-name"><img src="images/dummy-profile.jpg" class="profile-photo"><strong>홍길동</strong></a></td>
+										<td>긴급사고<div class="num">123건</div></td>
+										<td>주의상황<div class="num">123건</div></td>
+										<td>건강유의<div class="num">123건</div></td>
+										<td><button type="button" class="red-btn btn-small">주시중</button></td>
+										<td><button onclick="document.getElementById('layerPop').style.display='block'" type="button" class="gray-btn btn-small" >메시지 발송</button></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+<!-- 메시지 발송 레이어 팝업-->
+<div id="layerPop" class="modal">
+    <div class="ly_pop_container">
+        <span onclick="document.getElementById('layerPop').style.display='none'" class="ly_pop-close"></span>
+
+        <h2>메시지 발송</h2>
+        <div class="ly_contents">
+			<ul class="form__write">
+				<li>
+					<label>작업자</label>
+					<div><input type="text"></div>
+				</li>
+				<li>
+					<label>메시지 내용</label>
+					<div><textarea rows="5"></textarea></div>
+				</li>
+			</ul>
+		</div>
+        
+        <div class="btn-wrap">
+            <button type="button" onclick="document.getElementById('layerPop').style.display='none'" class="btn-large line-primary-btn">취소</button>
+            <button type="button" onclick="document.getElementById('layerPop').style.display='none'" class="btn-large primary-btn">전송</button>
+        </div>
+    </div>
+</div>
+<!-- //메시지 발송 레이어 팝업-->
+					
+					
+					<div class="right">
+						<button class="line-gray-btn btn-small">더보기</button>
+						<h2 class="titTypeB">위험설정 권장 작업구역</h2>
+						<div class="response-container">
+							<table class="response-table">
+								<tbody>
+									<tr>
+										<td>1</td>
+										<td><h3><span class="dot red"></span>작업구역명</h3><div>작업구역id</div></td>
+										<td>긴급사고<div class="num">123건</div></td>
+										<td>주의상황<div class="num">123건</div></td>
+										<td>건강유의<div class="num">123건</div></td>
+										<td><button type="button" class="red-btn btn-small">위험구역</button></td>
+									</tr>
+									<tr>
+										<td>2</td>
+										<td><h3>작업구역명</h3><div>작업구역id</div></td>
+										<td>긴급사고<div class="num">123건</div></td>
+										<td>주의상황<div class="num">123건</div></td>
+										<td>건강유의<div class="num">123건</div></td>
+										<td><button type="button" class="second-btn btn-small">위험구역 설정</button></td>
+									</tr>
+									<tr>
+										<td>3</td>
+										<td><h3><span class="dot red"></span>작업구역명</h3><div>작업구역id</div></td>
+										<td>긴급사고<div class="num">123건</div></td>
+										<td>주의상황<div class="num">123건</div></td>
+										<td>건강유의<div class="num">123건</div></td>
+										<td><button type="button" class="red-btn btn-small">위험구역</button></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+					
+				</div>
+            </div>
+        </div>
+	</div>
+</div>
+
+<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+<script src="js/custom.js"></script>
+
+
+</body>
+</html>

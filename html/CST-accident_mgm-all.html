@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <title>ETRI</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="css/custom.css">
+
+</head>
+
+<body>
+
+<div class="wrap">
+	<!-- header -->
+    <div class="header">
+		<div class="header__title">
+			<span>한국타이어 대전공장 안전관리시스템</span>
+		</div>
+		<div class="header__menu__toggle">
+			<div class="header__menu__hamburger">
+				<input class="hamburger__menu__btn" type="checkbox"/>
+
+				<span class="toolbar-menu"></span>
+
+				<div class="header__menu-area">
+					<div class="side__menu-list__close">
+						<span class="close"></span>
+					</div>
+					<!-- menu -->
+					<div class="side__menu-list">
+						<button class="accordion">사고관리</button>
+						<div class="panel">
+							<a href="#">전체사고관리</a>
+							<a href="#">AI종합진단</a>
+							<a href="#">AI개인진단</a>
+						</div>
+						<a class="accordion ">안전점검일지</a>
+						<button class="accordion">작업관리</button>
+						<div class="panel">
+							<a href="#">작업자관리</a>
+							<a href="#">작업구역관리</a>
+							<a href="#">체크리스트관리</a>
+						</div>
+						<a class="accordion">운영기기관리</a>
+						<button class="accordion">메시지관리</button>
+						<div class="panel">
+							<a href="#">메시지관리</a>
+							<a href="#">메시지템플릿</a>
+						</div>
+						<a class="accordion">설정</a>
+					</div>
+					<!-- //menu -->
+				</div>
+			</div>
+		</div>
+
+		
+	<!--긴급사고 알림 snackbar -->
+		<div id="snackbar">
+			<span onclick="this.parentElement.style.display='none';" class="ly_pop-close"></span>
+			<h2>긴급사고 / 주의상황 알림</h2>
+				<div class="ly_emerg_con">
+					<span class="icon-emerg"></span>
+					<span>
+					타이어 적재 작업구역에서<br>
+					<strong>지게차(ID번호) 충돌 사고가 발생</strong>했습니다.
+					<h4 class="mgt1">
+						2021-01-01 15:23:41 <strong>운전자 : 홍길동</strong>
+					</h4>
+					<button type="button" class="btn-small second-btn mgt1">자세히 보기</button>
+				</span>
+				</div>
+			<div class="btn-wrap">
+				<button type="button" class="btn-large line-darkgray-btn">이동</button>
+				<button type="button" class="btn-large red-btn">다음알림</button>
+			</div>
+		</div>
+	<!--//긴급사고 알림 snackbar -->
+
+		<div class="header__utility">
+			<a href="#" class="icon-alret" onclick="snackFunction()"><span class="dot red">5</span></a>
+			<a href="#" class="icon-mail"><span class="dot green">2</span></a>
+			<span class="user-info">
+				<a href="#" onclick="myFunction_userInfo()"><img src="images/dummy-profile.jpg"><span>홍길동</span> 안전관리자</a>
+				<div id="myDropdown" class="profile-container">
+					<img src="images/dummy-profile.jpg" class="profile-photo">
+					<div class="profile-info">
+						<span>홍길동</span>안전관리자</a>
+						<a href="#">Logout</a><a href="#">Setting</a>
+					</div>
+				</div>
+			</span>
+		</div>
+    </div>
+	<div class="header__sub">
+		<div class="f-left">
+			<span class="today">2021-06-01 월요일</span>
+			<span class="noday">무재해 <strong>71</strong>일</span>
+		</div>
+		<div class="f-right">
+			<div class="emerg">
+				<a href="#">긴급사고 프로토콜 실행</a> <a href="#">구조대 지원 호출</a>
+			</div>
+			<div class="notice__area">
+				<span class="notice__area--date">2021-04-15</span>
+				<a href="#">5월 1일 지게차 안전점검을 실시합니다. <u>자세히보기</u></a>
+				<span class="icon-modify"><a href="#"></a></span>
+			</div>
+		</div>
+	</div>
+	
+	
+	<div class="contents">
+        <div class="container">
+            <div class="titTypeA">전체사고관리</div>
+            <div class="container-box accident-all-wrap construct">
+                <div class="summary-card-wrap">
+                    <span class="summary-card summary-emerg">
+						<h6>긴급사고</h6>
+                        <strong>추락 감지</strong>
+                    </span>
+					<span class="summary-card summary-caution">
+						<h6>주의상황의 위험원인</h6>
+                        <strong>불량체결 유지</strong>
+                    </span>
+                </div>
+                
+                <button class="accordion mgt2">검색필터</button>
+                <div class="panel">
+                    <div class="search__box mgt2">
+                    <ul class="col5">
+                        <li class="calendar-picker">
+							<input type="text" placeholder="생성일">
+							<button onclick="document.getElementById('layerPop').style.display='block'" type="button" class="icon-calendar"></button>
+						</li>
+                        <li class="m-hidden"><input type="text" placeholder="사고 ID"></li>
+                        <li>
+                            <div class="custom-select">
+                                <select>
+                                <option value="0">사고구역</option>
+                                <option value="1">전체</option>
+                                <option value="2">출입통제</option>
+                                <option value="3">출입허용</option>
+                                </select>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="custom-select">
+                                <select>
+                                <option value="0">조치상태</option>
+                                <option value="1">전체</option>
+                                <option value="2">높음(61~100)</option>
+                                <option value="3">보통(30~60)</option>
+                                <option value="3">낮음(0~29)</option>
+                                </select>
+                            </div>
+                        </li>
+                        <li><input type="text" placeholder="사고처리자"></li>
+                        <li class="m-hidden">
+                            <div class="custom-select">
+                                <select>
+                                <option value="0">보고서 등록상태</option>
+                                <option value="1">전체</option>
+                                <option value="2">출입통제</option>
+                                <option value="3">출입허용</option>
+                                </select>
+                            </div>
+                        </li>
+                        <li class="m-hidden">
+                            <label class="custom-checkbox">위험구역만 조회
+                                <input type="checkbox">
+                                <span class="checkmark"></span>
+                            </label>
+                        </li>
+                    </ul>
+                    <span class="search__box--button">
+                        <button type="button" class="line-primary-btn btn-large">Search</button>
+                    </span>
+                    </div>
+                </div>
+            
+              <div class="accident-all-tb response-container">
+                <div class="sort__area mgt2">
+                    <a href="#" class="chip-sort">전체<strong>83</strong></a>
+                    <a href="#" class="chip-sort active">중대재해<strong>23</strong></a>
+                    <a href="#" class="chip-sort">긴급<strong>3</strong></a>
+                    <a href="#" class="chip-sort">주의<strong>123</strong></a>
+                </div>
+                <table class="response-table">
+                    <thead>
+                    <tr>
+                        <th>사고 ID</th>
+                        <th>생성일</th>
+                        <th>사고구역</th>
+                        <th>위험구역</th>
+						<th>안전지수</th>
+                        <th>사고유형</th>
+                        <th>내용</th>
+                        <th>사고처리자</th>
+                        <th>조치상태</th>
+                        <th>보고서</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr class="emergency-bg"><!--  긴급사고 중 조치대기 상태인 데이터 최상단 정렬 class=emergency-bg 추가-->
+                        <td data-title="사고 ID"><span>12345</span></td>
+                        <td><span>21/11/12 13:12</span></td>
+                        <td><span>H-23</span></td>
+                        <td><span class="dot red"></span><span class="m-hidden">위험구역</span></td>
+                        <td class="m-hidden"><span>29</span></td>
+                        <td><span>긴급사고</span></td>
+                        <td class="w20"><span><a href="accident_mgm-all-detail.html" class="underline"><strong>위험레벨2 - 돌발행동 감지</strong></a></span></td>
+                        <td><span>홍길동</span></td>
+                        <td><div class="chip-staus"><span class="dot gray"></span>조치대기</div></td><!-- 조치상태가 대기일 경우 dot 색상 class=gray, 완료일 경우 class=blue -->
+                        <td class="m-hidden">N</td>
+                    </tr>
+                    <tr class="emergency-bg">
+                        <td data-title="사고 ID"><span>12345</span></td>
+                        <td><span>21/11/12 13:12</span></td>
+                        <td><span>H-23</span></td>
+                        <td><span class="dot red"></span><span class="m-hidden">위험구역</span></td>
+                        <td class="m-hidden"><span>29</span></td>
+                        <td><span>긴급사고</span></td>
+                        <td><span><a href="accident_mgm-all-detail.html" class="underline"><strong>위험레벨1 - 급제동</strong></a></span></td>
+                        <td><span>홍길동</span></td>
+                        <td><div class="chip-staus"><span class="dot gray"></span>조치대기</div></td>
+                        <td class="m-hidden">N</td>
+                    </tr>
+                    <tr>
+                        <td data-title="사고 ID"><span>12345</span></td>
+                        <td><span>21/11/12 13:12</span></td>
+                        <td><span>H-23</span></td>
+                        <td><span></span></td>
+                        <td class="m-hidden"><span>29</span></td>
+                        <td><span>주의상황</span></td>
+                        <td><span><a href="accident_mgm-all-detail.html" class="underline"><strong>위험레벨1 - 급제동</strong></a></span></td>
+                        <td><span>홍길동</span></td>
+                        <td><div class="chip-staus"><span class="dot blue"></span>조치완료</div></td>
+                        <td class="m-hidden">N</td>
+                    </tr>
+                    <tr>
+                        <td data-title="사고 ID"><span>12345</span></td>
+                        <td><span>21/11/12 13:12</span></td>
+                        <td><span>H-23</span></td>
+                        <td><span class="dot red"></span><span class="m-hidden">위험구역</span></td>
+                        <td class="m-hidden"><span>29</span></td>
+                        <td><span>긴급사고</span></td>
+                        <td><span><a href="accident_mgm-all-detail.html" class="underline"><strong>위험레벨1 - 급제동</strong></a></span></td>
+                        <td><span>홍길동</span></td>
+                        <td><div class="chip-staus"><span class="dot gray"></span>조치대기</div></td>
+                        <td class="m-hidden">N</td>
+                    </tr>
+                </tbody>
+                </table>
+                <div class="pagination mgt2">
+                    <a href="#" class="first"></a>
+                    <a href="#">1</a>
+                    <a class="active" href="#">2</a>
+                    <a href="#">3</a>
+                    <a href="#">4</a>
+                    <a href="#">5</a>
+                    <a href="#">6</a>
+                    <a href="#" class="last"></a>
+                  </div>
+            </div>
+
+            </div>
+        </div>
+	</div>
+</div>
+
+<!-- 생성일 날짜 선택 레이어 팝업-->
+<div id="layerPop" class="modal">
+    <div class="ly_pop_container">
+        <span onclick="document.getElementById('layerPop').style.display='none'" class="ly_pop-close"></span>
+		<div class="calendar mgt2">
+		  <div class="calendar__opts">
+			<select name="calendar__month" id="calendar__month">
+			  <option>Jan</option>
+			  <option>Feb</option>
+			  <option>Mar</option>
+			  <option>Apr</option>
+			  <option selected>May</option>
+			  <option>Jun</option>
+			  <option>Jul</option>
+			  <option>Aug</option>
+			  <option>Sep</option>
+			  <option>Oct</option>
+			  <option>Nov</option>
+			  <option>Dec</option>
+			</select>
+
+			<select name="calendar__year" id="calendar__year">
+			  <option>2017</option>
+			  <option>2018</option>
+			  <option>2019</option>
+			  <option>2020</option>
+			  <option selected>2021</option>
+			</select>
+		  </div>
+
+		  <div class="calendar__body">
+			<div class="calendar__days">
+			  <div>월</div>
+			  <div>화</div>
+			  <div>수</div>
+			  <div>목</div>
+			  <div>금</div>
+			  <div>토</div>
+			  <div>일</div>
+			</div>
+
+			<div class="calendar__dates">
+			  <div class="calendar__date calendar__date--grey"><span>27</span></div>
+			  <div class="calendar__date calendar__date--grey"><span>28</span></div>
+			  <div class="calendar__date calendar__date--grey"><span>29</span></div>
+			  <div class="calendar__date calendar__date--grey"><span>30</span></div>
+			  <div class="calendar__date"><span>1</span></div>
+			  <div class="calendar__date"><span>2</span></div>
+			  <div class="calendar__date"><span>3</span></div>
+			  <div class="calendar__date"><span>4</span></div>
+			  <div class="calendar__date"><span>5</span></div>
+			  <div class="calendar__date"><span>6</span></div>
+			  <div class="calendar__date"><span>7</span></div>
+			  <div class="calendar__date"><span>8</span></div>
+			  <div class="calendar__date"><span>9</span></div>
+			  <div class="calendar__date"><span>10</span></div>
+			  <div class="calendar__date"><span>11</span></div>
+			  <div class="calendar__date"><span>12</span></div>
+			  <div class="calendar__date"><span>13</span></div>
+			  <div class="calendar__date"><span>14</span></div>
+			  <div class="calendar__date"><span>15</span></div>
+			  <div class="calendar__date calendar__date--selected calendar__date--first-date calendar__date--range-start"><span>16</span></div>
+			  <div class="calendar__date calendar__date--selected calendar__date--last-date"><span>17</span></div>
+			  <div class="calendar__date calendar__date--selected calendar__date--first-date"><span>18</span></div>
+			  <div class="calendar__date calendar__date--selected"><span>19</span></div>
+			  <div class="calendar__date calendar__date--selected"><span>20</span></div>
+			  <div class="calendar__date calendar__date--selected calendar__date--last-date calendar__date--range-end"><span>21</span></div>
+			  <div class="calendar__date"><span>22</span></div>
+			  <div class="calendar__date"><span>23</span></div>
+			  <div class="calendar__date"><span>24</span></div>
+			  <div class="calendar__date"><span>25</span></div>
+			  <div class="calendar__date"><span>26</span></div>
+			  <div class="calendar__date"><span>27</span></div>
+			  <div class="calendar__date"><span>28</span></div>
+			  <div class="calendar__date"><span>29</span></div>
+			  <div class="calendar__date"><span>30</span></div>
+			  <div class="calendar__date"><span>31</span></div>
+			</div>
+		  </div>
+		  <div class="calendar__buttons">
+			<button class="calendar__button calendar__button--grey">Back</button>
+			<button class="calendar__button calendar__button--primary">Apply</button>
+		  </div>
+		</div>
+	</div>
+</div>
+<!-- //생성일 날짜 선택 레이어 팝업-->		
+
+<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+<script src="js/custom.js"></script>
+
+</body>
+</html>

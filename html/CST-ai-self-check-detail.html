@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <title>ETRI</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="css/custom.css">
+
+</head>
+
+<body>
+
+<div class="wrap">
+	<!-- header -->
+    <div class="header">
+		<div class="header__title">
+			<span>한국타이어 대전공장 안전관리시스템</span>
+		</div>
+		<div class="header__menu__toggle">
+			<div class="header__menu__hamburger">
+				<input class="hamburger__menu__btn" type="checkbox"/>
+
+				<span class="toolbar-menu"></span>
+
+				<div class="header__menu-area">
+					<div class="side__menu-list__close">
+						<span class="close"></span>
+					</div>
+                    <!-- LNB 개인정보 영역 -->
+					<div class="header_myinfo">
+						<div class="header-profile">
+							<img src="images/dummy-profile.jpg" class="profile-photo">
+							<div class="emergency"><span class="dot red"></span>주시대상</div><!-- 주시대상 상태에 따라 추가 -->
+						</div>
+						<div class="profile-info">
+							<span>홍길동</span>ID : 776</a>
+							<div>타이어 성형 2팀 | A08</div>
+							<a href="#">Logout</a><a href="#">Setting</a>
+						</div>
+					</div>
+					<!--// LNB 개인정보 영역 -->
+					<!-- menu -->
+					<div class="side__menu-list">
+						<button class="accordion">사고관리</button>
+						<div class="panel">
+							<a href="#">전체사고관리</a>
+							<a href="#">AI종합진단</a>
+							<a href="#">AI개인진단</a>
+						</div>
+						<a class="accordion ">안전점검일지</a>
+						<button class="accordion">작업관리</button>
+						<div class="panel">
+							<a href="#">작업자관리</a>
+							<a href="#">작업구역관리</a>
+							<a href="#">체크리스트관리</a>
+						</div>
+						<a class="accordion">운영기기관리</a>
+						<button class="accordion">메시지관리</button>
+						<div class="panel">
+							<a href="#">메시지관리</a>
+							<a href="#">메시지템플릿</a>
+						</div>
+						<a class="accordion">설정</a>
+					</div>
+					<!-- //menu -->
+				</div>
+			</div>
+		</div>
+
+		
+	<!--긴급사고 알림 snackbar -->
+		<div id="snackbar">
+			<span onclick="this.parentElement.style.display='none';" class="ly_pop-close"></span>
+			<h2>긴급사고 / 주의상황 알림</h2>
+				<div class="ly_emerg_con">
+					<span class="icon-emerg"></span>
+					<span>
+					타이어 적재 작업구역에서<br>
+					<strong>지게차(ID번호) 충돌 사고가 발생</strong>했습니다.
+					<h4 class="mgt1">
+						2021-01-01 15:23:41 <strong>운전자 : 홍길동</strong>
+					</h4>
+					<button type="button" class="btn-small second-btn mgt1">자세히 보기</button>
+				</span>
+				</div>
+			<div class="btn-wrap">
+				<button type="button" class="btn-large line-darkgray-btn">이동</button>
+				<button type="button" class="btn-large red-btn">다음알림</button>
+			</div>
+		</div>
+	<!--//긴급사고 알림 snackbar -->
+
+		<div class="header__utility">
+			<a href="#" class="icon-alret" onclick="snackFunction()"><span class="dot red">5</span></a>
+			<a href="#" class="icon-mail"><span class="dot green">2</span></a>
+			<span class="user-info">
+				<a href="#" onclick="myFunction_userInfo()"><img src="images/dummy-profile.jpg"><span>홍길동</span> 안전관리자</a>
+				<div id="myDropdown" class="profile-container">
+					<img src="images/dummy-profile.jpg" class="profile-photo">
+					<div class="profile-info">
+						<span>홍길동</span>안전관리자</a>
+						<a href="#">Logout</a><a href="#">Setting</a>
+					</div>
+				</div>
+			</span>
+		</div>
+    </div>
+	
+	<div class="header__sub">
+		<div class="f-left">
+			<span class="today">2021-06-01 월요일</span>
+			<span class="noday">무재해 <strong>71</strong>일</span>
+		</div>
+		<div class="f-right">
+			<div class="emerg">
+				<a href="#">긴급사고 프로토콜 실행</a> <a href="#">구조대 지원 호출</a>
+			</div>
+			<div class="notice__area">
+				<span class="notice__area--date">2021-04-15</span>
+				<a href="#">5월 1일 지게차 안전점검을 실시합니다. <u>자세히보기</u></a>
+				<span class="icon-modify"><a href="#"></a></span>
+			</div>
+		</div>
+	</div>
+	
+	<div class="contents">
+		<div class="container ai-total">
+			<div class="titTypeA">AI리포트 상세보기</div>
+
+			<div class="container-box">
+				<div class="titTypeB mgt1 d-flex j-content-between">작업자 상세정보 <span class="btn-small">생성일시 <span class="primary">21/04/05 12:00:00</span></span></div>
+				<div class="ai-self-detail">
+					<div class="info__wrap full mgt2">
+						<div class="titTypeB">작업자 정보 </div>
+						<ul class="col2">
+							<li><span>작업자명</span><a href="#" class="underline">홍길동</a></li>
+							<li><span>작업자ID</span>12345</li>
+							<li><span>부서</span>생산관리 2팀</li>
+							<li><span>안전지수</span>23</li>
+							<li><span>생성일시</span>21/04/05</li>
+							<li><span>리포트ID</span>12345</li>
+							<li><span>체크리스트</span>Y</li>
+							<li><span>작업종료</span>Y</li>
+						</ul>
+					</div>
+					<div class="info__wrap mgt2">
+						<div class="titTypeB">작업자 건강정보</div>
+						<ul class="col2">
+							<li><span>평균체온(정상)</span>36.2℃ (35.9~37.4)</li>
+							<li><span>평균맥박(정상)</span><strong class="emergency">102</strong>(60~80회/분)</li>
+							<li class="w100"><span>평균혈압(정상)</span>60/<strong class="emergency">132</strong>(80 미만/120 미만)</li>
+							<li class="w100"><span>주의사항</span>
+								<textarea>- 맥박 이상 12:00:00
+- 혈압 이상 12:00:00
+								</textarea>
+							</li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="titTypeB mgt2">평가서 등록</div>
+				<textarea rows="8" class="mgt1"></textarea>
+				<div class="btn-wrap">
+					<button type="button" class="btn-large line-primary-btn">수정</button>
+					<button type="button" class="btn-large primary-btn">등록</button>
+				</div>
+				
+				<!-- 07/20 건설안전 화면 -->
+				<div class="d-flex j-content-between align-center mgt2">
+					<div class="titTypeA"><span class="primary">홍길동</span> 님의 <span class="primary">4월 13일</span> AI 안전 리포트</div>
+				</div>
+
+				<div class="accident-all-detail mgt2">
+					<!-- 위험 행동 이력 -->
+                    <div class="divide">
+                        <div class="ai-con04 type02 w100">
+                            <div class="w50">
+                                <img src="images/graph02.jpg">
+                            </div>
+                            <div class="w50">
+                                <div class="summary-card-wrap">
+                                    <span class="summary-card summary-emerg">
+                                        <h6>긴급사고</h6>
+                                        <strong>123건</strong>
+                                    </span>
+                                    <span class="summary-card summary-caution">
+                                        <h6>주의상황</h6>
+                                        <strong>8건</strong>
+                                    </span>
+                                    <span class="summary-card summary-danger">
+                                        <h6>위험원인</h6>
+                                        <strong>23건</strong>
+                                    </span>
+                                </div> 
+                            </div>
+                        </div>
+                        <div class="ai-con01 w100">
+                            <p>
+                            홍길동님의 일일 안전지수는 <strong class="emergency">{{36점}}</strong>입니다.</p> 
+                            긴급사고 {{0}}건, 주의상황은 {{5}}건 발생하였으며, 일 평균 맥박 {{60}}, 최저혈압 {{60}}, 최고혈압 {{110}}, 체온 {{36℃}}로 건강상태가 {{양호합니다.}} <br>
+                            위험 원인이 가장 자주 발생한 시간대는 {{3시}}로, 해당 시간대의 사고 위험에 향후 더욱 주의하시기 바랍니다.<br>
+                            오늘 작업 구역은 {{작업구역명}}, {{작업구역명}}, {{작업구역명}} 으로, 체크리스트 작성이 되지 않은 작업은 ({{작업구역명}} 작업입니다. / 없습니다.)<br>
+                            작업 종료 처리를 (완료/누락)하였습니다.
+                        </div>
+                        <div class="ai-con05 w100">
+                            <div class="titTypeC">관리자 피드백</div>
+                            <p class="ai-feedback mgt1">
+                                긴급사고 {{0}}건, 주의상황은 {{5}}건 발생하였으며, 일 평균 맥박 {{60}}, 최저혈압 {{60}}, 최고혈압 {{110}}, 체온 {{36℃}}로 건강상태가 {{양호합니다.}}
+                                위험 원인이 가장 자주 발생한 시간대는 {{3시}}로, 해당 시간대의 사고 위험에 향후 더욱 주의하시기 바랍니다.<br><br>
+                                오늘 작업 구역은 {{작업구역명}}, {{작업구역명}}, {{작업구역명}} 으로, 체크리스트 작성이 되지 않은 작업은 ({{작업구역명}} 작업입니다. / 없습니다.)
+                                작업 종료 처리를 (완료/누락)하였습니다.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!--위험 감지 Log -->
+                    <div class="accident-all-log mgt2">
+                        <div class="titTypeB mgt1">위험 감지 Log</div>
+							<div class="timeline mgt2">
+								<div class="timeline-content right">
+								  <div class="timeline-box">
+									<h3>21/04/00 12:00:00 <span>H-23</span><span>H-1234</span></h3>
+									<div><span class="icon-accident">사고ID <span class="icon-forklift"></span>지게차ID</span> 충돌사고발생</div>
+								</div>
+								</div>
+								<div class="timeline-content right">
+									<div class="timeline-box">
+										<h3>21/04/00 12:00:00 <span>H-23</span><span>H-1234</span></h3>
+										<div>급속회전에 따른 위험</div>
+									</div>
+								</div>
+								<div class="timeline-content right">
+									<div class="timeline-box">
+										<h3>21/04/00 12:00:00 <span>H-23</span><span>H-1234</span></h3>
+										<div><span class="icon-accident">사고ID </span> 맥박수 이상</div>
+									  </div>
+								</div>
+								<div class="timeline-content right">
+									<div class="timeline-box">
+									  <h3>21/04/00 12:00:00 <span>H-23</span></h3>
+									  <div><span class="icon-accident">사고ID <span class="icon-forklift"></span>지게차ID</span> 충돌사고발생</div>
+								  </div>
+								  </div>
+								  <div class="timeline-content right">
+									  <div class="timeline-box">
+										  <h3>21/04/00 12:00:00 <span>H-23</span></h3>
+										  <div><span class="icon-accident">사고ID <span class="icon-forklift"></span>지게차ID</span> 충돌사고발생</div>
+									  </div>
+								  </div>
+								  <div class="timeline-content right">
+									  <div class="timeline-box">
+										  <h3>21/04/00 12:00:00 <span>H-23</span></h3>
+										  <div><span class="icon-accident">사고ID <span class="icon-forklift"></span>지게차ID</span> 충돌사고발생</div>
+										</div>
+								  </div>
+								  <div class="timeline-content right">
+									<div class="timeline-box">
+										<h3>21/04/00 12:00:00 <span>H-23</span></h3>
+										<div><span class="icon-accident">사고ID <span class="icon-forklift"></span>지게차ID</span> 충돌사고발생</div>
+									  </div>
+								  </div>
+							</div>
+							<div class="d-flex j-content-between mgt1">
+								<a href="#" class="icon-preview">이전</a>
+								<a href="#" class="icon-next">다음</a>
+							</div>
+                    </div>
+				</div>                
+				
+				<div class="ai-con06">
+					<div class="titTypeB">시간대별 건강 상태</div>
+					<div class="d-flex j-content-between mgt2">
+						<div class="ai-state-wrap">
+							<div class="ai-state-total"><span>건강지수</span><strong>60점</strong></div>
+							
+							<div class="ai-states">
+								<div class="ai-state-temperature">
+									<h5>체온</h5>
+									<div>최고 <strong>37.2℃</strong><br>최저 <strong>36.2℃</strong></div>
+								</div>
+								<div class="ai-state-pulse">
+									<h5>맥박</h5> 
+									<div>최고 <strong>120</strong> <br>
+										최저 <strong>60</strong>
+									</div>
+								</div>
+								<div class="ai-state-blood">
+									<h5>혈압</h5> 
+									<div>최고 <strong>60/120</strong> <br>
+										최저 <strong>60/90</strong>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="ai-state-graph"><img src="images/graph03.jpg" style="width: 100%"></div>
+					</div>
+				</div>
+				
+		</div>
+
+    </div>
+</div>
+
+<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+<script src="js/custom.js"></script>
+
+
+</body>
+</html>

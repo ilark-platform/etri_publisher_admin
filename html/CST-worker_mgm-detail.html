@@ -1,0 +1,459 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <title>ETRI</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="css/custom.css">
+
+</head>
+
+<body>
+
+<div class="wrap">
+	<!-- header -->
+    <div class="header m-hidden">
+		<div class="header__title">
+			<span>한국타이어 대전공장 안전관리시스템</span>
+		</div>
+		<div class="header__menu__toggle">
+			<div class="header__menu__hamburger">
+				<input class="hamburger__menu__btn" type="checkbox"/>
+
+				<span class="toolbar-menu"></span>
+
+				<div class="header__menu-area">
+					<div class="side__menu-list__close">
+						<span class="close"></span>
+					</div>
+                    <!-- LNB 개인정보 영역 -->
+					<div class="header_myinfo">
+						<div class="header-profile">
+							<img src="images/dummy-profile.jpg" class="profile-photo">
+							<div class="emergency"><span class="dot red"></span>주시대상</div><!-- 주시대상 상태에 따라 추가 -->
+						</div>
+						<div class="profile-info">
+							<span>홍길동</span>ID : 776</a>
+							<div>타이어 성형 2팀 | A08</div>
+							<a href="#">Logout</a><a href="#">Setting</a>
+						</div>
+					</div>
+					<!--// LNB 개인정보 영역 -->
+					<!-- menu -->
+					<div class="side__menu-list">
+						<button class="accordion">사고관리</button>
+						<div class="panel">
+							<a href="#">전체사고관리</a>
+							<a href="#">AI종합진단</a>
+							<a href="#">AI개인진단</a>
+						</div>
+						<a class="accordion ">안전점검일지</a>
+						<button class="accordion">작업관리</button>
+						<div class="panel">
+							<a href="#">작업자관리</a>
+							<a href="#">작업구역관리</a>
+							<a href="#">체크리스트관리</a>
+						</div>
+						<a class="accordion">운영기기관리</a>
+						<button class="accordion">메시지관리</button>
+						<div class="panel">
+							<a href="#">메시지관리</a>
+							<a href="#">메시지템플릿</a>
+						</div>
+						<a class="accordion">설정</a>
+					</div>
+					<!-- //menu -->
+				</div>
+			</div>
+		</div>
+
+		
+	<!--긴급사고 알림 snackbar -->
+		<div id="snackbar">
+			<span onclick="this.parentElement.style.display='none';" class="ly_pop-close"></span>
+			<h2>긴급사고 / 주의상황 알림</h2>
+				<div class="ly_emerg_con">
+					<span class="icon-emerg"></span>
+					<span>
+					타이어 적재 작업구역에서<br>
+					<strong>지게차(ID번호) 충돌 사고가 발생</strong>했습니다.
+					<h4 class="mgt1">
+						2021-01-01 15:23:41 <strong>운전자 : 홍길동</strong>
+					</h4>
+					<button type="button" class="btn-small second-btn mgt1">자세히 보기</button>
+				</span>
+				</div>
+			<div class="btn-wrap">
+				<button type="button" class="btn-large line-darkgray-btn">이동</button>
+				<button type="button" class="btn-large red-btn">다음알림</button>
+			</div>
+		</div>
+	<!--//긴급사고 알림 snackbar -->
+
+		<div class="header__utility">
+			<a href="#" class="icon-alret" onclick="snackFunction()"><span class="dot red">5</span></a>
+			<a href="#" class="icon-mail"><span class="dot green">2</span></a>
+			<span class="user-info">
+				<a href="#" onclick="myFunction_userInfo()"><img src="images/dummy-profile.jpg"><span>홍길동</span> 안전관리자</a>
+				<div id="myDropdown" class="profile-container">
+					<img src="images/dummy-profile.jpg" class="profile-photo">
+					<div class="profile-info">
+						<span>홍길동</span>안전관리자</a>
+						<a href="#">Logout</a><a href="#">Setting</a>
+					</div>
+				</div>
+			</span>
+		</div>
+    </div>
+	<div class="header__sub m-hidden">
+		<div class="f-left">
+			<span class="today">2021-06-01 월요일</span>
+			<span class="noday">무재해 <strong>71</strong>일</span>
+		</div>
+		<div class="f-right">
+			<div class="emerg">
+				<a href="#">긴급사고 프로토콜 실행</a> <a href="#">구조대 지원 호출</a>
+			</div>
+			<div class="notice__area">
+				<span class="notice__area--date">2021-04-15</span>
+				<a href="#">5월 1일 지게차 안전점검을 실시합니다. <u>자세히보기</u></a>
+				<span class="icon-modify"><a href="#"></a></span>
+			</div>
+		</div>
+	</div>
+	
+	<header class="app">
+		<a href="#" class="preBtn">이전</a>
+		<h2>작업자 상세정보</h2>
+	</header>
+	
+	<div class="contents">
+        <div class="container">
+			<div class="titTypeA">작업자 상세정보</div>
+            <div class="container-box">
+                <div class="tab">
+                    <button class="tablinks" onclick="openCity(event, 'worker-info')" id="defaultOpen">작업자 정보</button>
+                    <button class="tablinks" onclick="openCity(event, 'worker-report')">작업자 리포트</button>
+                </div>
+				<!--작업자 정보 tab-->
+				<div id="worker-info" class="tabcontent clearfix mgt1">
+					<div class="worker_mgm-detail">
+						<!--작업자 상세정보 -->
+						<div class="divide mgt2">
+							<div class="titTypeB">작업자 상세정보<div class="f-right">21/04/01 13:00:01<a href="#" class="icon-reload"></a></div></div>
+							<!-- 작업자 상세정보--->
+							<div class="info__wrap full mgt2">
+								<ul class="col3">
+									<div class="d-flex j-content-between">
+										<div class="titTypeC">작업자 정보</div>
+										<button type="button" class="m-hidden gray-btn btn-small">편집</button>
+										<button type="button" class="hidden gray-btn btn-small">메시지발송</button>
+									</div>
+									<li><span>작업자명</span>홍길동
+                                        <button type="button" class="second-btn btn-small mgl1">주시설정</button>
+                                    </li>
+									<li><span>작업자ID</span>12345
+										<button type="button" class="m-hidden second-btn btn-small mgl1">계정 비활성화</button>
+									</li>
+									<li><span>부서</span>생산관리 2팀</li>
+									<li><span>안전지수</span>23</li>
+                                    <li><span>안전고리</span>안전고리ID</li>
+									<li><span>웨어러블</span>웨어러블ID</li>
+									<li class="w100">
+										<span>작업내용</span>
+										<ul>
+											<li class="chip-sort">양생공정 1단계</li><li class="chip-sort">양생공정 1단계</li><li class="chip-sort">양생공정 1단계</li>
+										</ul>
+									</li>
+								</ul>
+							</div>
+							<!-- 개인정보--->
+							<div class="info__wrap full mgt2">
+								<ul class="col3">
+									<div class="titTypeC">개인정보</div>
+									<li><span>생년월일</span>1967/01/01 (만 53세)</li>
+									<li><span>성별</span>남성</li>
+									<li><span>국가</span>대한민국</li>
+									<li><span>혈액형</span>A</li>
+									<li><span>휴대전화번호</span>010-0000-0000</li>
+									<li><span>전화번호</span>02-0000-0000</li>
+									<li><span>비상연락망</span>선택안함</li>
+									<li><span>메일주소</span>id@example.com</li>
+									<li class="w100"><span>주소</span>서울시 종로구 세종로</li><!--07/08 항목위치 및 너비 변경 -->
+								</ul>
+							</div>
+							
+							<!-- 작업자 건강정보--->
+							<div class="info__wrap full mgt2">
+								<ul class="col2">
+                                    <div class="titTypeC">작업자 건강정보</div>
+                                    <li><span>체온</span>36.2℃ (35.9~37.4)</li>
+                                    <li><span>맥박(정상)</span><strong class="emergency">102</strong>(60~80회/분)</li>
+                                    <li><span>최저혈압(정상)</span>60(80 미만)</li>
+                                    <li><span>최고혈압(정상)</span><strong class="emergency">132</strong>(80 미만)</li>
+									<li class="w100 m-hidden"><span>주의사항</span>
+										<textarea>- 맥박 이상 12:00:00
+- 혈압 이상 12:00:00
+										</textarea>
+									</li>
+                                </ul>
+                            </div>
+						</div>
+
+						<!--실시간 Log -->
+						<div class="accident-all-log mgt2">
+							<div class="titTypeB">실시간 Log</div>
+								<div class="timeline mgt2">
+									<div class="timeline-content right">
+										<div class="timeline-box">
+											<h3>21/04/00 12:00:00<span>{{작업구역id}}</span></h3>
+											<div><span>{{작업구역명}}</span>작업종료 - 퇴근</div>
+										</div>
+									</div>
+									<div class="timeline-content right">
+										<div class="timeline-box">
+											<h3>21/04/00 12:00:00<span>{{작업구역id}}</span></h3>
+											<div><span>{{작업구역명}}</span>작업종료 - 퇴근</div>
+										</div>
+									</div>
+									<div class="timeline-content right">
+										<div class="timeline-box">
+											<h3>21/04/00 12:00:00<span>{{작업구역id}}</span></h3>
+											<div><span>{{작업구역명}}</span>작업종료 - 퇴근</div>
+										</div>
+									</div>
+									<div class="timeline-content right">
+										<div class="timeline-box">
+											<h3>21/04/00 12:00:00<span>{{작업구역id}}</span></h3>
+											<div><span>{{작업구역명}}</span>작업종료 - 퇴근</div>
+										</div>
+									</div>
+									<div class="timeline-content right">
+										<div class="timeline-box">
+											<h3>21/04/00 12:00:00<span>{{작업구역id}}</span></h3>
+											<div><span>{{작업구역명}}</span>작업종료 - 퇴근</div>
+										</div>
+									</div>
+									<div class="timeline-content right">
+										<div class="timeline-box">
+											<h3>21/04/00 12:00:00<span>{{작업구역id}}</span></h3>
+											<div><span>{{작업구역명}}</span>작업종료 - 퇴근</div>
+										</div>
+									</div>
+									<div class="timeline-content right">
+										<div class="timeline-box">
+											<h3>21/04/00 12:00:00<span>{{작업구역id}}</span></h3>
+											<div><span>{{작업구역명}}</span>작업종료 - 퇴근</div>
+										</div>
+									</div>
+								</div>
+								<div class="d-flex j-content-between mgt1">
+									<a href="#" class="icon-preview">이전</a>
+									<a href="#" class="icon-next">다음</a>
+								</div>
+							</div>
+                    </div>
+                </div>
+				<!--작업자 리포트 tab-->
+				<div id="worker-report" class="tabcontent clearfix mgt1">
+					<div class="worker_mgm-detail">
+						<div class="divide mgt2">
+							<div class="titTypeB">메시지 내역</div>
+							<div class="search__box mgt2">
+								<ul class="col2">
+									<li>
+										<div class="calendar-picker">
+											<input type="text" placeholder="기간선택">
+											<button onclick="document.getElementById('layerPop').style.display='block'" type="button" class="icon-calendar"></button>
+										</div>
+										<span>~</span>
+										<div class="calendar-picker">
+											<input type="text" placeholder="기간선택">
+											<button onclick="document.getElementById('layerPop').style.display='block'" type="button" class="icon-calendar"></button>
+										</div>
+									</li>
+								</ul>
+								<span class="search__box--button">
+									<button type="button" class="line-primary-btn btn-large">Search</button>
+								</span>
+							</div>
+							<div class="sort__area mgt2">
+								<a href="#" class="chip-sort">전체</a>
+								<a href="#" class="chip-sort">수신</a>
+								<a href="#" class="chip-sort">발신</a>
+							</div>
+							<div class="response-container">
+								<table class="response-table">
+									<thead>
+										<tr>
+											<th>메시지 종류</th>
+											<th>발신자</th>
+											<th>발송내역</th>
+											<th style="width:30%">메시지</th>
+											<th>발신일</th>
+											<th>수신확인</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>일반</td>
+											<td>[관리자] 홍길동</td>
+											<td>수신</td>
+											<td><a href="#">휴식을 권고합니다.</a></td>
+											<td>21/04/06 12:00:00</td>
+											<td>21/04/06 12:00:00</td>
+										</tr>
+										<tr>
+											<td>주의</td>
+											<td>[관리자] 홍길동</td>
+											<td>수신</td>
+											<td><a href="#">조기 퇴근 요청합니다.</a></td>
+											<td>21/04/06 12:00:00</td>
+											<td>21/04/06 12:00:00</td>
+										</tr>
+										<tr>
+											<td>일반</td>
+											<td>[관리자] 홍길동</td>
+											<td>수신</td>
+											<td><a href="#">휴식을 권고합니다.</a></td>
+											<td>21/04/06 12:00:00</td>
+											<td>21/04/06 12:00:00</td>
+										</tr>
+										<tr>
+											<td>일반</td>
+											<td>[관리자] 홍길동</td>
+											<td>수신</td>
+											<td><a href="#">휴식을 권고합니다.</a></td>
+											<td>21/04/06 12:00:00</td>
+											<td>21/04/06 12:00:00</td>
+										</tr>
+										<tr>
+											<td>주의</td>
+											<td>[관리자] 홍길동</td>
+											<td>수신</td>
+											<td><a href="#">휴식을 권고합니다.</a></td>
+											<td>21/04/06 12:00:00</td>
+											<td>21/04/06 12:00:00</td>
+										</tr>
+										<tr>
+											<td>일반</td>
+											<td>[관리자] 홍길동</td>
+											<td>수신</td>
+											<td><a href="#">휴식을 권고합니다.</a></td>
+											<td>21/04/06 12:00:00</td>
+											<td>21/04/06 12:00:00</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+							
+							<div class="titTypeC mgt2">메시지 발송 <div class="chip-staus">to:홍길동</div></div>
+							<div class="mgt2">
+								<div class="custom-select w20">
+									<select>
+										<option value="0">메시지 종류</option>
+										<option value="1">안전지적</option>
+										<option value="2">작업지시</option>
+										<option value="3">일반</option>
+										<option value="4">공지사항</option>
+									</select>
+								</div>
+								<textarea rows="5" class="mgt1"></textarea>
+								<div class="btn-wrap">
+									<button type="button" class="btn-large primary-btn">보내기</button>
+								</div>
+							</div>
+						</div>
+
+						<!--AI개인진단 -->
+						<div class="accident-all-log mgt2">
+							<div class="titTypeB">실시간 Log</div>
+							<div class="search__box mgt2">
+								<ul>
+									<li>
+										<div class="calendar-picker w30">
+											<input type="text" placeholder="기간선택">
+											<button onclick="document.getElementById('layerPop').style.display='block'" type="button" class="icon-calendar"></button>
+										</div>
+										<span>~</span>
+										<div class="calendar-picker w30">
+											<input type="text" placeholder="기간선택">
+											<button onclick="document.getElementById('layerPop').style.display='block'" type="button" class="icon-calendar"></button>
+										</div>
+									</li>
+								</ul>
+								<span class="search__box--button">
+									<button type="button" class="line-primary-btn btn-large">Search</button>
+								</span>
+							</div>
+							<div class="sort__area mgt2">
+								<a href="#" class="chip-sort">전체</a>
+								<a href="#" class="chip-sort">주의</a>
+							</div>
+							<div class="timeline">
+								<div class="timeline-content right">
+									<div class="timeline-box">
+										<h3>21/04/00 <span>수요일</span></h3>
+										<div> AI개인진단 리포트 - 안전지수 80 (높음)</div>
+									</div>
+								</div>
+								<div class="timeline-content right">
+									<div class="timeline-box">
+										<h3>21/04/00 <span>수요일</span></h3>
+										<div> AI개인진단 리포트 - 안전지수 80 (높음)</div>
+									</div>
+								</div>
+								<div class="timeline-content right">
+									<div class="timeline-box">
+										<h3>21/04/00 <span>수요일</span></h3>
+										<div> AI개인진단 리포트 - 안전지수 80 (높음)</div>
+									</div>
+								</div>
+								<div class="timeline-content right">
+									<div class="timeline-box">
+										<h3>21/04/00 <span>수요일</span></h3>
+										<div> AI개인진단 리포트 - 안전지수 80 (높음)</div>
+									</div>
+								</div>
+								<div class="timeline-content right">
+									<div class="timeline-box">
+										<h3>21/04/00 <span>수요일</span></h3>
+										<div> AI개인진단 리포트 - 안전지수 80 (높음)</div>
+									</div>
+								</div>
+								<div class="timeline-content right">
+									<div class="timeline-box">
+										<h3>21/04/00 <span>수요일</span></h3>
+										<div> AI개인진단 리포트 - 안전지수 80 (높음)</div>
+									</div>
+								</div>
+								<div class="timeline-content right">
+									<div class="timeline-box">
+										<h3>21/04/00 <span>수요일</span></h3>
+										<div> AI개인진단 리포트 - 안전지수 80 (높음)</div>
+									</div>
+								</div>
+							</div>
+							<div class="d-flex j-content-between mgt1">
+								<a href="#" class="icon-preview">이전</a>
+								<a href="#" class="icon-next">다음</a>
+							</div>
+
+						</div>
+                    </div>
+				</div>
+
+            </div>
+        </div>
+	</div>
+</div>
+
+<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+<script src="js/custom.js"></script>
+
+
+</body>
+</html>
