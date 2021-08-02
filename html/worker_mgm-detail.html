@@ -8,6 +8,7 @@
     <meta name="author" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <link rel="stylesheet" href="css/custom.css">
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/earlyaccess/notosanskr.css"></link>
 
 </head>
 
@@ -136,7 +137,8 @@
             <div class="container-box">
                 <div class="tab">
                     <button class="tablinks" onclick="openCity(event, 'worker-info')" id="defaultOpen">작업자 정보</button>
-                    <button class="tablinks" onclick="openCity(event, 'worker-report')">작업자 리포트</button>
+                    <button class="tablinks m-hidden" onclick="openCity(event, 'worker-report')">작업자 리포트</button>
+					<a href="#log" class="onlog hidden">실시간 log</a>
                 </div>
 				<!--작업자 정보 tab-->
 				<div id="worker-info" class="tabcontent clearfix mgt1">
@@ -234,7 +236,7 @@
 
 						<!--실시간 Log -->
 						<div class="accident-all-log mgt2">
-							<div class="titTypeB">실시간 Log</div>
+							<div class="titTypeB"><a name="log">실시간 Log</a></div>
 								<div class="timeline">
 									<div class="timeline-content right">
 										<div class="timeline-box">
@@ -292,8 +294,8 @@
 						<div class="divide mgt2">
 							<div class="titTypeB">메시지 내역</div>
 							<div class="search__box mgt2">
-								<ul class="col2">
-									<li>
+								<ul>
+									<li class="w100">
 										<div class="calendar-picker">
 											<input type="text" placeholder="기간선택">
 											<button onclick="document.getElementById('layerPop').style.display='block'" type="button" class="icon-calendar"></button>
@@ -303,11 +305,10 @@
 											<input type="text" placeholder="기간선택">
 											<button onclick="document.getElementById('layerPop').style.display='block'" type="button" class="icon-calendar"></button>
 										</div>
+										<button type="button" class="mgl1 line-primary-btn btn-large">Search</button>
 									</li>
 								</ul>
-								<span class="search__box--button">
-									<button type="button" class="line-primary-btn btn-large">Search</button>
-								</span>
+								
 							</div>
 							<div class="sort__area mgt2">
 								<a href="#" class="chip-sort">전체</a>

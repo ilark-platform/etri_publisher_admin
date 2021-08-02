@@ -488,7 +488,7 @@ dl.state_box dd{width:41%;font-weight: bold;font-size: 14px; text-align: right;}
 .admin-search-pop{display: flex;justify-content: space-between;align-items: flex-start;margin: 20px 0}
 .admin-search-pop .workarea-location{width:50%}
 .admin-search-pop .workarea-name{width:48%}
-.admin-search-pop .workarea-name li{width:24%;padding-top: 8px}
+.admin-search-pop .workarea-name li{width:31%;padding-top: 8px}
 
 .worker_mgm-detail {display: flex;justify-content: space-between;align-items: flex-start;}
 .worker_mgm-detail .accident-all-log {width:29%;border:0;padding:0; margin:0}
@@ -753,14 +753,19 @@ select::-ms-expand{display:none;}
 .icon-password:before{content:'';position:absolute;top:5px;right:10px; width:30px;height:30px;background:url('https://icongr.am/clarity/eye.svg?size=30&color=999999') no-repeat center;}
 
 .message_received_wrap-read .msg-contents{width:100%;position: relative;}
-.msg-nonRead{background: url('https://icongr.am/material/email-check.svg?size=22&color=9096a5') no-repeat left center;padding-left: 26px;margin:3px 0}
+.msg-nonRead{background: url('https://icongr.am/material/email-check.svg?size=22&color=9096a5') no-repeat left center;padding-left: 26px;}
 .msg-Read{background: url('https://icongr.am/material/email-open.svg?size=22&color=9096a5') no-repeat left center;padding-left:26px;margin:3px 0 }
 .msg-write .accordion{width: auto;vertical-align: middle;background-color: #fff;padding: 0;margin:0;border:0;}
 .msg-write .accordion.active:after, .msg-write .accordion:after{background:none;}
 #layerPop_msg_write .ly_pop_container .ly_contents{max-height:550px}
-.msg-write .panel{max-height: 250px;overflow-y: auto;background-color:#F2F6FF;border-radius: 6px;padding: 10px;}
+.msg-write .panel{max-height: 240px;overflow-y: auto;background-color:#F2F6FF;border-radius: 6px;padding: 10px;}
 .msg-write .panel .receiver-wrap{background-color: #fff;border-radius: 6px;padding: 10px;}
-.msg-write .panel .receiver-wrap a{width:32%;display: inline-block;padding: 2px;}
+.msg-write .panel .receiver-wrap a{width:49%;display: inline-block;padding: 2px;}
+.message_received_wrap .input-sender{width: 30%}
+
+.search-worker{position: relative;height: 50px;}
+.search-worker>input{position: absolute;background:#fff url('https://icongr.am/clarity/search.svg?size=18&color=999999') no-repeat 10px center;padding-left: 38px !important;}
+.search-worker>.icon-cancle{position: absolute;right: 10px;top:8px;}
 
 
 /* message table */
@@ -775,6 +780,8 @@ select::-ms-expand{display:none;}
 .msg-table tbody tr{position: relative;}
 .msg-table .custom-checkbox{padding:2px 10px 0 4px}
 .msg-table .custom-checkbox .checkmark{position: relative;display: inline-block;}
+.msg-table tbody tr.disabled{opacity: 1}
+.msg-table tbody tr.disabled td{color:#aaa}
 .msg-table thead th{text-align: left;background-color: var(--lightline);}
 
 /* table control */
@@ -1060,6 +1067,8 @@ header.app, .hidden {display:none}
   .worker_mgm-detail .divide, .worker_mgm-detail .accident-all-log {width:100%;border:0;padding: 0px;margin:0px;}
   .worker_mgm-detail .info__wrap{padding:10px 16px}
   .worker_mgm-detail .info__wrap li>ul{width:70%}
+  .worker_mgm-detail .info__wrap .col3 .hidden{display: inline-block}
+
   .worker_mgm-detail .divide .custom-select.w20{width: 100%!important}
   .worker_mgm-detail .divide .search__box>ul.col2 li, .worker_mgm-detail .accident-all-log .search__box li{width:100%}
   .worker_mgm-detail .divide .search__box>ul.col2 li .calendar-picker, .worker_mgm-detail .accident-all-log .search__box li .calendar-picker{width: 47%!important;}
@@ -1124,11 +1133,14 @@ header.app, .hidden {display:none}
   .msg-content{padding:14px 4px 2px;overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 2; /* 라인수 */-webkit-box-orient: vertical;word-wrap:break-word; line-height: 1.4em;height: 3.6em;}
   .message_received_wrap-read .msg-date{right:6px;top:64px}
   .message_received_wrap-read .msg-content{display: block;height: auto;}
-  .msg-write .panel .receiver-wrap a{width:48%;}
-
+  .msg-write .panel .receiver-wrap a{width:100%;}
+  .message_received_wrap .input-sender, .message_received_wrap button.line-primary-btn {width: 100%;margin-bottom: 5px}
+	
   .msg-write-btn {z-index: 1;position: fixed; bottom: 10px; right: 10px;}
   .msg-write-btn .btn-large {font-size: 0px; border-radius: 100%;width:46px;height:46px; background:var(--primary) url(https://icongr.am/material/email-edit.svg?size=30&color=ffffff) no-repeat center;}
-
+	
+.onlog.hidden{display: inline-block;padding: 14px 1px;}
+	
 .operate_device_status_wrap,
 .operate_device_mgm_wrap{display: block}
 .operate_device_status_wrap>.left,
@@ -1182,7 +1194,10 @@ header.app, .hidden {display:none}
 .setting-app-con li strong{display:inline-block;width:29%}
 .setting-app-con li div {display:inline-block;width:70%;text-align: right;}
 .setting-app-con li div select{width:45%;}
-
+.admin-search-pop{display: block}
+.admin-search-pop .workarea-name{width:100%}
+.admin-search-pop .workarea-name li{width:33%;}
+	
 .basic_form_ul li{width:100% !important}
 .basic_form_ul li label{width:110px}
 
