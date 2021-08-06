@@ -8,6 +8,7 @@
     <meta name="author" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <link rel="stylesheet" href="css/custom.css">
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/earlyaccess/notosanskr.css"></link>
 
 </head>
 
@@ -136,19 +137,10 @@
             <div class="container-box">
 				<div class="search__box mgt2">
                     <ul>
-                        <li>
-							<button type="button" class="btn-large primary-btn">일간</button>
+                        <li class="calendar-picker">
+							<input type="text" placeholder="날짜선택">
+							<button onclick="document.getElementById('layerPop_calendar').style.display='block'" type="button" class="icon-calendar"></button>
 						</li>
-                        <li>
-                            <div class="custom-select">
-                                <select>
-                                <option value="0">2021/04/13</option>
-                                <option value="1">2021/04/12</option>
-                                <option value="2">2021/04/11</option>
-                                <option value="3">2021/04/10</option>
-                                </select>
-                            </div>
-                        </li>
 					</ul>
 				</div>
 				
@@ -164,11 +156,8 @@
 				</div>
 				<div class="d-flex j-content-between mgt2">
 					<div class="ai-con04">
-						<div class="w50">
-							<h2 class="titTypeC">작업자 안전지수</h2>
-							<img src="images/graph02.jpg">
-						</div>
-						<div class="w50 mgt1">
+						<h2 class="titTypeC">작업자 안전지수</h2>
+						<div class="mgt1">
 							<div class="summary-card-wrap">
 								<span class="summary-card">
 									<h6>평균 근로시간</h6>
@@ -191,7 +180,7 @@
 					</div>
 					
 					<div class="ai-con05 response-container">
-						<h2 class="titTypeC">주시 권장 작업자</h2>
+						<h2 class="titTypeC">최저 안전지수 작업자</h2>
 						
 						<table class="response-table">
 							<tbody>
@@ -251,11 +240,11 @@
 				<ul class="col5">
 					<li><input type="text" placeholder="작업자명"></li>
 					<li><input type="text" placeholder="작업자ID"></li>
-					<li><input type="text" placeholder="작업자명"></li>
+					<li><input type="text" placeholder="리포트ID"></li>
 					<li>
 						<div class="custom-select">
 							<select>
-							<option value="0">조치상태</option>
+							<option value="0">안전지수</option>
 							<option value="1">전체</option>
 							<option value="2">높음(61~100)</option>
 							<option value="3">보통(30~60)</option>
@@ -359,6 +348,93 @@
 <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
 <script src="js/custom.js"></script>
 
+<!-- 생성일 날짜 선택 레이어 팝업-->
+<div id="layerPop_calendar" class="modal">
+    <div class="ly_pop_container">
+        <span onclick="document.getElementById('layerPop_calendar').style.display='none'" class="ly_pop-close"></span>
+		<div class="calendar mgt2">
+		  <div class="calendar__opts">
+			<select name="calendar__month" id="calendar__month">
+			  <option>Jan</option>
+			  <option>Feb</option>
+			  <option>Mar</option>
+			  <option>Apr</option>
+			  <option selected>May</option>
+			  <option>Jun</option>
+			  <option>Jul</option>
+			  <option>Aug</option>
+			  <option>Sep</option>
+			  <option>Oct</option>
+			  <option>Nov</option>
+			  <option>Dec</option>
+			</select>
+
+			<select name="calendar__year" id="calendar__year">
+			  <option>2017</option>
+			  <option>2018</option>
+			  <option>2019</option>
+			  <option>2020</option>
+			  <option selected>2021</option>
+			</select>
+		  </div>
+
+		  <div class="calendar__body">
+			<div class="calendar__days">
+			  <div>월</div>
+			  <div>화</div>
+			  <div>수</div>
+			  <div>목</div>
+			  <div>금</div>
+			  <div>토</div>
+			  <div>일</div>
+			</div>
+
+			<div class="calendar__dates">
+			  <div class="calendar__date calendar__date--grey"><span>27</span></div>
+			  <div class="calendar__date calendar__date--grey"><span>28</span></div>
+			  <div class="calendar__date calendar__date--grey"><span>29</span></div>
+			  <div class="calendar__date calendar__date--grey"><span>30</span></div>
+			  <div class="calendar__date"><span>1</span></div>
+			  <div class="calendar__date"><span>2</span></div>
+			  <div class="calendar__date"><span>3</span></div>
+			  <div class="calendar__date"><span>4</span></div>
+			  <div class="calendar__date"><span>5</span></div>
+			  <div class="calendar__date"><span>6</span></div>
+			  <div class="calendar__date"><span>7</span></div>
+			  <div class="calendar__date"><span>8</span></div>
+			  <div class="calendar__date"><span>9</span></div>
+			  <div class="calendar__date"><span>10</span></div>
+			  <div class="calendar__date"><span>11</span></div>
+			  <div class="calendar__date"><span>12</span></div>
+			  <div class="calendar__date"><span>13</span></div>
+			  <div class="calendar__date"><span>14</span></div>
+			  <div class="calendar__date"><span>15</span></div>
+			  <div class="calendar__date calendar__date--selected calendar__date--first-date calendar__date--range-start"><span>16</span></div>
+			  <div class="calendar__date calendar__date--selected calendar__date--last-date"><span>17</span></div>
+			  <div class="calendar__date calendar__date--selected calendar__date--first-date"><span>18</span></div>
+			  <div class="calendar__date calendar__date--selected"><span>19</span></div>
+			  <div class="calendar__date calendar__date--selected"><span>20</span></div>
+			  <div class="calendar__date calendar__date--selected calendar__date--last-date calendar__date--range-end"><span>21</span></div>
+			  <div class="calendar__date"><span>22</span></div>
+			  <div class="calendar__date"><span>23</span></div>
+			  <div class="calendar__date"><span>24</span></div>
+			  <div class="calendar__date"><span>25</span></div>
+			  <div class="calendar__date"><span>26</span></div>
+			  <div class="calendar__date"><span>27</span></div>
+			  <div class="calendar__date"><span>28</span></div>
+			  <div class="calendar__date"><span>29</span></div>
+			  <div class="calendar__date"><span>30</span></div>
+			  <div class="calendar__date"><span>31</span></div>
+			</div>
+		  </div>
+		  <div class="calendar__buttons">
+			<button class="calendar__button calendar__button--grey">Back</button>
+			<button class="calendar__button calendar__button--primary">Apply</button>
+		  </div>
+		</div>
+	</div>
+</div>
+<!-- //생성일 날짜 선택 레이어 팝업-->		
 
 </body>
 </html>

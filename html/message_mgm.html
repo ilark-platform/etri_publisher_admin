@@ -8,6 +8,7 @@
     <meta name="author" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <link rel="stylesheet" href="css/custom.css">
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/earlyaccess/notosanskr.css"></link>
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 </head>
 
@@ -146,25 +147,24 @@
                     <div class="message_received_wrap">
                         <div class="msg-nonRead mgt2">안읽은 메시지 <strong>123</strong></div>
                         <div class="search__box mgt2">
-							<ul class="col3">
-                                <li class="m-hidden">
-                                    <div class="calendar-picker">
-                                        <input type="text" placeholder="기간선택">
-                                        <button onclick="document.getElementById('layerPop').style.display='block'" type="button" class="icon-calendar"></button>
-                                    </div>
-                                    <span>~</span>
-                                    <div class="calendar-picker">
-                                        <input type="text" placeholder="기간선택">
-                                        <button onclick="document.getElementById('layerPop').style.display='block'" type="button" class="icon-calendar"></button>
-                                    </div>
-                                </li>
-								<li>
-                                    <input type="text" placeholder="보낸사람 또는 제목을 입력하세요.">
+							<ul>
+                                <li class="w100">
+									<span class="m-hidden">
+										<div class="calendar-picker">
+											<input type="text" placeholder="기간선택">
+											<button onclick="document.getElementById('layerPop_calendar').style.display='block'" type="button" class="icon-calendar"></button>
+										</div>
+										<span>~</span>
+										<div class="calendar-picker">
+											<input type="text" placeholder="기간선택">
+											<button onclick="document.getElementById('layerPop_calendar').style.display='block'" type="button" class="icon-calendar"></button>
+										</div>
+									</span>
+									<input type="text" placeholder="보낸사람 또는 제목을 입력하세요." class="input-sender">
+									<button type="button" class="line-primary-btn btn-large">Search</button>
                                 </li>
 							</ul>
-							<span class="search__box--button">
-                                <button type="button" class="line-primary-btn btn-large">Search</button>
-                            </span>
+							
 						</div>
 
                         <!-- Swiper 메시지 분류 -->
@@ -253,7 +253,7 @@
                                         </label>
                                         <div class="msg-receiver">
                                             Anne Ramirez 외 3명
-                                            <div class="msg-nonRead m-hidden"><!-- 수신자 확인 경우-->
+                                            <div class="msg-nonRead"><!-- 수신자 확인 경우-->
                                                 <a href="#" onclick="document.getElementById('layerPop_msg_receiver').style.display='block'" >1/5</a>
                                             </div>
                                         </div>
@@ -474,7 +474,10 @@
                 <a href="#" class="chip-staus">홍길동</a><a href="#" class="chip-staus">홍길동</a>
                 <button type="button" class="accordion"><a href="#" class="icon-plus line-gray-btn btn-small"></a></button>
                 <div class="panel">
-                    <input type="text" placeholder="작업자명을 입력하세요.">
+					<div class="search-worker">
+                    	<input type="text" class="" placeholder="작업자명을 입력하세요.">
+						<button type="button" class="icon-cancle"></button>
+					</div>
                     <h3 class="mgt1">생산1팀</h3>
                     <div class="receiver-wrap mgt1">
                         <a><strong>홍길동</strong> {{작업자ID}}</a>
@@ -512,7 +515,7 @@
         <h2>수신확인</h2>
         <div class="ly_contents">
 			<div class="response-container">
-				<table class="response-table">
+				<table class="full-table">
 					<thead>
 						<tr>
 							<th>받는사람</th>
@@ -560,6 +563,93 @@
 <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
 <script src="js/custom.js"></script>
 
+<!-- 생성일 날짜 선택 레이어 팝업-->
+<div id="layerPop_calendar" class="modal">
+    <div class="ly_pop_container">
+        <span onclick="document.getElementById('layerPop_calendar').style.display='none'" class="ly_pop-close"></span>
+		<div class="calendar mgt2">
+		  <div class="calendar__opts">
+			<select name="calendar__month" id="calendar__month">
+			  <option>Jan</option>
+			  <option>Feb</option>
+			  <option>Mar</option>
+			  <option>Apr</option>
+			  <option selected>May</option>
+			  <option>Jun</option>
+			  <option>Jul</option>
+			  <option>Aug</option>
+			  <option>Sep</option>
+			  <option>Oct</option>
+			  <option>Nov</option>
+			  <option>Dec</option>
+			</select>
+
+			<select name="calendar__year" id="calendar__year">
+			  <option>2017</option>
+			  <option>2018</option>
+			  <option>2019</option>
+			  <option>2020</option>
+			  <option selected>2021</option>
+			</select>
+		  </div>
+
+		  <div class="calendar__body">
+			<div class="calendar__days">
+			  <div>월</div>
+			  <div>화</div>
+			  <div>수</div>
+			  <div>목</div>
+			  <div>금</div>
+			  <div>토</div>
+			  <div>일</div>
+			</div>
+
+			<div class="calendar__dates">
+			  <div class="calendar__date calendar__date--grey"><span>27</span></div>
+			  <div class="calendar__date calendar__date--grey"><span>28</span></div>
+			  <div class="calendar__date calendar__date--grey"><span>29</span></div>
+			  <div class="calendar__date calendar__date--grey"><span>30</span></div>
+			  <div class="calendar__date"><span>1</span></div>
+			  <div class="calendar__date"><span>2</span></div>
+			  <div class="calendar__date"><span>3</span></div>
+			  <div class="calendar__date"><span>4</span></div>
+			  <div class="calendar__date"><span>5</span></div>
+			  <div class="calendar__date"><span>6</span></div>
+			  <div class="calendar__date"><span>7</span></div>
+			  <div class="calendar__date"><span>8</span></div>
+			  <div class="calendar__date"><span>9</span></div>
+			  <div class="calendar__date"><span>10</span></div>
+			  <div class="calendar__date"><span>11</span></div>
+			  <div class="calendar__date"><span>12</span></div>
+			  <div class="calendar__date"><span>13</span></div>
+			  <div class="calendar__date"><span>14</span></div>
+			  <div class="calendar__date"><span>15</span></div>
+			  <div class="calendar__date calendar__date--selected calendar__date--first-date calendar__date--range-start"><span>16</span></div>
+			  <div class="calendar__date calendar__date--selected calendar__date--last-date"><span>17</span></div>
+			  <div class="calendar__date calendar__date--selected calendar__date--first-date"><span>18</span></div>
+			  <div class="calendar__date calendar__date--selected"><span>19</span></div>
+			  <div class="calendar__date calendar__date--selected"><span>20</span></div>
+			  <div class="calendar__date calendar__date--selected calendar__date--last-date calendar__date--range-end"><span>21</span></div>
+			  <div class="calendar__date"><span>22</span></div>
+			  <div class="calendar__date"><span>23</span></div>
+			  <div class="calendar__date"><span>24</span></div>
+			  <div class="calendar__date"><span>25</span></div>
+			  <div class="calendar__date"><span>26</span></div>
+			  <div class="calendar__date"><span>27</span></div>
+			  <div class="calendar__date"><span>28</span></div>
+			  <div class="calendar__date"><span>29</span></div>
+			  <div class="calendar__date"><span>30</span></div>
+			  <div class="calendar__date"><span>31</span></div>
+			</div>
+		  </div>
+		  <div class="calendar__buttons">
+			<button class="calendar__button calendar__button--grey">Back</button>
+			<button class="calendar__button calendar__button--primary">Apply</button>
+		  </div>
+		</div>
+	</div>
+</div>
+<!-- //생성일 날짜 선택 레이어 팝업-->		
 
 </body>
 </html>

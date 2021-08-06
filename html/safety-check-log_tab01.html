@@ -8,6 +8,7 @@
     <meta name="author" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <link rel="stylesheet" href="css/custom.css">
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/earlyaccess/notosanskr.css"></link>
 
 </head>
 
@@ -128,7 +129,7 @@
 	<div class="contents">
         <div class="container">
             <div class="d-flex j-content-between align-center">
-				<div class="titTypeA">안전 점검 일지</div>
+				<div class="titTypeA">점검일지 관리</div>
                 <div>
                     <button type="button" onclick="document.getElementById('layerPop').style.display='block'" class="line-primary-btn btn-large">조치이력 관리</button>
                     <button type="button" class="line-primary-btn btn-large">점검일지 관리</button>
@@ -229,34 +230,38 @@
 
 				<!--공정별 항목관리 tab2 -->
 				<div id="safety-check-log02" class="tabcontent clearfix mgt1">
+					<div class="d-flex j-content-between mgt2">
+						<div class="custom-select w20">
+							<select>
+							<option value="0">공정명</option>
+							<option value="1">전체</option>
+							<option value="2">공정명</option>
+							<option value="3">공정명</option>
+							</select>
+						</div>
+						<button type="button" class="primary-btn btn-large">점검 공정 추가</button>
+					</div>
                     <!--공정별 항목관리 전체 -->
-                    <div class="checklist_wrap">
+                    <div class="checklist_wrap mgt1">
+						
                         <!--공정별 점검항목 -->
                         <div class="checklist-enroll divide">
-                            <div class="titTypeB d-flex j-content-between mgt2">
-                                <div class="custom-select w30">
-                                    <select>
-                                    <option value="0">공정명</option>
-                                    <option value="1">전체</option>
-                                    <option value="2">공정명</option>
-                                    <option value="3">공정명</option>
-                                    </select>
-                                </div>
-                                <button type="button" class="primary-btn btn-large">신규추가</button>
+                            <div class="titTypeB mgt2">
+								{{공정명}} 점검일지
                             </div>
                             <ul class="checkform">
                                 <li>
-                                    <div class="titTypeC">공정명</div>
+                                    
                                     <span>부문</span>
                                     <div class="checklog-list">
                                         <span>점검항목</span>
                                         <div class="d-flex">
                                             <div class="checklist-article">1. 작업장을 잘 정리하였는가?</div>
-                                            <button type="button" class="line-gray-btn btn-large disabled">삭제</button>
+                                            <button type="button" class="line-gray-btn btn-large">삭제</button>
                                         </div>
                                         <div class="d-flex">
                                             <div class="checklist-article">1. 작업장을 잘 정리하였는가?</div>
-                                            <button type="button" class="line-gray-btn btn-large disabled">삭제</button>
+                                            <button type="button" class="line-gray-btn btn-large">삭제</button>
                                         </div>
                                     </div>
                                     <span>부문</span>
@@ -264,11 +269,11 @@
                                         <span>점검항목</span>
                                         <div class="d-flex">
                                             <div class="checklist-article">1. 작업장을 잘 정리하였는가?</div>
-                                            <button type="button" class="line-gray-btn btn-large disabled">삭제</button>
+                                            <button type="button" class="line-gray-btn btn-large">삭제</button>
                                         </div>
                                         <div class="d-flex">
                                             <div class="checklist-article">1. 작업장을 잘 정리하였는가?</div>
-                                            <button type="button" class="line-gray-btn btn-large disabled">삭제</button>
+                                            <button type="button" class="line-gray-btn btn-large">삭제</button>
                                         </div>
                                     </div>
                                 </li>	
@@ -280,21 +285,21 @@
 
                         <!--전체 점검항목 리스트 -->
                         <div class="checklist-enroll mgt2">
-                            <div class="titTypeB tR">
-                                <button type="button" class="second-btn btn-large">선택등록</button>
+                            <div class="titTypeB d-flex j-content-between" style="padding-bottom: 9px;">
+                                등록항목 선택 <button type="button" class="second-btn btn-small">선택등록</button>
                             </div>
-                            <ul class="checkform mgt2">
+                            <ul class="checkform">
                                 <li>
                                     <span>부문</span>
                                     <div class="checklog-list">
                                         <span>점검항목</span>
                                         <div class="d-flex">
                                             <div class="checklist-article">1. 작업장을 잘 정리하였는가?</div>
-                                            <button type="button" class="line-gray-btn btn-large disabled">선택</button>
+                                            <button type="button" class="line-gray-btn btn-large">선택</button>
                                         </div>
                                         <div class="d-flex">
                                             <div class="checklist-article">2. 작업장을 잘 정리하였는가?</div>
-                                            <button type="button" class="line-gray-btn btn-large disabled">선택</button>
+                                            <button type="button" class="line-gray-btn btn-large">선택</button>
                                         </div>
                                     </div>
                                     <span>부문</span>
@@ -302,11 +307,11 @@
                                         <span>점검항목</span>
                                         <div class="d-flex">
                                             <div class="checklist-article">1. 작업장을 잘 정리하였는가?</div>
-                                            <button type="button" class="line-gray-btn btn-large disabled">선택</button>
+                                            <button type="button" class="line-gray-btn btn-large">선택</button>
                                         </div>
                                         <div class="d-flex">
                                             <div class="checklist-article">2. 작업장을 잘 정리하였는가?</div>
-                                            <button type="button" class="line-gray-btn btn-large disabled">선택</button>
+                                            <button type="button" class="line-gray-btn btn-large">선택</button>
                                         </div>
                                     </div>
                                 </li>	
