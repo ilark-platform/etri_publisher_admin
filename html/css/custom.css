@@ -173,7 +173,8 @@ span.close{position: absolute;width: 30px;height: 30px;background-size: contain;
 .side__menu-list .panel {background-color: #22222d;} 
 .side__menu-list .panel a {background-color: #22222d;overflow: hidden;display: block;padding:10px 26px;}
 .side__menu-list .accordion:after{opacity: .4;}
-.side__menu-list .accordion:hover{background:rgba(0,0,0,0.2)}
+.side__menu-list .accordion:hover,
+.side__menu-list .accordion.active{background:rgba(0,0,0,0.2);font-weight: bold;}
 .side__menu-list a.accordion{display: block;box-sizing: border-box;}
 .side__menu-list a.accordion:after{background: url('https://icongr.am/entypo/chevron-thin-right.svg?size=18&color=999999') no-repeat center;}
 .header_myinfo{margin: 20px;padding-bottom: 50px;}
