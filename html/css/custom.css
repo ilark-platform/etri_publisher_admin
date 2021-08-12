@@ -378,7 +378,7 @@ dl.state_box dd{width:41%;font-weight: bold;font-size: 14px; text-align: right;}
 .conveyer__area .conveyer-info-wrap .today-safeAverage span.today-state{float: left;width: 110px;}
 .conveyer__area .conveyer-vod h4{margin-bottom: 6px;}
 
-#work-area-info .worak-area-divide{display: inline-block;width: 31%; border-left:1px solid rgba(0,0,0,0.1);padding-left: 26px;margin-right: 26px;}
+#work-area-info .worak-area-divide{vertical-align: top;display: inline-block;width: 31%; border-left:1px solid rgba(0,0,0,0.1);padding-left: 26px;margin-right: 26px;}
 #work-area-info .worak-area-divide:first-child{width:40%;border:0;padding-left:0}
 #work-area-info .worak-area-divide:nth-child(2){width:24%;}
 #work-area-info .worak-area-divide:last-child{margin-right:0}
@@ -386,8 +386,8 @@ dl.state_box dd{width:41%;font-weight: bold;font-size: 14px; text-align: right;}
 #work-operation>.accordion{padding-left: 30px;font-size: 15px;font-weight: bold}
 #work-area-info .worak-area-divide>.accordion:after,
 #work-operation>.accordion:after{display: none}
-#work-area-info .worak-area-divide>.panel{height:650px;display: block;padding-bottom: 0;}
-#work-area-info .worak-area-divide:first-child>.panel{height:350px;}
+#work-area-info .worak-area-divide>.panel{height:680px;display: block;padding-bottom: 0;}
+#work-area-info .worak-area-divide:first-child>.panel{height:340px;}
 .info__wrap{background:#F2F6FF;width: 100%;border-radius:6px;padding:10px 17px;}
 .info__wrap .col2>li{width:49%;}
 .info__wrap li span{width: 100px;color:var(--lightblue);font-weight: normal;display: inline-block;vertical-align:middle; padding: 8px 6px;}
@@ -399,7 +399,7 @@ dl.state_box dd{width:41%;font-weight: bold;font-size: 14px; text-align: right;}
 .work-area-notice .panel .btn-small {margin:2px 0px 10px 4px;}
 .notice_wrap .operate__area .panel {background: rgba(0,0,0,0.04);margin-top:-10px;padding:20px 20px 20px 30px;border-radius: 0 0 10px 10px}
 
-.cctv_box{padding-bottom: 20px}
+.cctv_box{padding-bottom: 30px}
 .cctv_box>h4{padding:0px 0 0px 26px;margin-bottom: 10px;background: url('https://icongr.am/material/video-wireless.svg?size=17&color=999999') no-repeat 0 center;font-size: 13px;font-weight: bold;}
 .accident__log a.icon-reload {vertical-align: middle}
 .pagination{margin:10px auto;text-align: center;}
@@ -517,9 +517,9 @@ dl.state_box dd{width:41%;font-weight: bold;font-size: 14px; text-align: right;}
 .ai-total h2.titTypeB.mgt2{margin-top: 70px!important}
 .ai-recore{height: 180px; background:url('../images/graph04.jpg') no-repeat center;background-size: contain;text-align: center;margin:10px auto;padding-top: 70px}
 .ai-recore>strong{display: block;font-size: 40px;line-height: 36px;color: var(--primary)}
-.ai-con04{ width:22%;border: 1px solid var(--lightline);border-radius: 12px;padding:26px 20px 10px;margin-top: 20px;}
+.ai-con04{width:22%;border: 1px solid var(--lightline);border-radius: 12px;padding:26px 20px 10px;margin-top: 20px;}
 .ai-con05{width:34%;border: 1px solid var(--lightline);border-radius: 12px;padding: 20px;margin-top: 20px;}
-.ai-con04 .summary-card{display: inline-block;width: 46%;margin: 10px 0 0 8px;padding:10px;text-align: center;box-sizing: border-box;}
+.ai-con04 .summary-card{display: inline-block;width: 47%;margin: 10px 0 0 8px;padding:10px;text-align: center;box-sizing: border-box;}
 .ai-con04 .summary-card>h6:before{display: none}
 .ai-con04 .summary-card strong{float: none;display: block;}
 .ai-con05 .ai-feedback{font-size: 14px}
@@ -923,8 +923,10 @@ button:hover{opacity: .8;}
 .worker__area.construct>ul>li.w100 .chip-staus{background-color: transparent;min-width: unset}
 .dashboard__area.construct .dashboard__area--right .titTypeC {font-size: 16px;color: rgba(255, 255, 255, 0.5);}
 .worker__area.construct>ul>li.w40 .response-table .popuptext img.profile-photo {width: 60px;height: 60px}
+.dashboard__area.construct .worker-detail-name:after{border: 0}
+.worker__area.construct .chip-staus>.dot.gray{background-color: #919195}
 
-.worker__area.construct>ul>li.w40 .response-table .card__popup .popuptext{width: 290px;text-align: left;bottom:auto;top:50px;left:30px;margin-left: 0;}
+.worker__area.construct>ul>li.w40 .response-table .card__popup .popuptext{width: 300px;text-align: left;bottom:auto;top:50px;left:30px;margin-left: 0;}
 .worker__area.construct>ul>li.w40 .response-table tbody td.card__popup{overflow-x: visible;width:120px;padding:6px 14px;}
 .construct-worker dl.state_box dt,
 .construct-worker dl.state_box dd {width:24%;padding:2px 6px}
@@ -944,7 +946,9 @@ button:hover{opacity: .8;}
 .warning_area_gas>a{display: inline-block;margin: 2px 2px; color:#fff;font-weight: bold;padding:0 4px;border-radius: 4px;background: var(--red)}
 .worker__area.construct02 .chip-sort{color:#fff}
 .current_location{font-size: 16px;color: #fff;line-height: 40px;}
-
+.gas_state {display: flex;flex-wrap: wrap;width:100%;justify-content: space-between}
+.gas_state .chip-sort{width:39%}
+.gas_state .chip-sort>strong{float: right}
 
 
 @media only screen and (min-width: 1100px) {

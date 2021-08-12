@@ -8,6 +8,7 @@
     <meta name="author" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <link rel="stylesheet" href="css/custom.css">
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/earlyaccess/notosanskr.css"></link>
 
 </head>
 
@@ -142,7 +143,7 @@
 							<li><span>안전지수</span>23</li>
 							<li><span>생성일시</span>21/04/05</li>
 							<li><span>리포트ID</span>12345</li>
-							<li><span>체크리스트</span>Y</li>
+							<li><span>체크리스트</span>Y<button type="button" class="mgl1 btn-small gray-btn">확인하기</button></li>
 							<li><span>작업종료</span>Y</li>
 						</ul>
 					</div>
@@ -176,11 +177,16 @@
 				<div class="accident-all-detail mgt2">
 					<!-- 위험 행동 이력 -->
                     <div class="divide">
-                        <div class="ai-con04 type02 w100">
-                            <div class="w50">
-                                <img src="images/graph02.jpg">
-                            </div>
-                            <div class="w50">
+						<div class="ai-con01 w100">
+								<p>
+								홍길동님의 일일 안전지수는 <strong class="emergency">{{36점}}</strong>입니다.</p> 
+								긴급사고 {{0}}건, 주의상황은 {{5}}건 발생하였으며, 일 평균 맥박 {{60}}, 최저혈압 {{60}}, 최고혈압 {{110}}, 체온 {{36℃}}로 건강상태가 {{양호합니다.}} <br>
+								위험 원인이 가장 자주 발생한 시간대는 {{3시}}로, 해당 시간대의 사고 위험에 향후 더욱 주의하시기 바랍니다.<br>
+								오늘 작업 구역은 {{작업구역명}}, {{작업구역명}}, {{작업구역명}} 으로, 체크리스트 작성이 되지 않은 작업은 ({{작업구역명}} 작업입니다. / 없습니다.)<br>
+								작업 종료 처리를 (완료/누락)하였습니다.
+							</div>
+                        <div class="d-flex ai-con04 type02 w100 j-content-between">
+                            <div class="w40">
                                 <div class="summary-card-wrap">
                                     <span class="summary-card summary-emerg">
                                         <h6>긴급사고</h6>
@@ -196,77 +202,62 @@
                                     </span>
                                 </div> 
                             </div>
+							<div class="w50">
+								<div class="titTypeB">관리자 피드백</div>
+								<p class="ai-feedback mgt1">
+									긴급사고 {{0}}건, 주의상황은 {{5}}건 발생하였으며, 일 평균 맥박 {{60}}, 최저혈압 {{60}}, 최고혈압 {{110}}, 체온 {{36℃}}로 건강상태가 {{양호합니다.}}
+									위험 원인이 가장 자주 발생한 시간대는 {{3시}}로, 해당 시간대의 사고 위험에 향후 더욱 주의하시기 바랍니다.<br><br>
+									오늘 작업 구역은 {{작업구역명}}, {{작업구역명}}, {{작업구역명}} 으로, 체크리스트 작성이 되지 않은 작업은 ({{작업구역명}} 작업입니다. / 없습니다.)
+									작업 종료 처리를 (완료/누락)하였습니다.
+								</p>
+                        	</div>
                         </div>
-                        <div class="ai-con01 w100">
-                            <p>
-                            홍길동님의 일일 안전지수는 <strong class="emergency">{{36점}}</strong>입니다.</p> 
-                            긴급사고 {{0}}건, 주의상황은 {{5}}건 발생하였으며, 일 평균 맥박 {{60}}, 최저혈압 {{60}}, 최고혈압 {{110}}, 체온 {{36℃}}로 건강상태가 {{양호합니다.}} <br>
-                            위험 원인이 가장 자주 발생한 시간대는 {{3시}}로, 해당 시간대의 사고 위험에 향후 더욱 주의하시기 바랍니다.<br>
-                            오늘 작업 구역은 {{작업구역명}}, {{작업구역명}}, {{작업구역명}} 으로, 체크리스트 작성이 되지 않은 작업은 ({{작업구역명}} 작업입니다. / 없습니다.)<br>
-                            작업 종료 처리를 (완료/누락)하였습니다.
-                        </div>
-                        <div class="ai-con05 w100">
-                            <div class="titTypeC">관리자 피드백</div>
-                            <p class="ai-feedback mgt1">
-                                긴급사고 {{0}}건, 주의상황은 {{5}}건 발생하였으며, 일 평균 맥박 {{60}}, 최저혈압 {{60}}, 최고혈압 {{110}}, 체온 {{36℃}}로 건강상태가 {{양호합니다.}}
-                                위험 원인이 가장 자주 발생한 시간대는 {{3시}}로, 해당 시간대의 사고 위험에 향후 더욱 주의하시기 바랍니다.<br><br>
-                                오늘 작업 구역은 {{작업구역명}}, {{작업구역명}}, {{작업구역명}} 으로, 체크리스트 작성이 되지 않은 작업은 ({{작업구역명}} 작업입니다. / 없습니다.)
-                                작업 종료 처리를 (완료/누락)하였습니다.
-                            </p>
-                        </div>
+                        
+                        
                     </div>
 
                     <!--위험 감지 Log -->
                     <div class="accident-all-log mgt2">
-                        <div class="titTypeB mgt1">위험 감지 Log</div>
-							<div class="timeline mgt2">
-								<div class="timeline-content right">
-								  <div class="timeline-box">
-									<h3>21/04/00 12:00:00 <span>H-23</span><span>H-1234</span></h3>
-									<div><span class="icon-accident">사고ID <span class="icon-forklift"></span>지게차ID</span> 충돌사고발생</div>
+                        <div class="titTypeB">위험 감지 Log</div>
+						<div class="timeline mgt1">
+							<div class="timeline-content right">
+							  <div class="timeline-box">
+								<h3>21/04/00 12:00:00 <span>H-23</span></h3>
+								  <div><span class="icon-accident"><a href="#" class="underline">사고ID</a> <span class="icon-forklift"></span>지게차ID</span> 충돌사고발생</div>
+							</div>
+							</div>
+							<div class="timeline-content right">
+								<div class="timeline-box">
+									<h3>21/04/00 12:00:00 <span>H-23</span></h3>
+									<div>급속회전에 따른 위험</div>
 								</div>
+							</div>
+							<div class="timeline-content right">
+								<div class="timeline-box">
+									<h3>21/04/00 12:00:00 <span>H-23</span></h3>
+									<div><span class="icon-accident"><a href="#" class="underline">사고ID</a> </span> 맥박수 이상</div>
+								  </div>
+							</div>
+							<div class="timeline-content right">
+								<div class="timeline-box">
+								  <h3>21/04/00 12:00:00 <span>H-23</span></h3>
+								  <div><span class="icon-accident"><a href="#" class="underline">사고ID</a> <span class="icon-forklift"></span>지게차ID</span> 충돌사고발생</div>
 								</div>
-								<div class="timeline-content right">
-									<div class="timeline-box">
-										<h3>21/04/00 12:00:00 <span>H-23</span><span>H-1234</span></h3>
-										<div>급속회전에 따른 위험</div>
+							</div>
+
+							<div class="timeline-content right">
+								<div class="timeline-box">
+									<h3>21/04/00 12:00:00 <span>H-23</span></h3>
+									<div><span class="icon-accident"><a href="#" class="underline">사고ID</a> <span class="icon-forklift"></span>지게차ID</span> 
+										<div>충돌사고발생 내용길어질 경우 줄바꿈 및 2줄 표현....</div>
 									</div>
-								</div>
-								<div class="timeline-content right">
-									<div class="timeline-box">
-										<h3>21/04/00 12:00:00 <span>H-23</span><span>H-1234</span></h3>
-										<div><span class="icon-accident">사고ID </span> 맥박수 이상</div>
-									  </div>
-								</div>
-								<div class="timeline-content right">
-									<div class="timeline-box">
-									  <h3>21/04/00 12:00:00 <span>H-23</span></h3>
-									  <div><span class="icon-accident">사고ID <span class="icon-forklift"></span>지게차ID</span> 충돌사고발생</div>
-								  </div>
-								  </div>
-								  <div class="timeline-content right">
-									  <div class="timeline-box">
-										  <h3>21/04/00 12:00:00 <span>H-23</span></h3>
-										  <div><span class="icon-accident">사고ID <span class="icon-forklift"></span>지게차ID</span> 충돌사고발생</div>
-									  </div>
-								  </div>
-								  <div class="timeline-content right">
-									  <div class="timeline-box">
-										  <h3>21/04/00 12:00:00 <span>H-23</span></h3>
-										  <div><span class="icon-accident">사고ID <span class="icon-forklift"></span>지게차ID</span> 충돌사고발생</div>
-										</div>
-								  </div>
-								  <div class="timeline-content right">
-									<div class="timeline-box">
-										<h3>21/04/00 12:00:00 <span>H-23</span></h3>
-										<div><span class="icon-accident">사고ID <span class="icon-forklift"></span>지게차ID</span> 충돌사고발생</div>
-									  </div>
 								  </div>
 							</div>
-							<div class="d-flex j-content-between mgt1">
-								<a href="#" class="icon-preview">이전</a>
-								<a href="#" class="icon-next">다음</a>
-							</div>
+						</div>
+						<div class="d-flex j-content-between mgt1">
+							<a href="#" class="icon-preview">이전</a>
+							<a href="#" class="icon-next">다음</a>
+						</div>
                     </div>
 				</div>                
 				

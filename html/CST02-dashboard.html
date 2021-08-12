@@ -9,6 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <link rel="stylesheet" href="css/custom.css">
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/earlyaccess/notosanskr.css"></link>
 </head>
 
 <body class="dashboard__section">
@@ -234,8 +235,26 @@
                                 <table class="response-table">
                                     <tbody>
                                         <tr>
-                                            <td>
-												<a href="#" class="worker-name photo-dot"><img src="images/dummy-profile.jpg" class="profile-photo"><strong>홍길동<br>1F 12 구역</strong></a>
+                                            <td class="card__popup" onclick="myFunction_card()"><!-- 클릭시 프로필카드 팝업 생성 -->
+												<div class="worker-name photo-dot"><img src="images/dummy-profile.jpg" class="profile-photo"><strong>홍길동<br>1F 12 구역</strong></div><!-- 프로필사진에 선택점 추가시 class=photo-dot -->
+												<div class="popuptext" id="cardPopup"><!--작업자 팝업 card -->
+													<div class="card__popup--header">
+														<span class="card__popup--header-id">jlee.ab</span>
+														<span class="card__popup--condition emergency"><div class="db_icon worker-green"></div></span><!--작업자 아이콘 상태별 worker-green-->
+													</div>
+													<div class="card__popup--info">
+														<img src="images/dummy-profile.jpg" class="profile-photo">
+														<div class="card__popup--detail">
+															<span>홍길동</span>안전관리자</a>
+														</div>
+														<a href="#" class="card__popup--button icon-phone"></a>
+														<a href="#" class="card__popup--button icon-eye"></a>
+														<a href="#" class="card__popup--button icon-push-message"></a>
+													</div>
+													<div class="card__state d-flex j-content-between">
+														<dl class="card__list"><dt>건강상태</dt><dd>양호</dd></dl>
+													</div>
+												</div>
 											</td>
                                             <td>해발 300m</td>
                                             <td>긴급<div class="num">123건</div></td>
@@ -315,7 +334,12 @@
 													<div class="chip-staus"><span class="dot red"></span> <strong>83명</strong></div>
 													<div class="chip-staus"><span class="dot orange"></span> <strong>3명</strong></div>
 												</div>
-												<div><img src="images/dashboard-graph04.gif" class="w100"></div>
+												<div class="sort__area gas_state"><!--각 항목별 상태에 따른 색상 :: 정상일때 <strong class="caution"> , 징후가 보일때 <strong class="caution"> , 위험할때 <strong class="emergency"> -->
+													<a href="#" class="chip-sort">O2<strong class="normal">20%</strong></a>
+													<a href="#" class="chip-sort">CO<strong class="caution">0.123PPM</strong></a>
+													<a href="#" class="chip-sort">CO2<strong class="emergency">1.123PPM</strong></a>
+													<a href="#" class="chip-sort">H2S<strong class="emergency">0.33PPM</strong></a>
+												</div>
 											</div>
 										</div>
 									</div>
@@ -332,7 +356,12 @@
 													<div class="chip-staus"><span class="dot red"></span> <strong>83명</strong></div>
 
 												</div>
-												<div><img src="images/dashboard-graph04.gif" class="w100"></div>
+												<div class="sort__area gas_state"><!--각 항목별 상태에 따른 색상 :: 정상일때 <strong class="caution"> , 징후가 보일때 <strong class="caution"> , 위험할때 <strong class="emergency"> -->
+													<a href="#" class="chip-sort">O2<strong class="normal">20%</strong></a>
+													<a href="#" class="chip-sort">CO<strong class="caution">0.123PPM</strong></a>
+													<a href="#" class="chip-sort">CO2<strong class="emergency">1.123PPM</strong></a>
+													<a href="#" class="chip-sort">H2S<strong class="emergency">0.33PPM</strong></a>
+												</div>
 											</div>
 										</div>
 									</div>
@@ -348,7 +377,12 @@
 												<div class="conclusion" style="height: unset;">
 													<!-- 체결내용 없을 경우 div만 -->
 												</div>
-												<div><img src="images/dashboard-graph04.gif" class="w100"></div>
+												<div class="sort__area gas_state"><!--각 항목별 상태에 따른 색상 :: 정상일때 <strong class="caution"> , 징후가 보일때 <strong class="caution"> , 위험할때 <strong class="emergency"> -->
+													<a href="#" class="chip-sort">O2<strong class="normal">20%</strong></a>
+													<a href="#" class="chip-sort">CO<strong class="caution">0.123PPM</strong></a>
+													<a href="#" class="chip-sort">CO2<strong class="emergency">1.123PPM</strong></a>
+													<a href="#" class="chip-sort">H2S<strong class="emergency">0.33PPM</strong></a>
+												</div>
 											</div>
 										</div>
 									</div>
@@ -364,7 +398,12 @@
 												<div class="conclusion" style="height: unset;">
 													<div class="chip-staus"><span class="dot orange"></span> <strong>3명</strong></div>
 												</div>
-												<div><img src="images/dashboard-graph04.gif" class="w100"></div>
+												<div class="sort__area gas_state"><!--각 항목별 상태에 따른 색상 :: 정상일때 <strong class="caution"> , 징후가 보일때 <strong class="caution"> , 위험할때 <strong class="emergency"> -->
+													<a href="#" class="chip-sort">O2<strong class="normal">20%</strong></a>
+													<a href="#" class="chip-sort">CO<strong class="caution">0.123PPM</strong></a>
+													<a href="#" class="chip-sort">CO2<strong class="emergency">1.123PPM</strong></a>
+													<a href="#" class="chip-sort">H2S<strong class="emergency">0.33PPM</strong></a>
+												</div>
 											</div>
 										</div>
 									</div>
@@ -381,7 +420,12 @@
 													<div class="chip-staus"><span class="dot red"></span> <strong>83명</strong></div>
 													<div class="chip-staus"><span class="dot orange"></span> <strong>3명</strong></div>
 												</div>
-												<div><img src="images/dashboard-graph04.gif" class="w100"></div>
+												<div class="sort__area gas_state"><!--각 항목별 상태에 따른 색상 :: 정상일때 <strong class="caution"> , 징후가 보일때 <strong class="caution"> , 위험할때 <strong class="emergency"> -->
+													<a href="#" class="chip-sort">O2<strong class="normal">20%</strong></a>
+													<a href="#" class="chip-sort">CO<strong class="caution">0.123PPM</strong></a>
+													<a href="#" class="chip-sort">CO2<strong class="emergency">1.123PPM</strong></a>
+													<a href="#" class="chip-sort">H2S<strong class="emergency">0.33PPM</strong></a>
+												</div>
 											</div>
 										</div>
 									</div>
