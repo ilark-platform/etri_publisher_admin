@@ -53,12 +53,35 @@
 		</div>
         
         <div class="btn-wrap">
-            <button type="button" onclick="document.getElementById('layerPop_msg_write').style.display='none'" class="btn-large line-primary-btn">취소</button>
-            <button type="button" onclick="document.getElementById('layerPop_msg_write').style.display='none'" class="btn-large primary-btn">확인</button>
+            <button type="button" onclick="document.getElementById('layerPop_auth').style.display='block'"  class="btn-large line-primary-btn">취소</button>
+            <button type="button" onclick="document.getElementById('layerPop_auth').style.display='block'" class="btn-large primary-btn">확인</button>
         </div>
     </div>
 </div>
 <!--// 비밀번호 재설정 layer popup-->
+
+<!-- 인증번호 입력 layer popup-->
+<div id="layerPop_auth" class="modal">
+    <div class="ly_pop_container">
+        <span onclick="document.getElementById('layerPop_auth').style.display='none'" class="ly_pop-close"></span>
+
+        <h2>인증번호 입력</h2>
+        <div class="ly_contents">
+			<div class="mgt2">
+                <input type="text" placeholder="인증번호">
+                <p class="mgt2 tC">
+                    <strong>010-1234-5678</strong>로 전송된 6자리 번호를 입력하세요.<br>
+                    <a href="#" class="primary underline">인증번호 재요청</a>
+                </p>
+            </div>
+		</div>
+        
+        <div class="btn-wrap">
+            <button type="button" onclick="document.getElementById('layerPop_auth').style.display='none'" class="btn-large primary-btn">다음</button>
+        </div>
+    </div>
+</div>
+<!--// 인증번호 입력 layer popup-->
 
 
 <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
