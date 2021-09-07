@@ -427,6 +427,7 @@ dl.state_box dd{width:41%;font-weight: bold;font-size: 14px; text-align: right;}
 #work-operation .accordion:nth-child(3){width:38%; margin-left:26px;border-left: 1px solid #ddd;}
 #work-operation .panel:nth-child(4){width:38%; float:right;margin-left: 15px;padding-left: 20px;border-left: 1px solid #ddd;}
 .icon-notice{width:30px;height:30px;display: inline-block;background: url(https://icongr.am/fontawesome/bullhorn.svg?size=24&color=777777) no-repeat center;}
+.icon-notice-area{width:30px;height:30px;display: inline-block;background: url(https://icongr.am/material/map-marker-circle.svg?size=32&color=777777) no-repeat center;}
 .icon-preview:before{content: '';width:24px;height:20px;vertical-align: middle;display: inline-block;background: url(https://icongr.am/entypo/chevron-thin-left.svg?size=14&color=bbbbbb) no-repeat 0 center;}
 .icon-preview.current_location:before{width:35px;height:30px;background: url(https://icongr.am/entypo/chevron-thin-left.svg?size=24&color=ffffff) no-repeat 0 center;}
 .icon-next:after{content: '';width:24px;height:20px;vertical-align: middle;display: inline-block;background: url(https://icongr.am/entypo/chevron-thin-right.svg?size=14&color=bbbbbb) no-repeat right center;}
@@ -451,7 +452,7 @@ dl.state_box dd{width:41%;font-weight: bold;font-size: 14px; text-align: right;}
 .work-area-card>li:hover{border-color: var(--primary);}
 .work-area-card-id{font-size: 28px;font-weight: bold;}
 .work-area-card-id:before{content: '';vertical-align: middle;margin-right: 4px;margin-bottom: 5px;display: inline-block;border-radius: 30px; width: 26px;height: 26px;background:#ddd url('https://icongr.am/material/google-maps.svg?size=20&color=ffffff') no-repeat center;}
-.work-area-card .sort__area{position: absolute;right:14px;top:20px;}
+.work-area-card .sort__area{position: absolute;right:14px;top:60px;}
 .work-area-card-toggle{text-align: center;padding: 50px 0 10px;display: flex;justify-content: space-between; }
 .work-area-card-toggle>button{width:49%}
 .work-area-card-toggle>span{box-sizing: border-box;padding: 7px 8px;border-radius: 10px; border: 1px solid #ddd;width: 49%;}
