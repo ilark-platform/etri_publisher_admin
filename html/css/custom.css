@@ -418,7 +418,7 @@ dl.state_box dd{width:41%;font-weight: bold;font-size: 14px; text-align: right;}
 .timeline-content.right::after {left:  0%;}
 .timeline-box {border:1px solid var(--lightline);border-radius: 5px;padding:10px}
 .timeline-box>div {margin-top:8px;}
-.timeline-box>h3>span:before {content: '';border-right: 1px solid #ddd; padding-left: 2px;margin-right:8px}
+.timeline-box>h3>span:before, .bar-line:before {content: '';border-right: 1px solid #ddd; padding-left: 2px;margin-right:8px}
 .timeline-box>div>span{font-weight: normal;padding-right:10px;color:initial;}
 .icon-accident{width: 20px;height: 20px;}
 .icon-forklift{padding-left:20px;margin-left: 10px;width: 20px;height: 20px;background: url('https://icongr.am/material/forklift.svg?size=18&color=bbbbbb') no-repeat 0 center;}
