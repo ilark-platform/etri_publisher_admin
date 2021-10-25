@@ -836,7 +836,7 @@ select::-ms-expand{display:none;}
 .msg-table {border-bottom: 1px solid var(--lightline);}
 .msg-table tbody tr.msg-table__row--selected {background-color: #f8fcff;}
 .msg-table-select-control > div {padding-left: 12px;}
-
+.messageSort .swiper-wrapper {overflow: auto;z-index: 0;}
 
 /* swiper */
 .swiper-container {width: 100%;height: 100%;  z-index:0!important;}
@@ -1137,7 +1137,7 @@ header.app, .hidden {display:none}
   .checklist-article-box>.subject{width:80%}
 
   .message_received_wrap .search__box li{width: 100%;}
-  .msg-table tbody td{display: inline-block!important;}
+  .msg-table tbody td{display: inline-block!important;width: 100%;}
   .msg-receiver{width:50%;display: inline-block;line-height: 27px;vertical-align: top;}
   .msg-contents{width:100%;padding-top:10px;}
   .msg-content{padding:14px 4px 2px;overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 2; /* 라인수 */-webkit-box-orient: vertical;word-wrap:break-word; line-height: 1.4em;height: 3.6em;}
